@@ -72,6 +72,9 @@ python -m pytest -q
 データ整合性、元のクエリ行ハッシュ、銘柄許可リスト、不正パス・破損データ拒否、秘密情報の基本検査を実施します。
 GitHub ActionsのチェックはLinux / Python 3.11で実行します。ブラウザの実表示確認やCloud認証確認とは別です。
 
+今回のローカル・実ブラウザ確認結果と未完了事項は [確認記録](qa/verification.md) を参照してください。
+スマートフォン縦向きではチャート注釈が密になるため、詳細確認は横向きの利用を推奨します。
+
 ## 参照
 
 - [Streamlit Community Cloud 配置手順](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app)
