@@ -1,0 +1,125 @@
+{
+  "recorded_at_utc": "2026-10-16T02:09:15+00:00",
+  "repository": "turnDeep/market-structure-replay",
+  "private": true,
+  "workflow": {
+    "id": 386205514,
+    "state": "active",
+    "path": ".github/workflows/refresh-data.yml",
+    "cadence": "daily",
+    "local_time": "09:00",
+    "timezone": "Asia/Tokyo",
+    "next_nominal_run_jst": "2026-10-17T09:00:00+09:00",
+    "exact_start_guaranteed": false
+  },
+  "cloud_test": {
+    "id": 38838795177,
+    "url": "https://github.com/turnDeep/market-structure-replay/actions/runs/38838795177",
+    "conclusion": "success",
+    "head_sha": "1d548ebac7c76b32bb461d13b1b944cfed018916",
+    "pytest_passed": 29,
+    "run": {
+      "started_at_utc": "2026-10-16T02:08:07.946804+00:00",
+      "mode": "refresh",
+      "status": "NO_NEW_COMPLETED_DATA",
+      "markets": {
+        "nq": {
+          "fetch": {
+            "symbol": "NQ=F",
+            "captured_at_utc": "2026-10-16T02:08:07.946804+00:00",
+            "provider": "yfinance / curl-cffi Chrome session",
+            "source_timezone": "America/New_York",
+            "completed_cutoff": "2026-10-14",
+            "request": {
+              "start": "2026-10-01",
+              "interval": "1d",
+              "auto_adjust": false,
+              "back_adjust": false,
+              "repair": false,
+              "actions": false,
+              "keepna": true,
+              "timeout": 30
+            },
+            "completed_rows": 10,
+            "source_end": "2026-10-14",
+            "excluded_in_progress": [
+              "2026-10-15"
+            ],
+            "overlap_revisions_not_applied": [
+              {
+                "date": "2026-10-14",
+                "fields": [
+                  "volume"
+                ]
+              }
+            ],
+            "retries": [],
+            "versions": {
+              "yfinance": "1.2.0"
+            },
+            "provisional_saved_tail": "2026-10-15",
+            "verified_saved_end": "2026-10-14",
+            "cutoff_policy": "Stricter of latest 17:00 America/Chicago boundary and strictly before the provider-local current date; no calendar interpolation"
+          },
+          "new_data": false,
+          "previous_end": "2026-10-15"
+        },
+        "nikkei": {
+          "fetch": {
+            "symbol": "NKD=F",
+            "captured_at_utc": "2026-10-16T02:08:07.946804+00:00",
+            "provider": "yfinance / curl-cffi Chrome session",
+            "source_timezone": "America/New_York",
+            "completed_cutoff": "2026-10-14",
+            "request": {
+              "start": "2026-10-01",
+              "interval": "1d",
+              "auto_adjust": false,
+              "back_adjust": false,
+              "repair": false,
+              "actions": false,
+              "keepna": true,
+              "timeout": 30
+            },
+            "completed_rows": 10,
+            "source_end": "2026-10-14",
+            "excluded_in_progress": [
+              "2026-10-15"
+            ],
+            "overlap_revisions_not_applied": [
+              {
+                "date": "2026-10-14",
+                "fields": [
+                  "volume"
+                ]
+              }
+            ],
+            "retries": [],
+            "versions": {
+              "yfinance": "1.2.0"
+            },
+            "provisional_saved_tail": "2026-10-15",
+            "verified_saved_end": "2026-10-14",
+            "cutoff_policy": "Stricter of latest 17:00 America/Chicago boundary and strictly before the provider-local current date; no calendar interpolation"
+          },
+          "new_data": false,
+          "previous_end": "2026-10-15"
+        }
+      },
+      "strategy_parameters_changed": false,
+      "strategy_status": "NOT_VALIDATED",
+      "finished_at_utc": "2026-10-16T02:08:10.122699+00:00",
+      "published": false
+    }
+  },
+  "read_only_full_replay_regression": {
+    "run_ids": [
+      38837579315,
+      38838789654
+    ],
+    "status_at_recording": "in_progress",
+    "not_claimed_complete": true
+  },
+  "strategy_parameters_changed": false,
+  "strategy_status": "NOT_VALIDATED"
+}

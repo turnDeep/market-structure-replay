@@ -29,4 +29,13 @@ Yahooの`exchangeTimezoneName=America/New_York`、取引期間metadataもNY当�
 
 ## 運用の境界
 
+### GitHubでの実行確認（2026-10-16 11:09 JST時点）
+
+- Workflow ID `386205514`、state `active`。毎日09:00 Asia/Tokyoの設定を保存・読み戻し確認した。
+- [クラウド取得テスト 38838795177](https://github.com/turnDeep/market-structure-replay/actions/runs/38838795177)：`success`。11:08 JSTにNQ/NKDを取得し、29件のpytest成功。両銘柄とも`NO_NEW_COMPLETED_DATA`で、余計なコミット・アプリ再配置なし。
+- 取得時に10月14日Volumeのベンダー差分を両銘柄で各1件検出したが、凍結値には反映していない。10月15日を更新中として除外した。
+- [初回全履歴回帰検査](https://github.com/turnDeep/market-structure-replay/actions/runs/38837579315)と[現行版の回帰検査](https://github.com/turnDeep/market-structure-replay/actions/runs/38838789654)は記録時点で継続中。クラウドでの新しい足の実追加・全履歴再計算の完了を、この取得テストの成功と混同しない。
+- 待機していた旧設定の取得テスト38837668091は、新設定の独立実行に置き換えたため開始前に取消した。データ・売買は変更していない。
+- [機械可読の設定・実行確認](cloud-setup-receipt-20261016.json)に、取得監査・予定・完了/未完了の境界を保存した。
+
 Actions利用枠・GitHub/Yahoo障害・仕様変更・権限制限により停止や遅延が起こり得る。開始時刻のSLAはない。失敗の詳細と検査レポートはGitHub Actionsに残る。Streamlitの認証設定/公開アプリURLはこの検査とは別である。
