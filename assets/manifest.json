@@ -1,34 +1,34 @@
 {
   "schema_version": 1,
-  "packaged_at": "2026-10-15T14:32:56.924921+00:00",
+  "packaged_at": "2026-10-16T01:20:07.882787+00:00",
   "automatic_refresh": false,
   "markets": {
     "nq": {
       "symbol": "NQ=F",
       "asset": "nq.html.gz",
       "start": "2000-09-18",
-      "end": "2026-10-14",
-      "bars": 6559,
-      "snapshot_generated_at": "2026-10-15T11:34:53.253730+00:00",
+      "end": "2026-10-15",
+      "bars": 6560,
+      "snapshot_generated_at": "2026-10-16T01:19:33.285266+00:00",
       "strategy_status": "NOT_VALIDATED",
-      "html_bytes": 12217502,
-      "html_sha256": "71152c031c39905b2230c57bcde084c7d5e0e648a551ec5dcfe9a1160fa331c1",
-      "gzip_bytes": 1588078,
-      "gzip_sha256": "3e3caeada79990e85947358ea60b39d4b7dc1760653637590d5be779fb8d7171",
-      "source_html_sha256": "360ca91be2f4b0ffbf0f091fb4ac87175696dad33d066ee7b0585c144a67bada",
+      "html_bytes": 12215630,
+      "html_sha256": "f5045e73e86545a391e070f29bc1a2ef5374f1905de829f9ca9b597a02e46445",
+      "gzip_bytes": 1586775,
+      "gzip_sha256": "efa9a7a7d9a42f7b26b1b970f0e333654867e426daf1a2db0e90dcb9f0ae2c16",
+      "source_html_sha256": "3c9a7a5d2fc026688e2748f27029df6724305ae71684f26e2c16dbe5fa3c0d08",
       "reviewed_rows_unchanged": true,
       "queries": {
         "market_prices": {
-          "rows": 6559,
-          "rows_sha256": "822f9bdb8b55a52d1bd9a7714597361634a74a1555914625789d2f433074c420"
+          "rows": 6560,
+          "rows_sha256": "a07b3ac5a09159875d9cd7f084926717c5293aeeaebdd6112ae19250e80d7054"
         },
         "primary_zones": {
-          "rows": 11383,
-          "rows_sha256": "ef0368ad5e7d1eafa3acdf81df5c28a41a379f7d4aaf316a45d94b4088d741b4"
+          "rows": 11385,
+          "rows_sha256": "bb2af853495de315d8b4849c93c1b7111d09d8c5abebaed2ed9be2e7b73d6f24"
         },
         "tactical_zones": {
-          "rows": 4181,
-          "rows_sha256": "cf5b1ae1463287cdc37c7bcd3a9ccea3f69c615df591904c371f9ca08e85f113"
+          "rows": 4182,
+          "rows_sha256": "4051814399d518b9a9680bf694ddbe6d1650e8b87b409a529fca5638468708f0"
         },
         "executions": {
           "rows": 87,
@@ -39,8 +39,8 @@
           "rows_sha256": "ea94d013faab2df70a70ea04c3733bcd0c87e553dfd33aa7d2742e86378e736f"
         },
         "daily_states": {
-          "rows": 6559,
-          "rows_sha256": "55a1aac079936dcd4caee1fec8149447b06c2915a1e032f9b7bbf6eaf4d927ee"
+          "rows": 6560,
+          "rows_sha256": "c5322e5b1d7b5423cf0a5278187ee2354e926587dfafed630f2bf1b86182c1b0"
         }
       },
       "privacy_cleanup": "Absolute user-directory paths replaced with basenames in provenance only; reviewed query rows unchanged."
@@ -49,28 +49,28 @@
       "symbol": "NKD=F",
       "asset": "nikkei.html.gz",
       "start": "2004-02-17",
-      "end": "2026-10-14",
-      "bars": 5530,
-      "snapshot_generated_at": "2026-10-15T12:41:19.326800+00:00",
+      "end": "2026-10-15",
+      "bars": 5531,
+      "snapshot_generated_at": "2026-10-16T01:14:43.316864+00:00",
       "strategy_status": "NOT_VALIDATED",
-      "html_bytes": 11664740,
-      "html_sha256": "b39f7636f22f8de6ab2b0cfddacc683559277c5eb49d098caf9a6298da9ae540",
-      "gzip_bytes": 1498374,
-      "gzip_sha256": "30ad944d6eac42756df9256b896ad22d03ec6b4b0fa6894c7c818bfa57d1a46d",
-      "source_html_sha256": "1f802b9550b2f509ab5b1ee62049b21999fe5115f899c4f106d6a4290d009eb8",
+      "html_bytes": 11669023,
+      "html_sha256": "3df29d0196155da54de8c6c4d014d7e49a3099efaf618e5063e16ffaecdc62ce",
+      "gzip_bytes": 1500582,
+      "gzip_sha256": "8548d5f6915c60fed18f89c59ba12d7592755b035588dd5ca439e14d39357831",
+      "source_html_sha256": "8421e20825b66c49d66b6f3d38430ecef8aba3624f797574218c4a8ef391f042",
       "reviewed_rows_unchanged": true,
       "queries": {
         "market_prices": {
-          "rows": 5530,
-          "rows_sha256": "281a7fbe4d9a507de6f7294e510cc07ebcc48eded3c92d6b1787a97ecfab8aa4"
+          "rows": 5531,
+          "rows_sha256": "6a5df1459819268f889ace901a4291d7218faba2dc4b6c76863826eb5a7c438b"
         },
         "primary_zones": {
-          "rows": 10669,
-          "rows_sha256": "ff5a19a9033b96bc03e65286a2037f93b835a23a4a76a59540bf09d1546dce59"
+          "rows": 10670,
+          "rows_sha256": "f6a17ead6f95cc6086b8b9b6e49eead29cd60b2f7edea7813350a9485864ad76"
         },
         "tactical_zones": {
-          "rows": 4419,
-          "rows_sha256": "ce76081486b9899ad80164a40f8c6fca9a334e9bfeb516c9b84d780589c59f1b"
+          "rows": 4422,
+          "rows_sha256": "e39635b753b6e668d7995bf96b2ab258761d80a7e3da58504613304de1a5d0ed"
         },
         "executions": {
           "rows": 107,
@@ -81,8 +81,8 @@
           "rows_sha256": "0ffd72a5cba9f6d61ff8d7b2215c039b363da6210c85063d781607249555e7dd"
         },
         "daily_states": {
-          "rows": 5530,
-          "rows_sha256": "e14117393fb1789017078649747ea940865ea930e648ac35ea2dc1f615dedc32"
+          "rows": 5531,
+          "rows_sha256": "910cd93295fb2e69d857386b83d72b523261f5fd46b13760715dde132bf59b43"
         }
       },
       "privacy_cleanup": "Absolute user-directory paths replaced with basenames in provenance only; reviewed query rows unchanged."

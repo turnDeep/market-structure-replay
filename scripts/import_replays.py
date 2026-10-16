@@ -12,8 +12,10 @@ from datetime import datetime, timezone
 import gzip
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
+import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = re.compile(r"<script([^>]*)>(.*?)</script>", re.S)
@@ -120,9 +122,16 @@ def main() -> None:
     parser.add_argument("--nikkei", type=Path, required=True)
     parser.add_argument("--output", type=Path, default=ROOT / "assets")
     args = parser.parse_args()
-    markets = {key: package(path, key, args.output) for key, path in [("nq", args.nq), ("nikkei", args.nikkei)]}
-    manifest = {"schema_version": 1, "packaged_at": datetime.now(timezone.utc).isoformat(), "automatic_refresh": False, "markets": markets}
-    (args.output / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    args.output.mkdir(parents=True, exist_ok=True)
+    # A failed second import must not replace the first market's live asset.
+    # Validate both in a sibling staging directory, then publish manifest last.
+    with tempfile.TemporaryDirectory(prefix="replay-staging-", dir=args.output.parent) as temporary:
+        staged = Path(temporary)
+        markets = {key: package(path, key, staged) for key, path in [("nq", args.nq), ("nikkei", args.nikkei)]}
+        manifest = {"schema_version": 1, "packaged_at": datetime.now(timezone.utc).isoformat(), "automatic_refresh": False, "markets": markets}
+        (staged / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        for name in ["nq.html.gz", "nikkei.html.gz", "manifest.json"]:
+            os.replace(staged / name, args.output / name)
     print(json.dumps({key: {"bars": item["bars"], "end": item["end"], "gzip_bytes": item["gzip_bytes"]} for key, item in markets.items()}))
 
 

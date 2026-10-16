@@ -1,0 +1,236 @@
+{
+  "schema_version": 1,
+  "refresh_date": "2026-10-16",
+  "created_at_utc": "2026-10-16T01:19:51.920303+00:00",
+  "execution_environment": "user_pc_manual_refresh",
+  "automatic_schedule_enabled": false,
+  "historical_policy": "append-only; saved OHLCV, causal inputs, execution facts and reviewed rows through 2026-10-14 retained",
+  "strategy_parameters_changed": false,
+  "strategy_validation_status": "NOT_VALIDATED",
+  "markets": {
+    "nq": {
+      "fetch": {
+        "symbol": "NQ=F",
+        "provider": "yfinance / curl-cffi Chrome session",
+        "request": {
+          "start": "2026-10-01",
+          "interval": "1d",
+          "auto_adjust": false,
+          "back_adjust": false,
+          "repair": false,
+          "actions": false,
+          "keepna": true
+        },
+        "captured_at_utc": "2026-10-16T01:02:36.110973+00:00",
+        "source_timezone": "America/New_York",
+        "completed_cutoff": "2026-10-15",
+        "cutoff_policy": "CME daily date no later than latest 17:00 America/Chicago boundary; only actually returned rows used",
+        "raw_rows": 11,
+        "completed_rows": 11,
+        "invalid_rows": 0,
+        "excluded_in_progress": [],
+        "source_end": "2026-10-15",
+        "attempt_errors": [],
+        "versions": {
+          "yfinance": "1.2.0"
+        }
+      },
+      "previous_end": "2026-10-14",
+      "end": "2026-10-15",
+      "previous_bars": 6559,
+      "bars": 6560,
+      "new_bar": {
+        "index": 6559,
+        "date": "2026-10-15",
+        "ticker": "NQ=F",
+        "open": 30089.0,
+        "high": 30128.0,
+        "low": 29959.25,
+        "close": 30051.25,
+        "volume": 26612.0,
+        "sma200": 27848.23029296875
+      },
+      "latest_state": {
+        "index": 6559,
+        "date": "2026-10-15",
+        "state": "TOP_WATCH",
+        "position_id": "major_campaign_proposal:order:66",
+        "live_stop": 22910.0,
+        "pending_order_id": null,
+        "market_phase": "advancing",
+        "recovery_phase": "waiting_recovery",
+        "weekly_trend": "down",
+        "monthly_trend": "up",
+        "close_reason": "hold_major_wave"
+      },
+      "new_fills": [],
+      "new_decisions": [],
+      "fills": {
+        "BUY": 44,
+        "SELL": 22,
+        "STOP": 21
+      },
+      "historical_prefix": {
+        "market_prices": {
+          "rows": 6559,
+          "rows_sha256": "822f9bdb8b55a52d1bd9a7714597361634a74a1555914625789d2f433074c420"
+        },
+        "primary_zones": {
+          "rows": 11383,
+          "rows_sha256": "ef0368ad5e7d1eafa3acdf81df5c28a41a379f7d4aaf316a45d94b4088d741b4"
+        },
+        "tactical_zones": {
+          "rows": 4181,
+          "rows_sha256": "cf5b1ae1463287cdc37c7bcd3a9ccea3f69c615df591904c371f9ca08e85f113"
+        },
+        "executions": {
+          "rows": 87,
+          "rows_sha256": "8a0c4dfce06f9702e10c9be2c9461bf4f5eb969e59901905f4d3c08f56d469fe"
+        },
+        "decisions": {
+          "rows": 66,
+          "rows_sha256": "ea94d013faab2df70a70ea04c3733bcd0c87e553dfd33aa7d2742e86378e736f"
+        },
+        "daily_states": {
+          "rows": 6559,
+          "rows_sha256": "55a1aac079936dcd4caee1fec8149447b06c2915a1e032f9b7bbf6eaf4d927ee"
+        }
+      },
+      "overlap_revisions_not_applied": [],
+      "model_qa": {
+        "status": "PASS_REFRESH_DATA_MODEL_AND_PRIOR_ROWS",
+        "checks": 26410,
+        "prefixComparisons": 6,
+        "market": "nq",
+        "end": "2026-10-15",
+        "bars": 6560,
+        "newBars": 1,
+        "reviewedHistoryUnchanged": true,
+        "upstreamDetectorFullPrefixProof": false,
+        "browserRendering": "SEPARATE_CHECK"
+      },
+      "replay_qa": {
+        "status": "PASS_FROZEN_HISTORY_AND_CONFIGURATION",
+        "previous_rows": 6559,
+        "current_rows": 6560,
+        "end": "2026-10-15",
+        "old_execution_events": 130,
+        "new_days": [
+          "2026-10-15"
+        ]
+      }
+    },
+    "nikkei": {
+      "fetch": {
+        "symbol": "NKD=F",
+        "provider": "yfinance / curl-cffi Chrome session",
+        "request": {
+          "start": "2026-10-01",
+          "interval": "1d",
+          "auto_adjust": false,
+          "back_adjust": false,
+          "repair": false,
+          "actions": false,
+          "keepna": true
+        },
+        "captured_at_utc": "2026-10-16T01:02:36.110973+00:00",
+        "source_timezone": "America/New_York",
+        "completed_cutoff": "2026-10-15",
+        "cutoff_policy": "CME daily date no later than latest 17:00 America/Chicago boundary; only actually returned rows used",
+        "raw_rows": 11,
+        "completed_rows": 11,
+        "invalid_rows": 0,
+        "excluded_in_progress": [],
+        "source_end": "2026-10-15",
+        "attempt_errors": [],
+        "versions": {
+          "yfinance": "1.2.0"
+        }
+      },
+      "previous_end": "2026-10-14",
+      "end": "2026-10-15",
+      "previous_bars": 5530,
+      "bars": 5531,
+      "new_bar": {
+        "index": 5530,
+        "date": "2026-10-15",
+        "ticker": "NKD=F",
+        "open": 65645.0,
+        "high": 65805.0,
+        "low": 65160.0,
+        "close": 65785.0,
+        "volume": 607.0,
+        "sma200": 61594.5
+      },
+      "latest_state": {
+        "index": 5530,
+        "date": "2026-10-15",
+        "state": "TOP_WATCH",
+        "position_id": "major_campaign_proposal:order:78",
+        "live_stop": 65000.0,
+        "pending_order_id": null,
+        "market_phase": "declining",
+        "recovery_phase": "waiting_recovery",
+        "weekly_trend": "mixed",
+        "monthly_trend": "up",
+        "close_reason": "hold_major_wave"
+      },
+      "new_fills": [],
+      "new_decisions": [],
+      "fills": {
+        "BUY": 54,
+        "STOP": 29,
+        "SELL": 24
+      },
+      "historical_prefix": {
+        "market_prices": {
+          "rows": 5530,
+          "rows_sha256": "281a7fbe4d9a507de6f7294e510cc07ebcc48eded3c92d6b1787a97ecfab8aa4"
+        },
+        "primary_zones": {
+          "rows": 10669,
+          "rows_sha256": "ff5a19a9033b96bc03e65286a2037f93b835a23a4a76a59540bf09d1546dce59"
+        },
+        "tactical_zones": {
+          "rows": 4419,
+          "rows_sha256": "ce76081486b9899ad80164a40f8c6fca9a334e9bfeb516c9b84d780589c59f1b"
+        },
+        "executions": {
+          "rows": 107,
+          "rows_sha256": "b99928013092154f034a945c3d2d14e4188c6798550b5c7983db12735b31031d"
+        },
+        "decisions": {
+          "rows": 78,
+          "rows_sha256": "0ffd72a5cba9f6d61ff8d7b2215c039b363da6210c85063d781607249555e7dd"
+        },
+        "daily_states": {
+          "rows": 5530,
+          "rows_sha256": "e14117393fb1789017078649747ea940865ea930e648ac35ea2dc1f615dedc32"
+        }
+      },
+      "overlap_revisions_not_applied": [],
+      "model_qa": {
+        "status": "PASS_REFRESH_DATA_MODEL_AND_PRIOR_ROWS",
+        "checks": 22366,
+        "prefixComparisons": 6,
+        "market": "nikkei",
+        "end": "2026-10-15",
+        "bars": 5531,
+        "newBars": 1,
+        "reviewedHistoryUnchanged": true,
+        "upstreamDetectorFullPrefixProof": false,
+        "browserRendering": "SEPARATE_CHECK"
+      },
+      "replay_qa": {
+        "status": "PASS_FROZEN_HISTORY_AND_CONFIGURATION",
+        "previous_rows": 5530,
+        "current_rows": 5531,
+        "end": "2026-10-15",
+        "old_execution_events": 160,
+        "new_days": [
+          "2026-10-15"
+        ]
+      }
+    }
+  }
+}
