@@ -1,10 +1,11 @@
-"""Repackage compiled copy-only UI changes, retaining all reviewed rows and policy."""
+"""Repackage selected compiled UI updates, retaining all reviewed rows and policy."""
 import argparse
 import json
 import os
 from pathlib import Path
 import sys
 import tempfile
+from datetime import datetime,timezone
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
@@ -13,11 +14,13 @@ from scripts.import_replays import package,read_snapshot
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument("--nq",type=Path,required=True);p.add_argument("--nikkei",type=Path,required=True);args=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument("--nq",type=Path);p.add_argument("--nikkei",type=Path);args=p.parse_args()
+    selected=[(market,source) for market,source in [("nq",args.nq),("nikkei",args.nikkei)] if source is not None]
+    if not selected:p.error("At least one reviewed --nq or --nikkei HTML is required")
     manifest=load_manifest()
     with tempfile.TemporaryDirectory(prefix="replay-copy-only-") as temporary:
         staged=Path(temporary)
-        for market,source in [("nq",args.nq),("nikkei",args.nikkei)]:
+        for market,source in selected:
             old=manifest["markets"][market]
             before=read_snapshot(load_replay(market,old))
             after=read_snapshot(source.read_text(encoding="utf-8"))
@@ -26,10 +29,11 @@ def main():
             item=package(source,market,staged)
             item["data_quality"]=old["data_quality"]
             manifest["markets"][market]=item
+        manifest["packaged_at"]=datetime.now(timezone.utc).isoformat()
         (staged/"manifest.json").write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-        for name in ["nq.html.gz","nikkei.html.gz","manifest.json"]:
+        for name in [market+".html.gz" for market,_ in selected]+["manifest.json"]:
             os.replace(staged/name,ROOT/"assets"/name)
-    print("PASS_COPY_ONLY: all reviewed query rows and app IDs unchanged; schedule/quality retained")
+    print("PASS_UI_ONLY: selected views updated; all reviewed rows, app IDs, schedule/quality and unselected assets retained")
 
 
 if __name__=="__main__":main()

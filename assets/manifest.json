@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "packaged_at": "2026-10-16T01:20:07.882787+00:00",
+  "packaged_at": "2026-10-16T02:43:00.059934+00:00",
   "automatic_refresh": true,
   "refresh_schedule": {
     "provider": "GitHub Actions",
@@ -18,11 +18,11 @@
       "bars": 6560,
       "snapshot_generated_at": "2026-10-16T01:19:33.285266+00:00",
       "strategy_status": "NOT_VALIDATED",
-      "html_bytes": 12215752,
-      "html_sha256": "eee32b987c0af7f6dbb6b4a5d9838bb1673515f18194eb2fe8cc8908fcbe8545",
-      "gzip_bytes": 1586808,
-      "gzip_sha256": "bc0ee3001f777d7f1ccbf74ecb9951e3920d7c731102a09308d0063a0a107da3",
-      "source_html_sha256": "076949079cdcdf8e92c0ce97c361a871d0624d3be69da993641e4253d8e2c9f4",
+      "html_bytes": 12223495,
+      "html_sha256": "9cc0aff8696918a6ee9564a034b8b5c2f1e434edcc529c077cd863fe35eb1641",
+      "gzip_bytes": 1589127,
+      "gzip_sha256": "b6a06975385a0e60cc58cd37488fb9ac453eb6f9bbadb192d673d31c6c3d7846",
+      "source_html_sha256": "14f06950b5ee2771baf547573abb964b7356926d5d5a9987bd9f201d82cbe63d",
       "reviewed_rows_unchanged": true,
       "queries": {
         "market_prices": {
