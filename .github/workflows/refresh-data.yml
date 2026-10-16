@@ -1,0 +1,110 @@
+name: Cloud daily market refresh
+
+on:
+  schedule:
+    # 00:00 UTC = 09:00 Asia/Tokyo (Japan has no DST).
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'refresh: fetch completed bars; verify: replay last genuine saved bar without publication'
+        type: choice
+        options: [refresh, verify]
+        default: refresh
+  push:
+    branches: [main]
+    paths:
+      - 'cloud/**'
+      - 'requirements-refresh.txt'
+      - '.github/workflows/refresh-data.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: v011-cloud-generation
+  cancel-in-progress: false
+
+jobs:
+  regression:
+    if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.mode == 'verify')
+    runs-on: ubuntu-latest
+    timeout-minutes: 85
+    env:
+      MPLBACKEND: Agg
+      PYTHONUNBUFFERED: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: requirements-refresh.txt
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: pip install -r requirements-refresh.txt
+      - run: python -m pytest -q
+      - name: Full replay of genuine saved last bars, no network or publication
+        run: python -m cloud.refresh --mode verify
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: frozen-replay-regression-${{ github.run_id }}
+          path: .refresh-reports/
+          retention-days: 14
+
+  refresh:
+    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.mode == 'refresh')
+    runs-on: ubuntu-latest
+    timeout-minutes: 85
+    permissions:
+      contents: write
+    env:
+      MPLBACKEND: Agg
+      PYTHONUNBUFFERED: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: requirements-refresh.txt
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: pip install -r requirements-refresh.txt
+      - name: Fetch, replay, reconcile and stage both markets
+        run: python -m cloud.refresh --mode refresh
+      - name: Verify staged generation before publishing
+        run: python -m pytest -q
+      - name: Commit only a verified changed generation
+        shell: bash
+        run: |
+          git add -- assets/manifest.json assets/nq.html.gz assets/nikkei.html.gz cloud/state/
+          if [ -f assets/cloud_refresh_latest.json ]; then
+            git add -- assets/cloud_refresh_latest.json
+          fi
+          if git diff --cached --quiet; then
+            echo "No new completed bars: no commit and no app redeploy."
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Refresh completed NQ and Nikkei daily replay data'
+          # Ordinary push: concurrent human edits must cause a safe rejection,
+          # never an automatic force push, merge or overwrite.
+          git push origin HEAD:main
+          echo 'Verified generation published to main.'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: daily-refresh-report-${{ github.run_id }}
+          path: .refresh-reports/
+          retention-days: 14

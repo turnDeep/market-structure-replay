@@ -1,0 +1,8 @@
+-r requirements-dev.txt
+yfinance==1.2.0
+curl_cffi==0.13.0
+pandas==3.0.1
+numpy==2.2.1
+scikit-learn==1.8.0
+matplotlib==3.10.8
+tzdata==2025.3

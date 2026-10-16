@@ -1,0 +1,5 @@
+# Frozen research sources are hashed as bytes, not newline-normalized text.
+cloud/vendor/** -text
+cloud/views/** -text
+cloud/export_template.py.txt -text
+*.gz binary

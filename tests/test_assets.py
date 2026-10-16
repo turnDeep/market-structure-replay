@@ -22,7 +22,7 @@ def test_bundled_snapshot(market):
     assert snapshot["replay"]["strategyStatus"] == "NOT_VALIDATED"
     assert snapshot["replay"]["end"] == item["end"]
     assert snapshot["replay"]["start"] == item["start"]
-    assert not manifest["automatic_refresh"]
+    assert isinstance(manifest["automatic_refresh"], bool)
     assert item["reviewed_rows_unchanged"]
     assert len(snapshot["queries"]["market_prices"]["rows"]) == item["bars"]
     check_sensitive_text(html)

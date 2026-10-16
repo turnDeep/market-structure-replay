@@ -1,0 +1,736 @@
+{
+  "schema": 1,
+  "strategy_status": "NOT_VALIDATED",
+  "files": {
+    "vendor/nq/nq_ict_campaign_examples_20260921/__init__.py": {
+      "sha256": "0cd3c1c63523be1c2b2030cc3271288a02a864b714d6123b8dcd360633480604",
+      "original_sha256": "0cd3c1c63523be1c2b2030cc3271288a02a864b714d6123b8dcd360633480604",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/audit_campaign_revision02.py": {
+      "sha256": "e134d2f31aef6152f90e31577d2b0da4bdebca821758eb38a0a7b3903a67de95",
+      "original_sha256": "e134d2f31aef6152f90e31577d2b0da4bdebca821758eb38a0a7b3903a67de95",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/audit_campaign_revision03.py": {
+      "sha256": "67d4300e4d9d57c6caad69d5ff2d1968b7267264905ca74da85a683de6f192a6",
+      "original_sha256": "67d4300e4d9d57c6caad69d5ff2d1968b7267264905ca74da85a683de6f192a6",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/audit_campaign_revision04.py": {
+      "sha256": "03b3a0ce8ce6d1b8e006732c7ffc0525cd884ab725478db91827952ded4f76e9",
+      "original_sha256": "03b3a0ce8ce6d1b8e006732c7ffc0525cd884ab725478db91827952ded4f76e9",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/audit_campaign_revision05.py": {
+      "sha256": "69b994f1db322cf23319690fabaea066e43c34b448fdc54b378f8546a6ba8aad",
+      "original_sha256": "69b994f1db322cf23319690fabaea066e43c34b448fdc54b378f8546a6ba8aad",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/audit_campaign_revision06.py": {
+      "sha256": "2cd9833206088917dfb72bb27964b68ccb699000e0c93847eeebeffb53d7ecc9",
+      "original_sha256": "2cd9833206088917dfb72bb27964b68ccb699000e0c93847eeebeffb53d7ecc9",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/audit_campaign_revision07.py": {
+      "sha256": "7f8b599d04fec398b28ac4dd56543c18c02a784029e6b025a705d1264a884837",
+      "original_sha256": "7f8b599d04fec398b28ac4dd56543c18c02a784029e6b025a705d1264a884837",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/audit_campaign_revision08.py": {
+      "sha256": "0a480d2505842a64625f7e254a46ee6aa4dabc2d0197f7f336f92908022ed112",
+      "original_sha256": "0a480d2505842a64625f7e254a46ee6aa4dabc2d0197f7f336f92908022ed112",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/audit_campaign_revision09.py": {
+      "sha256": "26db80c5b1d04ceb506794caa8b38c59fbf43f9fe522f1f7122d77ecee1c4ae2",
+      "original_sha256": "26db80c5b1d04ceb506794caa8b38c59fbf43f9fe522f1f7122d77ecee1c4ae2",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/audit_campaign_revision10.py": {
+      "sha256": "2b44ab2bc0300a5d2fc66e8ac8456f0164e10223fa9a0d0cf8ee8c0dfca9d497",
+      "original_sha256": "2b44ab2bc0300a5d2fc66e8ac8456f0164e10223fa9a0d0cf8ee8c0dfca9d497",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/audit_campaign_validation.py": {
+      "sha256": "6575f2ce49859c88344818145310b3177b1990015f20c6ff01f96953beca9c70",
+      "original_sha256": "6575f2ce49859c88344818145310b3177b1990015f20c6ff01f96953beca9c70",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/build_observed_calendar.py": {
+      "sha256": "0cd1759f20858faf4f84e66677702d8eea4f750cecd9798545db01c56ed49c64",
+      "original_sha256": "0cd1759f20858faf4f84e66677702d8eea4f750cecd9798545db01c56ed49c64",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/campaign.py": {
+      "sha256": "4e5f12312172bc86a79b571e509b3e1424dd9f9fc1097e0dcd857f7171b93181",
+      "original_sha256": "4e5f12312172bc86a79b571e509b3e1424dd9f9fc1097e0dcd857f7171b93181",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/common.py": {
+      "sha256": "d0978fc7fa43e0150bfee32b07b2586034a3909dfa70c741890f01367231d47b",
+      "original_sha256": "d0978fc7fa43e0150bfee32b07b2586034a3909dfa70c741890f01367231d47b",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/compare_rev06_rev07.py": {
+      "sha256": "36c76d2d45ecd8bd93e6ed727b10f23b297d0fe6b67f209552e927dcd50fc5b8",
+      "original_sha256": "36c76d2d45ecd8bd93e6ed727b10f23b297d0fe6b67f209552e927dcd50fc5b8",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/compare_rev08_stages.py": {
+      "sha256": "d98598f595bac06c0e97e6670df70f1d978e3823c1d92a573d5c311867b6727c",
+      "original_sha256": "d98598f595bac06c0e97e6670df70f1d978e3823c1d92a573d5c311867b6727c",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/continuation.py": {
+      "sha256": "8d322ce96ced2785572c20578f8001caaf367d74d889747bc480d0ccbe1cd012",
+      "original_sha256": "8d322ce96ced2785572c20578f8001caaf367d74d889747bc480d0ccbe1cd012",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/cycle_recovery.py": {
+      "sha256": "789d873585776683466fd2b39b61df1729320e6cb575e17b61446cff5f53e0d9",
+      "original_sha256": "789d873585776683466fd2b39b61df1729320e6cb575e17b61446cff5f53e0d9",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/daily_evidence.py": {
+      "sha256": "b7aab3e4ae796a91617640cefecded586a69a7628972a31be1ff8997511156e7",
+      "original_sha256": "b7aab3e4ae796a91617640cefecded586a69a7628972a31be1ff8997511156e7",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/double_top.py": {
+      "sha256": "04c71902c66e14fc709c6159e0059949407f5f75f053f88b4055d76633748827",
+      "original_sha256": "04c71902c66e14fc709c6159e0059949407f5f75f053f88b4055d76633748827",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/episode_reentry.py": {
+      "sha256": "1a5c304b7ab3b27234cb343a6eef2a85847afadb0f6e6db245f1406dc87f2ced",
+      "original_sha256": "1a5c304b7ab3b27234cb343a6eef2a85847afadb0f6e6db245f1406dc87f2ced",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/exit_reentry.py": {
+      "sha256": "882b8fd35ff431719c65443a6e18e5964be0de571737964d5698aaf2d4a0d6f6",
+      "original_sha256": "882b8fd35ff431719c65443a6e18e5964be0de571737964d5698aaf2d4a0d6f6",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/major_top.py": {
+      "sha256": "6ec350a2004d265c620e1f512ecf9264a7da50b5d08b8f400f2e9cd24fbef5d7",
+      "original_sha256": "6ec350a2004d265c620e1f512ecf9264a7da50b5d08b8f400f2e9cd24fbef5d7",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/major_top_cycle.py": {
+      "sha256": "1e192e452935667c2641f51b83f1f74e1ace4eefc56d7beb7da05d14583ff1d0",
+      "original_sha256": "1e192e452935667c2641f51b83f1f74e1ace4eefc56d7beb7da05d14583ff1d0",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/path_links.py": {
+      "sha256": "0ace48680d61c621c53e78143a82c362de385222093c3c49ac0c4fed093a13ef",
+      "original_sha256": "0ace48680d61c621c53e78143a82c362de385222093c3c49ac0c4fed093a13ef",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/plot_campaign_equity.py": {
+      "sha256": "fcf44d9536b9819ec780af0670a92da138598019743f4ce9ff4ded52b3eb70c3",
+      "original_sha256": "fcf44d9536b9819ec780af0670a92da138598019743f4ce9ff4ded52b3eb70c3",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/plot_rev06_vs_buy_hold.py": {
+      "sha256": "c5f80562a297da7776bedf0a8a7e152905a63731b27a9ba2f0da03da7a15e308",
+      "original_sha256": "c5f80562a297da7776bedf0a8a7e152905a63731b27a9ba2f0da03da7a15e308",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/plot_rev07_vs_buy_hold.py": {
+      "sha256": "cc1e11016901860da203475b0d4f53eb0144c485c0284482179f2528be8736dd",
+      "original_sha256": "cc1e11016901860da203475b0d4f53eb0144c485c0284482179f2528be8736dd",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/plot_rev08_vs_buy_hold.py": {
+      "sha256": "73d92401eb0e1d2ddb9e8efaa3f8fcc47d0acea1adcedf447e6c4496d9280411",
+      "original_sha256": "73d92401eb0e1d2ddb9e8efaa3f8fcc47d0acea1adcedf447e6c4496d9280411",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/plot_rev10_equity_curve.py": {
+      "sha256": "cde25a75a42de3cfca46147684ed20db02d2bef7fc88da3f6d13b54439ba697d",
+      "original_sha256": "cde25a75a42de3cfca46147684ed20db02d2bef7fc88da3f6d13b54439ba697d",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/post_sell.py": {
+      "sha256": "45de047be599e254cea254e00cabcfb2d59054cb032372e969ed4038b3240751",
+      "original_sha256": "45de047be599e254cea254e00cabcfb2d59054cb032372e969ed4038b3240751",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/recovery_buy.py": {
+      "sha256": "ddf8f27b78f17bece2e4e0f19f48e43c0222f914f51d6184e716a9b59b86e3e4",
+      "original_sha256": "ddf8f27b78f17bece2e4e0f19f48e43c0222f914f51d6184e716a9b59b86e3e4",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/reentry.py": {
+      "sha256": "84029f842792843528def103e11a6d1934ddb4dced430fab5619caad3ecee600",
+      "original_sha256": "84029f842792843528def103e11a6d1934ddb4dced430fab5619caad3ecee600",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/refresh_sweep_holdout_data_20260925.py": {
+      "sha256": "b27de0b5ad20f72d8e5d33cfae6783e9df46a197896b6a3229851e72407f0261",
+      "original_sha256": "b27de0b5ad20f72d8e5d33cfae6783e9df46a197896b6a3229851e72407f0261",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/run_campaign.py": {
+      "sha256": "e370f12cf5620927eb63a55590dafea87c50648dd40f1fcf003a4c3222436aae",
+      "original_sha256": "e370f12cf5620927eb63a55590dafea87c50648dd40f1fcf003a4c3222436aae",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/selective_reentry.py": {
+      "sha256": "fe058e6f47eece255c792bdf1b73844227d1f8f755c7f30d6723eac61a0ecbbc",
+      "original_sha256": "fe058e6f47eece255c792bdf1b73844227d1f8f755c7f30d6723eac61a0ecbbc",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/sell_selection.py": {
+      "sha256": "cf13045d8cbd595985aff47b51baf9dc0a03ba8b06a884bf1876ce54b3636b09",
+      "original_sha256": "cf13045d8cbd595985aff47b51baf9dc0a03ba8b06a884bf1876ce54b3636b09",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/source.py": {
+      "sha256": "93b7d0ed5fbf427b705a6e873b1656b89611c2ed13fa70e8f07cecdeafe5eb8b",
+      "original_sha256": "93b7d0ed5fbf427b705a6e873b1656b89611c2ed13fa70e8f07cecdeafe5eb8b",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/structural_management.py": {
+      "sha256": "d721466dcfccd8dca1ce8fcab9784421995d42f0f489f8b0d9f6c3ce82382dac",
+      "original_sha256": "d721466dcfccd8dca1ce8fcab9784421995d42f0f489f8b0d9f6c3ce82382dac",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/structural_support.py": {
+      "sha256": "87aefb686257485bb938cff8b8b55b2ab1e4f8975378c035cde8f3317a8179a6",
+      "original_sha256": "87aefb686257485bb938cff8b8b55b2ab1e4f8975378c035cde8f3317a8179a6",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/support_signals.py": {
+      "sha256": "83fb2908db55fd50958d972412b2e59ec601a17511d69975ce8f14e9aad1c5e0",
+      "original_sha256": "83fb2908db55fd50958d972412b2e59ec601a17511d69975ce8f14e9aad1c5e0",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/upward_leg_support.py": {
+      "sha256": "2df09c909f669a191d2050023e66a92fbea33999cfd3d2566319e6f158ad7dce",
+      "original_sha256": "2df09c909f669a191d2050023e66a92fbea33999cfd3d2566319e6f158ad7dce",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/validate_v011_atr_sweep_20260925.py": {
+      "sha256": "3e0368d31938c42d34794cb226b8737f3064a9575f3279764487ca80c47de45e",
+      "original_sha256": "3e0368d31938c42d34794cb226b8737f3064a9575f3279764487ca80c47de45e",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/validate_v011_incremental_factors_20260925.py": {
+      "sha256": "9d49c0166a0e5a75fc9858002ac78921ee30d481cf81223990a5e3a91d1421aa",
+      "original_sha256": "9d49c0166a0e5a75fc9858002ac78921ee30d481cf81223990a5e3a91d1421aa",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/validate_v011_research_20260924.py": {
+      "sha256": "d437c9c58fb94adf6bf041be3b18244ac2776fa691f4abe340cce506791b1fa8",
+      "original_sha256": "d437c9c58fb94adf6bf041be3b18244ac2776fa691f4abe340cce506791b1fa8",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_campaign_examples_20260921/wave_management.py": {
+      "sha256": "57e2c8b167c8de2fe6587a270931a68ab91089781a5b6a454bd76c7a8d85e575",
+      "original_sha256": "57e2c8b167c8de2fe6587a270931a68ab91089781a5b6a454bd76c7a8d85e575",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_detection_20260911_v03.py": {
+      "sha256": "31725fe02d2df4053b0fc22e884899192fb49b0233c5a27276464ba046f5dd04",
+      "original_sha256": "31725fe02d2df4053b0fc22e884899192fb49b0233c5a27276464ba046f5dd04",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_evaluation_20260911_v03.py": {
+      "sha256": "1890c01713fdaa52fa9450c0234bd930f0345661af3689a0ce90dde8bd21f2cc",
+      "original_sha256": "1890c01713fdaa52fa9450c0234bd930f0345661af3689a0ce90dde8bd21f2cc",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_evaluation_20260911_v04.py": {
+      "sha256": "c4758e16f1c01cdde7501146dc7795a68863055edd3dac2fb6d96feaa4321d4f",
+      "original_sha256": "c4758e16f1c01cdde7501146dc7795a68863055edd3dac2fb6d96feaa4321d4f",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_evaluation_20260911_v05.py": {
+      "sha256": "cae94c3863c2f1356fa9f12934d91f2f82a8f59eb03ef550fbb9fb480796c971",
+      "original_sha256": "cae94c3863c2f1356fa9f12934d91f2f82a8f59eb03ef550fbb9fb480796c971",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_evaluation_20260912_v08.py": {
+      "sha256": "0f3ca5f4216e54a173fa1ab77a16b5c2a10e14a852bf6382050861c59e44d13f",
+      "original_sha256": "0f3ca5f4216e54a173fa1ab77a16b5c2a10e14a852bf6382050861c59e44d13f",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_evaluation_20260912_v09.py": {
+      "sha256": "8f8a2d6761f9586fc6c7b163306fc4d4b705a9ede302aac0a5ae9e0ebab65197",
+      "original_sha256": "8f8a2d6761f9586fc6c7b163306fc4d4b705a9ede302aac0a5ae9e0ebab65197",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_macro_reversal_examples_20260916/__init__.py": {
+      "sha256": "5037f68e965cad78e873affac6f94339a9a7313261ad1eb922ff73f77fb8a4b5",
+      "original_sha256": "5037f68e965cad78e873affac6f94339a9a7313261ad1eb922ff73f77fb8a4b5",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_macro_reversal_examples_20260916/common.py": {
+      "sha256": "3adef7e7c938ae02aaecb106cf1e0335882884fe6734681a0a143f7a5ec4391f",
+      "original_sha256": "3adef7e7c938ae02aaecb106cf1e0335882884fe6734681a0a143f7a5ec4391f",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_macro_reversal_examples_20260916/integration_example.py": {
+      "sha256": "bc2c79d773153ede50613cea264a6ba0e9dfe07178814dae4809ffaecf0b60ef",
+      "original_sha256": "bc2c79d773153ede50613cea264a6ba0e9dfe07178814dae4809ffaecf0b60ef",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_macro_reversal_examples_20260916/proposal_01_market_episodes.py": {
+      "sha256": "506c8191fbb8fa281631aea96a377812c7959d27621788910715f4620a1e81d2",
+      "original_sha256": "506c8191fbb8fa281631aea96a377812c7959d27621788910715f4620a1e81d2",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_macro_reversal_examples_20260916/proposal_02_macro_position_management.py": {
+      "sha256": "3de294ab71ec2a03453bab5034f37e4fe1bdf9eb96c48ffc6ea3fd67f09f2fdb",
+      "original_sha256": "3de294ab71ec2a03453bab5034f37e4fe1bdf9eb96c48ffc6ea3fd67f09f2fdb",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_macro_reversal_examples_20260916/proposal_03_confirmed_top_sell.py": {
+      "sha256": "5b4b620a83630e9e1fc1c971feba2335a102252cfdac7797b87cdf313bd2328f",
+      "original_sha256": "5b4b620a83630e9e1fc1c971feba2335a102252cfdac7797b87cdf313bd2328f",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_macro_reversal_examples_20260916/proposal_04_confirmed_ob_buy.py": {
+      "sha256": "d85211c319524741a94dcd4fdd3a701d04c8a0ab6a9f2726ad246d549123f1f1",
+      "original_sha256": "d85211c319524741a94dcd4fdd3a701d04c8a0ab6a9f2726ad246d549123f1f1",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_macro_reversal_examples_20260916/proposal_05_episode_attempts.py": {
+      "sha256": "9f63802f0044550bc4f69c675d177511cb274d14de93c0d14a6046bd400d4646",
+      "original_sha256": "9f63802f0044550bc4f69c675d177511cb274d14de93c0d14a6046bd400d4646",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_priority_entry_examples_20260916/__init__.py": {
+      "sha256": "69c1a2624436cd892cf6c5c8f476ebe525e7ded2a82b223985fa1036c709ebd2",
+      "original_sha256": "69c1a2624436cd892cf6c5c8f476ebe525e7ded2a82b223985fa1036c709ebd2",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_priority_entry_examples_20260916/common.py": {
+      "sha256": "a805cb0f4614a6cc25e065cf850e51d8f0bc623423e6a9a8e382d59ac03098ee",
+      "original_sha256": "a805cb0f4614a6cc25e065cf850e51d8f0bc623423e6a9a8e382d59ac03098ee",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_priority_entry_examples_20260916/integration_example.py": {
+      "sha256": "33dc2854c410c59a5d91d5a474e9a8717322fce17dc645c99ceae2428f6f57fe",
+      "original_sha256": "33dc2854c410c59a5d91d5a474e9a8717322fce17dc645c99ceae2428f6f57fe",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_priority_entry_examples_20260916/proposal_01_watch_and_confirm.py": {
+      "sha256": "4179f6b2e8fc7befeed9bfd167e82709548306810308f87d777272788f12eb61",
+      "original_sha256": "4179f6b2e8fc7befeed9bfd167e82709548306810308f87d777272788f12eb61",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_priority_entry_examples_20260916/proposal_02_reserved_attempts.py": {
+      "sha256": "72923a82daf02e0a58da386a8e0ac00fe51775afb9b985788b24ffedb018c944",
+      "original_sha256": "72923a82daf02e0a58da386a8e0ac00fe51775afb9b985788b24ffedb018c944",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_retest_trade_state_machine_20260915.py": {
+      "sha256": "cb8660e56548c8dfb019978798ae21a36925fae8439b27225b24a6c891023885",
+      "original_sha256": "cb8660e56548c8dfb019978798ae21a36925fae8439b27225b24a6c891023885",
+      "transformation": "none"
+    },
+    "vendor/nq/nq_ict_retest_trade_state_machine_revision_20260915.py": {
+      "sha256": "0ee2d56d72433533f936940c6f96ebe0dce28343ba814eb2dab6d496d7fbd3c3",
+      "original_sha256": "0ee2d56d72433533f936940c6f96ebe0dce28343ba814eb2dab6d496d7fbd3c3",
+      "transformation": "none"
+    },
+    "vendor/nq/run_nq_ict_early_buy_comparison_20260916.py": {
+      "sha256": "e08554f3bd320d4240844d645b9be11b49c06ee08a0761821f79b9cbbf3c976c",
+      "original_sha256": "e08554f3bd320d4240844d645b9be11b49c06ee08a0761821f79b9cbbf3c976c",
+      "transformation": "none"
+    },
+    "vendor/nq/run_nq_ict_macro_reversal_20260916.py": {
+      "sha256": "be6e3500a379f76c1200fe4813d7c58e9148a524943d7637c75329c0cfb90fb6",
+      "original_sha256": "be6e3500a379f76c1200fe4813d7c58e9148a524943d7637c75329c0cfb90fb6",
+      "transformation": "none"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/__init__.py": {
+      "sha256": "0cd3c1c63523be1c2b2030cc3271288a02a864b714d6123b8dcd360633480604",
+      "original_sha256": "0cd3c1c63523be1c2b2030cc3271288a02a864b714d6123b8dcd360633480604",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/audit_campaign_revision02.py": {
+      "sha256": "e134d2f31aef6152f90e31577d2b0da4bdebca821758eb38a0a7b3903a67de95",
+      "original_sha256": "e134d2f31aef6152f90e31577d2b0da4bdebca821758eb38a0a7b3903a67de95",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/audit_campaign_revision03.py": {
+      "sha256": "67d4300e4d9d57c6caad69d5ff2d1968b7267264905ca74da85a683de6f192a6",
+      "original_sha256": "67d4300e4d9d57c6caad69d5ff2d1968b7267264905ca74da85a683de6f192a6",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/audit_campaign_revision04.py": {
+      "sha256": "03b3a0ce8ce6d1b8e006732c7ffc0525cd884ab725478db91827952ded4f76e9",
+      "original_sha256": "03b3a0ce8ce6d1b8e006732c7ffc0525cd884ab725478db91827952ded4f76e9",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/audit_campaign_revision05.py": {
+      "sha256": "fbe2299dbc72aacc74c3dc654ced478a80f1cde6868fb2fdb118b17a3fc49b8a",
+      "original_sha256": "69b994f1db322cf23319690fabaea066e43c34b448fdc54b378f8546a6ba8aad",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/audit_campaign_revision06.py": {
+      "sha256": "6a3bdd10116a99fefa2cb95eca89d19ff7fef22bf90828a644227b8eda775efc",
+      "original_sha256": "2cd9833206088917dfb72bb27964b68ccb699000e0c93847eeebeffb53d7ecc9",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/audit_campaign_revision07.py": {
+      "sha256": "0a2f53adc62a3d3172cb66469b19f1b18a9b5a792ecb01e46c7b1a07850b7880",
+      "original_sha256": "7f8b599d04fec398b28ac4dd56543c18c02a784029e6b025a705d1264a884837",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/audit_campaign_revision08.py": {
+      "sha256": "15975e3157f66f8322279b94bc9a61b26fffc51e94e9fc3c1eeea6f4b500bc2d",
+      "original_sha256": "0a480d2505842a64625f7e254a46ee6aa4dabc2d0197f7f336f92908022ed112",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/audit_campaign_revision09.py": {
+      "sha256": "06a3b40a0465970ef9655752a3da8bdb0bce7c0bb61575aebe481c2c5b29344d",
+      "original_sha256": "26db80c5b1d04ceb506794caa8b38c59fbf43f9fe522f1f7122d77ecee1c4ae2",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/audit_campaign_revision10.py": {
+      "sha256": "4404728db0f774b5a3e1dd1b19f451e9ccc13fb37414abda9e764518481a2458",
+      "original_sha256": "2b44ab2bc0300a5d2fc66e8ac8456f0164e10223fa9a0d0cf8ee8c0dfca9d497",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/audit_campaign_validation.py": {
+      "sha256": "6575f2ce49859c88344818145310b3177b1990015f20c6ff01f96953beca9c70",
+      "original_sha256": "6575f2ce49859c88344818145310b3177b1990015f20c6ff01f96953beca9c70",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/build_observed_calendar.py": {
+      "sha256": "f49633cec85c2ec839507e97a255b46f5b5c613a0882b821150d49abadabd916",
+      "original_sha256": "0cd1759f20858faf4f84e66677702d8eea4f750cecd9798545db01c56ed49c64",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/campaign.py": {
+      "sha256": "4e5f12312172bc86a79b571e509b3e1424dd9f9fc1097e0dcd857f7171b93181",
+      "original_sha256": "4e5f12312172bc86a79b571e509b3e1424dd9f9fc1097e0dcd857f7171b93181",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/common.py": {
+      "sha256": "d0978fc7fa43e0150bfee32b07b2586034a3909dfa70c741890f01367231d47b",
+      "original_sha256": "d0978fc7fa43e0150bfee32b07b2586034a3909dfa70c741890f01367231d47b",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/compare_rev06_rev07.py": {
+      "sha256": "9a917cbfeea738abd71aab095b50d21bdff5e8dbc16afd627a1438841bc476e1",
+      "original_sha256": "36c76d2d45ecd8bd93e6ed727b10f23b297d0fe6b67f209552e927dcd50fc5b8",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/compare_rev08_stages.py": {
+      "sha256": "d98598f595bac06c0e97e6670df70f1d978e3823c1d92a573d5c311867b6727c",
+      "original_sha256": "d98598f595bac06c0e97e6670df70f1d978e3823c1d92a573d5c311867b6727c",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/continuation.py": {
+      "sha256": "8d322ce96ced2785572c20578f8001caaf367d74d889747bc480d0ccbe1cd012",
+      "original_sha256": "8d322ce96ced2785572c20578f8001caaf367d74d889747bc480d0ccbe1cd012",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/cycle_recovery.py": {
+      "sha256": "789d873585776683466fd2b39b61df1729320e6cb575e17b61446cff5f53e0d9",
+      "original_sha256": "789d873585776683466fd2b39b61df1729320e6cb575e17b61446cff5f53e0d9",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/daily_evidence.py": {
+      "sha256": "b7aab3e4ae796a91617640cefecded586a69a7628972a31be1ff8997511156e7",
+      "original_sha256": "b7aab3e4ae796a91617640cefecded586a69a7628972a31be1ff8997511156e7",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/double_top.py": {
+      "sha256": "04c71902c66e14fc709c6159e0059949407f5f75f053f88b4055d76633748827",
+      "original_sha256": "04c71902c66e14fc709c6159e0059949407f5f75f053f88b4055d76633748827",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/episode_reentry.py": {
+      "sha256": "1a5c304b7ab3b27234cb343a6eef2a85847afadb0f6e6db245f1406dc87f2ced",
+      "original_sha256": "1a5c304b7ab3b27234cb343a6eef2a85847afadb0f6e6db245f1406dc87f2ced",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/exit_reentry.py": {
+      "sha256": "882b8fd35ff431719c65443a6e18e5964be0de571737964d5698aaf2d4a0d6f6",
+      "original_sha256": "882b8fd35ff431719c65443a6e18e5964be0de571737964d5698aaf2d4a0d6f6",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/major_top.py": {
+      "sha256": "6ec350a2004d265c620e1f512ecf9264a7da50b5d08b8f400f2e9cd24fbef5d7",
+      "original_sha256": "6ec350a2004d265c620e1f512ecf9264a7da50b5d08b8f400f2e9cd24fbef5d7",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/major_top_cycle.py": {
+      "sha256": "1e192e452935667c2641f51b83f1f74e1ace4eefc56d7beb7da05d14583ff1d0",
+      "original_sha256": "1e192e452935667c2641f51b83f1f74e1ace4eefc56d7beb7da05d14583ff1d0",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/path_links.py": {
+      "sha256": "0ace48680d61c621c53e78143a82c362de385222093c3c49ac0c4fed093a13ef",
+      "original_sha256": "0ace48680d61c621c53e78143a82c362de385222093c3c49ac0c4fed093a13ef",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/plot_campaign_equity.py": {
+      "sha256": "8972b787cbed108982824a25c46438f71f274bfc697420058a1c406272f508b1",
+      "original_sha256": "fcf44d9536b9819ec780af0670a92da138598019743f4ce9ff4ded52b3eb70c3",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/plot_rev06_vs_buy_hold.py": {
+      "sha256": "66c555db1343b582d32a66ed43794902d10eac7d3d3d51338c1fc6110fe41a76",
+      "original_sha256": "c5f80562a297da7776bedf0a8a7e152905a63731b27a9ba2f0da03da7a15e308",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/plot_rev07_vs_buy_hold.py": {
+      "sha256": "8c989253a90bd131fd0315af0c6d3b662307486a8472532ae6e57e7e091b3437",
+      "original_sha256": "cc1e11016901860da203475b0d4f53eb0144c485c0284482179f2528be8736dd",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/plot_rev08_vs_buy_hold.py": {
+      "sha256": "24cfa88d66056a066b8e8b26369b8e3815c4ae7478d3a3dc99ef69ca9b774e8d",
+      "original_sha256": "73d92401eb0e1d2ddb9e8efaa3f8fcc47d0acea1adcedf447e6c4496d9280411",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/plot_rev10_equity_curve.py": {
+      "sha256": "36d8396b4d3f77f0ff50ac2426b8d108cc274a6932ea83b2f4ec0d3619bde472",
+      "original_sha256": "cde25a75a42de3cfca46147684ed20db02d2bef7fc88da3f6d13b54439ba697d",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/post_sell.py": {
+      "sha256": "45de047be599e254cea254e00cabcfb2d59054cb032372e969ed4038b3240751",
+      "original_sha256": "45de047be599e254cea254e00cabcfb2d59054cb032372e969ed4038b3240751",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/recovery_buy.py": {
+      "sha256": "ddf8f27b78f17bece2e4e0f19f48e43c0222f914f51d6184e716a9b59b86e3e4",
+      "original_sha256": "ddf8f27b78f17bece2e4e0f19f48e43c0222f914f51d6184e716a9b59b86e3e4",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/reentry.py": {
+      "sha256": "84029f842792843528def103e11a6d1934ddb4dced430fab5619caad3ecee600",
+      "original_sha256": "84029f842792843528def103e11a6d1934ddb4dced430fab5619caad3ecee600",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/refresh_sweep_holdout_data_20260925.py": {
+      "sha256": "c2790e83df915e31f81403297ba8ea3e84f4821daf6835c906fcd5cd3aae6fd1",
+      "original_sha256": "b27de0b5ad20f72d8e5d33cfae6783e9df46a197896b6a3229851e72407f0261",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/run_campaign.py": {
+      "sha256": "e370f12cf5620927eb63a55590dafea87c50648dd40f1fcf003a4c3222436aae",
+      "original_sha256": "e370f12cf5620927eb63a55590dafea87c50648dd40f1fcf003a4c3222436aae",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/selective_reentry.py": {
+      "sha256": "fe058e6f47eece255c792bdf1b73844227d1f8f755c7f30d6723eac61a0ecbbc",
+      "original_sha256": "fe058e6f47eece255c792bdf1b73844227d1f8f755c7f30d6723eac61a0ecbbc",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/sell_selection.py": {
+      "sha256": "cf13045d8cbd595985aff47b51baf9dc0a03ba8b06a884bf1876ce54b3636b09",
+      "original_sha256": "cf13045d8cbd595985aff47b51baf9dc0a03ba8b06a884bf1876ce54b3636b09",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/source.py": {
+      "sha256": "93b7d0ed5fbf427b705a6e873b1656b89611c2ed13fa70e8f07cecdeafe5eb8b",
+      "original_sha256": "93b7d0ed5fbf427b705a6e873b1656b89611c2ed13fa70e8f07cecdeafe5eb8b",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/structural_management.py": {
+      "sha256": "d721466dcfccd8dca1ce8fcab9784421995d42f0f489f8b0d9f6c3ce82382dac",
+      "original_sha256": "d721466dcfccd8dca1ce8fcab9784421995d42f0f489f8b0d9f6c3ce82382dac",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/structural_support.py": {
+      "sha256": "87aefb686257485bb938cff8b8b55b2ab1e4f8975378c035cde8f3317a8179a6",
+      "original_sha256": "87aefb686257485bb938cff8b8b55b2ab1e4f8975378c035cde8f3317a8179a6",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/support_signals.py": {
+      "sha256": "83fb2908db55fd50958d972412b2e59ec601a17511d69975ce8f14e9aad1c5e0",
+      "original_sha256": "83fb2908db55fd50958d972412b2e59ec601a17511d69975ce8f14e9aad1c5e0",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/upward_leg_support.py": {
+      "sha256": "2df09c909f669a191d2050023e66a92fbea33999cfd3d2566319e6f158ad7dce",
+      "original_sha256": "2df09c909f669a191d2050023e66a92fbea33999cfd3d2566319e6f158ad7dce",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/validate_v011_atr_sweep_20260925.py": {
+      "sha256": "a91ff459acbb6538ff094d792b509c352ff08d9623f11da21e492c6fd26b5568",
+      "original_sha256": "3e0368d31938c42d34794cb226b8737f3064a9575f3279764487ca80c47de45e",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/validate_v011_incremental_factors_20260925.py": {
+      "sha256": "cae0c68aa299a23e8a35fc6bcfbceac2fef1a3b9f69b7b583cac4d8ac48b1a54",
+      "original_sha256": "9d49c0166a0e5a75fc9858002ac78921ee30d481cf81223990a5e3a91d1421aa",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/validate_v011_research_20260924.py": {
+      "sha256": "e21f0ae09744d0883a1e1475101071dba74b6e03ea863c49c38d775f114f8637",
+      "original_sha256": "d437c9c58fb94adf6bf041be3b18244ac2776fa691f4abe340cce506791b1fa8",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_campaign_examples_20260921/wave_management.py": {
+      "sha256": "57e2c8b167c8de2fe6587a270931a68ab91089781a5b6a454bd76c7a8d85e575",
+      "original_sha256": "57e2c8b167c8de2fe6587a270931a68ab91089781a5b6a454bd76c7a8d85e575",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_detection_20260911_v03.py": {
+      "sha256": "4174d06e1afd0fe6471f31b38ead4d211c82c20b045764acbf799165c573f32e",
+      "original_sha256": "31725fe02d2df4053b0fc22e884899192fb49b0233c5a27276464ba046f5dd04",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_evaluation_20260911_v03.py": {
+      "sha256": "d5690ced6edc707d93101ea89143506a5c7a1412c6fc2f7e32f122b26b3e1224",
+      "original_sha256": "1890c01713fdaa52fa9450c0234bd930f0345661af3689a0ce90dde8bd21f2cc",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_evaluation_20260911_v04.py": {
+      "sha256": "e953e35ac3224a084c2300be19594c13ca60914560c0018a730aee99330c7a3a",
+      "original_sha256": "c4758e16f1c01cdde7501146dc7795a68863055edd3dac2fb6d96feaa4321d4f",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_evaluation_20260911_v05.py": {
+      "sha256": "0b47f23286d6ddc877828a34b374b48706c210b91fe248125034db85f283e6e9",
+      "original_sha256": "cae94c3863c2f1356fa9f12934d91f2f82a8f59eb03ef550fbb9fb480796c971",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_evaluation_20260912_v08.py": {
+      "sha256": "9018a1e04097221c96d26d72c8fa008ec1c46e3401d6351adf55c30ee6391f42",
+      "original_sha256": "0f3ca5f4216e54a173fa1ab77a16b5c2a10e14a852bf6382050861c59e44d13f",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_evaluation_20260912_v09.py": {
+      "sha256": "e6cb63030e626ad8fd0607c4056eb9d356f414ffe274ccba369d252ffe75306c",
+      "original_sha256": "8f8a2d6761f9586fc6c7b163306fc4d4b705a9ede302aac0a5ae9e0ebab65197",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_macro_reversal_examples_20260916/__init__.py": {
+      "sha256": "5037f68e965cad78e873affac6f94339a9a7313261ad1eb922ff73f77fb8a4b5",
+      "original_sha256": "5037f68e965cad78e873affac6f94339a9a7313261ad1eb922ff73f77fb8a4b5",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_macro_reversal_examples_20260916/common.py": {
+      "sha256": "3adef7e7c938ae02aaecb106cf1e0335882884fe6734681a0a143f7a5ec4391f",
+      "original_sha256": "3adef7e7c938ae02aaecb106cf1e0335882884fe6734681a0a143f7a5ec4391f",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_macro_reversal_examples_20260916/integration_example.py": {
+      "sha256": "bc2c79d773153ede50613cea264a6ba0e9dfe07178814dae4809ffaecf0b60ef",
+      "original_sha256": "bc2c79d773153ede50613cea264a6ba0e9dfe07178814dae4809ffaecf0b60ef",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_macro_reversal_examples_20260916/proposal_01_market_episodes.py": {
+      "sha256": "506c8191fbb8fa281631aea96a377812c7959d27621788910715f4620a1e81d2",
+      "original_sha256": "506c8191fbb8fa281631aea96a377812c7959d27621788910715f4620a1e81d2",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_macro_reversal_examples_20260916/proposal_02_macro_position_management.py": {
+      "sha256": "3de294ab71ec2a03453bab5034f37e4fe1bdf9eb96c48ffc6ea3fd67f09f2fdb",
+      "original_sha256": "3de294ab71ec2a03453bab5034f37e4fe1bdf9eb96c48ffc6ea3fd67f09f2fdb",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_macro_reversal_examples_20260916/proposal_03_confirmed_top_sell.py": {
+      "sha256": "5b4b620a83630e9e1fc1c971feba2335a102252cfdac7797b87cdf313bd2328f",
+      "original_sha256": "5b4b620a83630e9e1fc1c971feba2335a102252cfdac7797b87cdf313bd2328f",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_macro_reversal_examples_20260916/proposal_04_confirmed_ob_buy.py": {
+      "sha256": "d85211c319524741a94dcd4fdd3a701d04c8a0ab6a9f2726ad246d549123f1f1",
+      "original_sha256": "d85211c319524741a94dcd4fdd3a701d04c8a0ab6a9f2726ad246d549123f1f1",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_macro_reversal_examples_20260916/proposal_05_episode_attempts.py": {
+      "sha256": "9f63802f0044550bc4f69c675d177511cb274d14de93c0d14a6046bd400d4646",
+      "original_sha256": "9f63802f0044550bc4f69c675d177511cb274d14de93c0d14a6046bd400d4646",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_priority_entry_examples_20260916/__init__.py": {
+      "sha256": "69c1a2624436cd892cf6c5c8f476ebe525e7ded2a82b223985fa1036c709ebd2",
+      "original_sha256": "69c1a2624436cd892cf6c5c8f476ebe525e7ded2a82b223985fa1036c709ebd2",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_priority_entry_examples_20260916/common.py": {
+      "sha256": "a805cb0f4614a6cc25e065cf850e51d8f0bc623423e6a9a8e382d59ac03098ee",
+      "original_sha256": "a805cb0f4614a6cc25e065cf850e51d8f0bc623423e6a9a8e382d59ac03098ee",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_priority_entry_examples_20260916/integration_example.py": {
+      "sha256": "33dc2854c410c59a5d91d5a474e9a8717322fce17dc645c99ceae2428f6f57fe",
+      "original_sha256": "33dc2854c410c59a5d91d5a474e9a8717322fce17dc645c99ceae2428f6f57fe",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_priority_entry_examples_20260916/proposal_01_watch_and_confirm.py": {
+      "sha256": "4179f6b2e8fc7befeed9bfd167e82709548306810308f87d777272788f12eb61",
+      "original_sha256": "4179f6b2e8fc7befeed9bfd167e82709548306810308f87d777272788f12eb61",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_priority_entry_examples_20260916/proposal_02_reserved_attempts.py": {
+      "sha256": "72923a82daf02e0a58da386a8e0ac00fe51775afb9b985788b24ffedb018c944",
+      "original_sha256": "72923a82daf02e0a58da386a8e0ac00fe51775afb9b985788b24ffedb018c944",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_retest_trade_state_machine_20260915.py": {
+      "sha256": "1e794061e069f635365483707894c9b125b00b2f4f9dc5ccc1c3997ed1368e01",
+      "original_sha256": "cb8660e56548c8dfb019978798ae21a36925fae8439b27225b24a6c891023885",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/nq_ict_retest_trade_state_machine_revision_20260915.py": {
+      "sha256": "0ee2d56d72433533f936940c6f96ebe0dce28343ba814eb2dab6d496d7fbd3c3",
+      "original_sha256": "0ee2d56d72433533f936940c6f96ebe0dce28343ba814eb2dab6d496d7fbd3c3",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/run_nq_ict_early_buy_comparison_20260916.py": {
+      "sha256": "69a46d8466db96aa11954e39b74d916e8ab5ed3ee048a5587028d719590c227f",
+      "original_sha256": "e08554f3bd320d4240844d645b9be11b49c06ee08a0761821f79b9cbbf3c976c",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "vendor/nikkei/run_nq_ict_macro_reversal_20260916.py": {
+      "sha256": "6dd137663ad3b77d7a4f8a6b90d1e2485745a6306804e97eeb21c8bc3dafa902",
+      "original_sha256": "be6e3500a379f76c1200fe4813d7c58e9148a524943d7637c75329c0cfb90fb6",
+      "transformation": "literal NQ=F to NKD=F only"
+    },
+    "export_template.py.txt": {
+      "sha256": "054bf450d2a320f09096b661edae1b95ba18dd85a2f0616d42b79cc913840c20",
+      "transformation": "none"
+    },
+    "views/nq/decision-focus.mjs": {
+      "sha256": "48086844181622efe87d6391cdb8fc10440493a7b674b8db19c3d74c5c78bd3e",
+      "transformation": "none"
+    },
+    "views/nq/replay-model.mjs": {
+      "sha256": "c6d7dca56f57cb4bce55b4bf0a5ef750010b56ddaf8bf67899d5ed7a39599643",
+      "transformation": "none"
+    },
+    "views/nikkei/decision-focus.mjs": {
+      "sha256": "ea4894c8ba259ca07dab22a5e4b8c2eaed1606e1fa8b42883ee1ee3088156096",
+      "transformation": "none"
+    },
+    "views/nikkei/replay-model.mjs": {
+      "sha256": "c6d7dca56f57cb4bce55b4bf0a5ef750010b56ddaf8bf67899d5ed7a39599643",
+      "transformation": "none"
+    }
+  },
+  "markets": {
+    "nq": {
+      "symbol": "NQ=F",
+      "end": "2026-10-15",
+      "bars": 6560,
+      "detector_sensitivities": [
+        "strict",
+        "balanced",
+        "exploratory"
+      ]
+    },
+    "nikkei": {
+      "symbol": "NKD=F",
+      "end": "2026-10-15",
+      "bars": 5531,
+      "detector_sensitivities": [
+        "balanced"
+      ]
+    }
+  }
+}

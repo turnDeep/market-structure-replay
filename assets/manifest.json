@@ -1,7 +1,14 @@
 {
   "schema_version": 1,
   "packaged_at": "2026-10-16T01:20:07.882787+00:00",
-  "automatic_refresh": false,
+  "automatic_refresh": true,
+  "refresh_schedule": {
+    "provider": "GitHub Actions",
+    "timezone": "Asia/Tokyo",
+    "local_time": "09:00",
+    "cadence": "daily",
+    "failure_policy": "retain_previous_verified_generation"
+  },
   "markets": {
     "nq": {
       "symbol": "NQ=F",
@@ -9,6 +16,7 @@
       "start": "2000-09-18",
       "end": "2026-10-15",
       "bars": 6560,
+      "data_quality": {"provisional_from_date": "2026-10-15", "verified_through": "2026-10-14"},
       "snapshot_generated_at": "2026-10-16T01:19:33.285266+00:00",
       "strategy_status": "NOT_VALIDATED",
       "html_bytes": 12215630,
@@ -51,6 +59,7 @@
       "start": "2004-02-17",
       "end": "2026-10-15",
       "bars": 5531,
+      "data_quality": {"provisional_from_date": "2026-10-15", "verified_through": "2026-10-14"},
       "snapshot_generated_at": "2026-10-16T01:14:43.316864+00:00",
       "strategy_status": "NOT_VALIDATED",
       "html_bytes": 11669023,

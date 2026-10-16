@@ -1,0 +1,278 @@
+"""Export NKD v0.11 logs with route-aware, point-denominated evidence."""
+from pathlib import Path
+from collections import Counter
+from copy import deepcopy
+import csv, hashlib, json, math, sys
+sys.stdout.reconfigure(encoding='utf-8')
+
+OUT=Path(__file__).resolve().parent
+BASE=OUT/'NKD_analysis/campaign_replay'
+APP=OUT/'app'
+fmt=lambda x:f'{x:,.2f}'
+
+def load(path): return json.loads(Path(path).read_text(encoding='utf-8-sig'))
+def jl(name): return [json.loads(line) for line in (BASE/(name+'.jsonl')).read_text(encoding='utf-8').splitlines() if line]
+def save(name,value): (OUT/name).write_text(json.dumps(value,ensure_ascii=False,indent=2,allow_nan=False),encoding='utf-8')
+
+meta=load(BASE/'metadata.json')
+snapshot=load(APP/'src/data.json')
+assert meta['revision_stage']=='rev11_without_continuation'
+baseline=load(OUT.parents[1]/'nq_ict_campaign_examples_20260921/validation_rev11_without_continuation_20260923/metadata.json')
+assert all(meta['campaign_config'][k]==v for k,v in baseline['campaign_config'].items())
+extra_config={k:v for k,v in meta['campaign_config'].items() if k not in baseline['campaign_config']}
+assert extra_config=={'buy_htf_filter':'none'},extra_config
+assert not meta['stage_overrides']['enable_continuation_buy']
+assert not meta['legacy_rules']['require_linked_fvg'] and not meta['execution_config']['require_reaction_fvg']
+hashes={}
+for kind,record in meta['input_hashes'].items():
+    path=Path(record['path']);digest=hashlib.sha256(path.read_bytes()).hexdigest()
+    assert digest==record['sha256'],kind
+    hashes[kind]=dict(path=str(path),sha256=digest)
+prices=list(csv.DictReader(Path(meta['input_hashes']['prices']['path']).read_text(encoding='utf-8-sig').splitlines()))
+bars=[];closes=[]
+for i,r in enumerate(prices):
+    values={k:float(r[k]) for k in ['open','high','low','close','volume']}
+    assert all(math.isfinite(v) for v in values.values())
+    assert 0<values['low']<=min(values['open'],values['close'])<=max(values['open'],values['close'])<=values['high']
+    closes.append(values['close'])
+    bars.append(dict(index=i,date=r['datetime'][:10],ticker='NKD=F',**values,
+        sma200=math.fsum(closes[-200:])/200 if i>=199 else None))
+days=[b['date'] for b in bars]
+assert len(bars)==meta['daily_rows'] and days==sorted(set(days))
+day=lambda i:days[int(i)] if i is not None else None
+slip=meta['execution_config']['slippage_ticks']*meta['execution_config']['tick_size']
+assert slip==5 and meta['execution_config']['point_value_usd']==1
+assert meta['execution_config']['commission_per_contract_side_usd']==0
+raw=jl('execution_events');contexts=load(BASE/'entry_structural_contexts.json')
+entry_audit=jl('entry_audit')
+assessed={r['key']:r for r in entry_audit if r['action']=='entry_assessed'}
+selected_entries={r['index']:assessed[r['key']] for r in entry_audit if r['action']=='offer_disposition' and r['selected']}
+plans=jl('close_plans')
+retest_defs={r['zone']['id']:r['zone'] for r in jl('tactical_zone_events') if r['action']=='formed'}
+buys={r['order_id']:r for r in raw if r['action']=='buy_fill'}
+closed={r['position_id']:r for r in raw if r['action']=='position_closed'}
+roles={'major_origin':'大局上昇構造の起点OB','established_major_support':'成立済み大局構造の支持OB',
+       'upward_leg_support':'過去の上昇脚の支持OB'}
+
+def mark(code,label,i,p,known):
+    assert 0<=i<=known<len(bars)
+    return dict(code=code,label=label,index=i,date=day(i),price=p,known_index=known)
+def level(key,label,p,i): return dict(id=key,label=label,price=p,from_index=i)
+def step(code,title,detail,passed=True): return dict(code=code,title=title,detail=detail,passed=passed)
+def visual(family,i,mechanism,focus,marks,levels,steps,adopted=None,gates=None):
+    assert all(m['known_index']<=i for m in marks)
+    assert all(l['from_index']<=i for l in levels)
+    return dict(schema=1,family=family,known_index=i,decision_index=i,date=day(i),
+        mechanism=mechanism,focus_start=focus,adopted_zone=adopted,marks=marks,levels=levels,steps=steps,
+        gates=gates or [],fvg_required=False,sma_required=False,
+        execution_step=step('4','翌始値で執行','この判断日時点で、翌始値・約定結果は未観測。',None))
+
+decisions=[]
+for oid,c in contexts.items():
+    i=c['decision_index'];b=bars[i];role=c['role'];th=c['reentry_entry_thesis']
+    assert all(v['passed'] for v in c['close_gate_snapshot'].values()),oid
+    gates=[dict(name=k,passed=v['passed'],status=v['status'],reason=v['reason']) for k,v in c['close_gate_snapshot'].items()]
+    low=th['reaction_low_index'];stop=c['stop'];adopted=None;retest=None
+    assert stop<b['close']
+    if c['entry_family']=='recovery':
+        route='回復構造BUY';family='recovery';q=c['recovery_structure_qualification']
+        assert c['source_zone'] is None and c['contact_index'] is None and q['strict_post_exit_low']
+        threshold=c['next_open_execution']['minimum_raw_open_exclusive']
+        hi=days.index(role['high_id'].rsplit(':',1)[1])
+        assert q['cutoff']<low and role['effective_index']<=i and b['close']>threshold
+        marks=[mark('1','売却後の安値',low,th['reaction_low'],role['known_index']),
+               mark('H','回復参照高値',hi,th['structure_recovery_level'],role['known_index']),
+               mark('2','構造突破',role['breakout_index'],bars[role['breakout_index']]['close'],role['known_index']),
+               mark('3','回復BUY判断',i,b['close'],i)]
+        levels=[level('recovery-ref','回復参照高値',th['structure_recovery_level'],role['known_index']),
+                level('recovery-floor','回復・執行下限',threshold,i),level('sl','初期SL',stop,i)]
+        steps=[step('1','売却後の新しい安値',f"前回実決済 {day(q['cutoff'])} の後、{day(low)} に構造安値 {fmt(th['reaction_low'])}。OB接触は不要。"),
+               step('2','回復構造を確認',f"参照高値 {fmt(th['structure_recovery_level'])}。突破 {day(role['breakout_index'])}、認識 {day(role['known_index'])}、有効 {day(role['effective_index'])}。"),
+               step('3','必要水準を回復',f"判断終値 {fmt(b['close'])} > 執行下限 {fmt(threshold)}。翌始値も下限を厳密に上回る必要がある。"),
+               step('SL','構造安値から損切り設定',f"初期SL {fmt(stop)}。OB/FVGを後付けした根拠ではない。")]
+        focus=max(0,min(low,hi)-12);mechanism='売却 → 新しい安値と構造突破 → 水準回復 → 翌始値BUY'
+    else:
+        family='reversal';z=c['source_zone'];contact=c['contact_index'];roletext=roles.get(role['kind'],role['kind'])
+        assert z['available_index']<contact<=i and role['known_index']<=role['effective_index']<=contact
+        selected=selected_entries[i]
+        early=selected['route']=='early'
+        route='支持OB反転BUY' if early else '支持OB・構造確認BUY'
+        if early:
+            assert b['close']>=z['body_high'] and b['close']>bars[i-1]['high']
+            if role['kind']=='upward_leg_support': assert b['close']>b['open']
+        adopted=dict(id=z['id'],low=z['wick_low'],high=z['wick_high'],body_low=z['body_low'],body_high=z['body_high'],
+            available_index=z['available_index'],origin_index=z['origin_index'],available_date=day(z['available_index']),
+            origin_date=day(z['origin_index']),timeframe=z['timeframe'],role=roletext,
+            role_known=day(role['known_index']),role_effective=day(role['effective_index']),
+            state_at_decision='tradeable_saved_gate',decision_index=i)
+        marks=[mark('2','OB接触',contact,max(z['wick_low'],min(bars[contact]['low'],z['wick_high'])),i),
+               mark('L','反応安値',low,th['reaction_low'],i),mark('3','BUY判断',i,b['close'],i)]
+        levels=[level('ob-body','OB実体上端',z['body_high'],contact),level('sl','初期SL',stop,i)]
+        condition=f"終値 {fmt(b['close'])} ≥ 実体上端 {fmt(z['body_high'])}、前日高値 {fmt(bars[i-1]['high'])} 超え。"
+        if early: levels.insert(1,level('prior-high','前日高値',bars[i-1]['high'],i-1))
+        else:
+            candidate=plans[i]['intent']['candidate'];ref=candidate['reference']
+            boundary=ref['price']+meta['legacy_rules']['structure_buffer_atr']*ref['atr_at_origin']
+            assert b['close']>boundary
+            marks.append(mark('H','構造参照高値',ref['origin_index'],ref['price'],ref['available_index']))
+            levels.append(level('buy-boundary','構造突破の境界',boundary,ref['available_index']))
+            if candidate['confirmation']=='close_sequence':
+                count=meta['legacy_rules']['buy_confirm_closes']
+                assert all(bars[j]['close']>boundary for j in range(i-count+1,i+1))
+                assert b['close']-candidate['low']>=meta['legacy_rules']['buy_departure_atr']*candidate['low_atr']
+                condition=f"参照高値 {fmt(ref['price'])} + {meta['legacy_rules']['structure_buffer_atr']}×ATR {fmt(ref['atr_at_origin'])} = {fmt(boundary)} を{count}終値連続で上回る。安値からの離脱幅も既存閾値以上。"
+                marks.append(mark('3a','突破確認1本目',i-count+1,bars[i-count+1]['close'],i-count+1))
+            elif candidate['confirmation']=='breakout_retest':
+                target=selected['key'].split(f':retest:{i}:',1)[1]
+                tz=retest_defs.get(target)
+                assert tz is not None,'OB retest adapter needs explicit shape mapping'
+                assert tz['available_index']<i and b['low']<=tz['high'] and b['high']>=tz['low'] and b['close']>tz['high']
+                assert b['close']>b['open'] and b['low']>=candidate['low']
+                retest=dict(id=target,kind=tz['kind'].upper(),low=tz['low'],high=tz['high'],
+                    origin_index=tz['origin_index'],available_index=tz['available_index'],
+                    origin_date=day(tz['origin_index']),available_date=day(tz['available_index']),
+                    decision_index=i,known_index=i,timeframe='1D')
+                levels.extend([level('retest-low','採用FVG下端',tz['low'],tz['available_index']),
+                               level('retest-high','採用FVG上端',tz['high'],tz['available_index'])])
+                marks.append(mark('R','採用FVG再テスト',i,max(tz['low'],min(b['low'],tz['high'])),i))
+                condition=f"構造確認後、{day(tz['available_index'])} に利用可能となったFVG {fmt(tz['low'])}–{fmt(tz['high'])} を再テスト。陽線でFVG上端と構造境界 {fmt(boundary)} を上回って引け、構造安値も維持。"
+                route='支持OB・FVG再テストBUY'
+            else: raise AssertionError(candidate['confirmation'])
+        steps=[step('1','接触前に支持役割を認識',roletext+f"。有効 {day(role['effective_index'])}、OB利用可能 {day(z['available_index'])}。"),
+               step('2','採用OBへの反応',f"{day(contact)} にヒゲ帯 {fmt(z['wick_low'])}–{fmt(z['wick_high'])} へ接触。"),
+               step('3','原ルートの終値条件',condition),step('SL','初期SLを設定',f"反応安値 {fmt(th['reaction_low'])}（{day(low)}）。初期SL {fmt(stop)}。")]
+        focus=max(0,min(contact,low)-18);mechanism='支持役割のあるOB → 接触・反応 → 原ルートの価格条件 → 翌始値BUY'
+    ev=visual(family,i,mechanism,focus,marks,levels,steps,adopted,gates)
+    ev['retest_zone']=retest;ev['fvg_used']=bool(retest and retest['kind']=='FVG')
+    if retest:
+        ev['mechanism']='支持OBで構造回復 → 確認後のFVG再テスト → 翌始値BUY'
+    lines=[s['title']+'：'+s['detail'] for s in steps]+['200SMAは参照。'+('このBUYは構造後のFVG再テストを採用。' if retest else 'このBUYではFVGを必須条件として採用していない。'),
+        f'終値判断の翌有効観測日始値+{slip:g}ptでBUYするモデル。']
+    decisions.append(dict(id=oid,index=i,date=day(i),side='BUY',route=route,reason='\n'.join(lines),
+        zone_id=adopted['id'] if adopted else None,initial_stop=stop,contact_date=day(c['contact_index']),
+        gates=json.dumps({k:dict(passed=v['passed'],status=v['status'],reason=v['reason']) for k,v in c['close_gate_snapshot'].items()},ensure_ascii=False),
+        visual=json.dumps(ev,ensure_ascii=False,separators=(',',':'))))
+
+fills=[];exit_by_index={c['index']:c for c in closed.values()}
+for line,r in enumerate(raw,1):
+    action=r['action']
+    if action not in ['buy_fill','sell_fill','intrabar_emergency_stop','gap_emergency_stop']:continue
+    i=r['index'];assert r['at'][:10]==day(i)
+    if action=='buy_fill':
+        pid=r['order_id'];c=contexts[pid];d=c['decision_index'];oid=pid;kind='BUY';pnl=None
+        dec=next(x for x in decisions if x['id']==pid);ev=json.loads(dec['visual']);route=dec['route'];reason=dec['reason']
+        assert i==d+1 and abs(r['price']-(bars[i]['open']+slip))<1e-8 and r['price']>r['stop']
+        if c['entry_family']=='recovery': assert bars[i]['open']>c['next_open_execution']['minimum_raw_open_exclusive']
+    else:
+        cl=exit_by_index[i];pid=cl['position_id'];pnl=cl['net_pnl_usd'];c=contexts[pid]
+        assert abs(cl['exit_price']-r['price'])<1e-8
+        assert abs(pnl-(r['price']-buys[pid]['price']))<1e-8,'independent points ledger'
+        if action=='sell_fill':
+            oid=r['order_id'];d=cl['sell_decision']['index'];kind='SELL';route='通常SELL'
+            sd=cl['sell_decision'];t=sd['representative_selection']['local_trigger'];atr=t['h1']['atr_at_origin']
+            boundary=t['reference']['price']-meta['legacy_rules']['structure_buffer_atr']*atr
+            assert t['first_breaks']['early']==d-1 and all(bars[j]['close']<boundary for j in [d-1,d])
+            assert t['peak']-bars[d]['close']>=meta['legacy_rules']['sell_departure_atr']*atr
+            assert i==d+1 and abs(r['price']-(bars[i]['open']-slip))<1e-8
+            marks=[mark('1','H1',t['h1']['origin_index'],t['h1']['price'],t['h1']['available_index']),
+                   mark('N','ネックライン',t['neckline']['origin_index'],t['neckline']['price'],t['neckline']['available_index']),
+                   mark('2','H2',t['peak_index'],t['peak'],d),mark('3a','1本目の終値',d-1,bars[d-1]['close'],d-1),
+                   mark('3b','2本目・SELL判断',d,bars[d]['close'],d)]
+            levels=[level('sell-boundary','SELL判定境界',boundary,t['levels_known_index']),
+                    level('local-support','局所支持',t['reference']['price'],t['levels_known_index']),
+                    level('neckline','ネックライン',t['neckline']['price'],max(t['neckline']['available_index'],t['levels_known_index']))]
+            steps=[step('1','H1を確定',f"高値 {day(t['h1']['origin_index'])} {fmt(t['h1']['price'])}、確定 {day(t['h1']['available_index'])}。"),
+                   step('2','H2からの下落',f"H2 {day(t['peak_index'])} {fmt(t['peak'])} からH1時ATR {fmt(atr)} 以上の下落。"),
+                   step('3','境界を2終値連続で割る',f"支持 {fmt(t['reference']['price'])} − {meta['legacy_rules']['structure_buffer_atr']}×ATR = {fmt(boundary)}。{day(d-1)}・{day(d)} の終値が下。")]
+            ev=visual('sell',d,'H1 → H2 → 局所支持下の2終値 → 翌始値SELL（ロング決済）',max(0,t['h1']['origin_index']-10),marks,levels,steps)
+            reason='\n'.join(s['title']+'：'+s['detail'] for s in steps)+'\n新規ショートではなくロング決済。翌有効観測日始値−5pt。'
+            decisions.append(dict(id=oid,index=d,date=day(d),side='SELL',route=route,reason=reason,
+                zone_id=None,initial_stop=c['stop'],visual=json.dumps(ev,ensure_ascii=False,separators=(',',':'))))
+        else:
+            oid=None;d=None;kind='STOP';route='寄付きギャップSTOP' if action=='gap_emergency_stop' else '初期ストップ';stop=buys[pid]['stop']
+            assert bars[i]['low']<=stop
+            expected=(bars[i]['open'] if bars[i]['open']<=stop else stop)-slip
+            assert abs(r['price']-expected)<1e-8
+            if action=='gap_emergency_stop':assert bars[i]['open']<=stop
+            steps=[step('1','BUY時の初期SL',f"{day(buys[pid]['index'])} のBUY時にSL {fmt(stop)} を設定。"),
+                   step('2','安値がSLに到達',f"安値 {fmt(bars[i]['low'])} ≤ SL {fmt(stop)}。{'当日始値' if bars[i]['open']<=stop else 'SL価格'} −5ptの代理約定。日中順序は不明。")]
+            ev=visual('stop',i,'初期SL → 当日安値が到達 → OHLCモデルのSTOP決済',max(0,i-45),
+                [mark('2','SL到達',i,bars[i]['low'],i)],[level('sl','初期SL',stop,buys[pid]['index'])],steps)
+            ev['decision_index']=None
+            reason='\n'.join(s['title']+'：'+s['detail'] for s in steps)+'\n200SMA割れやbearish OB/FVGを売却理由にしない。'
+    ev=deepcopy(ev);ev['known_index']=i
+    ev['fill']=dict(id=f'E{len(fills)+1:03d}',index=i,date=day(i),kind=kind,price=r['price'],raw_open=bars[i]['open'])
+    ev['execution_step']=step('4' if kind!='STOP' else '3','約定モデル',f"{day(i)} {kind} {fmt(r['price'])}pt。"+('日足SL代理約定。' if kind=='STOP' else f"始値 {fmt(bars[i]['open'])} に片道5ptを適用。"))
+    fills.append(dict(id=f'E{len(fills)+1:03d}',index=i,date=day(i),kind=kind,route=route,price=r['price'],
+        position_id=pid,order_id=oid,decision_index=d,decision_date=day(d),initial_stop=buys[pid]['stop'],
+        reason=reason,net_pnl_points=pnl,net_pnl_usd_reference=pnl*5 if pnl is not None else None,
+        source_line=line,source_action=action,visual=json.dumps(ev,ensure_ascii=False,separators=(',',':'))))
+
+zones=[]
+for r in jl('primary_zone_state_events'):
+    z=r['zone'];i=r['index'];assert z['available_index']<=i
+    zones.append(dict(id=z['id'],index=i,date=day(i),kind='OB' if z['kind']=='ob_candidate' else z['kind'].upper(),
+        direction=z['direction'],timeframe=z['timeframe'],origin_index=z['origin_index'],origin_date=day(z['origin_index']),
+        available_index=z['available_index'],available_date=day(z['available_index']),low=z['wick_low'],high=z['wick_high'],
+        body_low=z['body_low'],body_high=z['body_high'],state=r['state'],previous_state=r['prior_state'],source='primary_v09'))
+tactical=[];defs={}
+for r in jl('tactical_zone_events'):
+    if r['action']=='formed': z=r['zone'];defs[z['id']]=z
+    else:z=defs[r['zone_id']]
+    i=r['index']
+    tactical.append(dict(id=z['id'],index=i,date=day(i),kind=z['kind'].upper(),direction=z['direction'],timeframe='1D',
+        origin_index=z['origin_index'],origin_date=day(z['origin_index']),available_index=z['available_index'],
+        available_date=day(z['available_index']),low=z['low'],high=z['high'],body_low=z['low'],body_high=z['high'],
+        state='active' if r['action']=='formed' else r['action'],source='campaign_daily',parent_id=z['parent_id']))
+states=[];plans=jl('close_plans')
+for s,p in zip(jl('daily_states'),plans):
+    i=s['index'];assert s['datetime'][:10]==p['datetime'][:10]==day(i)
+    states.append(dict(index=i,date=day(i),**{k:s[k] for k in ['state','position_id','live_stop','pending_order_id',
+        'market_phase','recovery_phase','weekly_trend','monthly_trend']},close_reason=p['reason']))
+assert len(states)==len(plans)==len(bars)
+decision_ids={d['id'] for d in decisions}
+missing_pending=[s for s in states if s['pending_order_id'] and s['pending_order_id'] not in decision_ids]
+assert not missing_pending, 'Unexported pending order needs explicit handling'
+
+def query(rows,label,tables,definition,caveats=None):
+    return dict(rows=rows,source=dict(label=label,tables=tables,executedAt=load(OUT/'NKD_F/fetch_manifest.json')['captured_at_utc'],
+        filters=['NKD=F CMEドル建て / 2026-10-14以前の有効配信日足 / 選択日・表示窓に連動'],
+        metricDefinitions=[dict(label=label,definition=definition)],caveats=caveats or []))
+snapshot.update(title='日経先物 NKD=F · v0.11 追体験',buildStatus='updating',generatedAt='2026-10-15')
+snapshot['replay'].update(analysisReady=True,start=days[0],end=days[-1],defaultDate=days[-1],hashes=hashes,
+    strategyStatus='NOT_VALIDATED',revision='rev11_without_continuation',pointValue=5,commissionSide=0,slippagePoints=5,
+    fvgRole='200SMAは参照。FVGは全BUYの必須条件ではないが、構造後の再テストBUYに採用されうる。継続BUYはオフ。')
+snapshot['queries']=dict(
+    market_prices=query(bars,'NKD=F 日足・200SMA',['NKD_F/daily_analysis.csv'],'1行=有効配信日足。200SMA=当日を含む直近200有効終値の平均。',['不正OHLC等205行は明示除外、価格補間なし。CMEドル建て連続先物で大阪先物ではない。']),
+    primary_zones=query(zones,'v09 OB/FVGの状態',['primary_zone_state_events.jsonl'],'選択日以下の最終状態を採用。起点日と利用可能日は別。',['機械的な価格形状候補で機関の注文観測ではない。欠落日足の隣接関係は未補正。']),
+    tactical_zones=query(tactical,'補助日足FVG/IFVG',['tactical_zone_events.jsonl'],'保存済み補助ゾーンの有効期間。原本v09とは定義・寿命が別。'),
+    executions=query(fills,'v0.11 約定モデル',['execution_events.jsonl','entry_structural_contexts.json'],'1行=約定モデル。決済済み行のみ損益公開。単位pt、USD参考=pt×5。',['1枚、片道5ptスリッページ、手数料未控除。STOPは日足OHLC代理約定、ロール費・証拠金・金利未計上。']),
+    decisions=query(sorted(decisions,key=lambda d:d['index']),'終値判断・採用根拠',['entry_structural_contexts.json','close_plans.jsonl'],'判断日には翌始値の約定や将来決済を混ぜない。earlyとconfirmedの価格条件を区別。'),
+    daily_states=query(states,'日次保有・未約定状態',['daily_states.jsonl','close_plans.jsonl'],'1行=選択日終値処理後のモデル状態。保有と翌始値待ちを区別。'))
+for name in ['decisions','executions']: snapshot['queries'][name]['payloadColumns']=['visual','gates']
+save('snapshot.json',snapshot)
+(APP/'src/data.json').write_text(json.dumps(snapshot,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
+pd_fills=__import__('pandas').DataFrame([{k:v for k,v in f.items() if k!='visual'} for f in fills])
+pd_fills.to_csv(OUT/'nkd_v011_fills.csv',index=False,encoding='utf-8-sig')
+position=None;realized=0
+for f in fills:
+    if f['kind']=='BUY': assert position is None;position=f
+    else: assert position and f['position_id']==position['position_id'];realized+=f['price']-position['price'];position=None
+results=dict(status='PASS_INPUT_FILL_EVIDENCE_RECONCILIATION',strategy_status='NOT_VALIDATED',symbol='NKD=F',
+    saved_campaign_keys_unchanged=True,additional_inactive_default=extra_config,
+    start=days[0],end=days[-1],bars=len(bars),fills=Counter(f['kind'] for f in fills),
+    buy_routes=Counter(f['route'] for f in fills if f['kind']=='BUY'),decisions=len(decisions),
+    closed_trades=len(closed),wins=sum(c['net_pnl_usd']>0 for c in closed.values()),
+    stop_routes=Counter(f['source_action'] for f in fills if f['kind']=='STOP'),
+    fvg_retest_buys=[dict(date=f['date'],decision_date=f['decision_date'],position_id=f['position_id']) for f in fills if f['kind']=='BUY' and json.loads(f['visual']).get('fvg_used')],
+    realized_points=realized,realized_usd_reference=realized*5,
+    largest_closed_gain_points=max(c['net_pnl_usd'] for c in closed.values()),
+    realized_excluding_largest_gain_points=realized-max(c['net_pnl_usd'] for c in closed.values()),
+    final_position_id=position['position_id'] if position else None,
+    unrealized_points=(bars[-1]['close']-position['price']) if position else 0,
+    latest_state=states[-1],last_fills=[{k:v for k,v in f.items() if k!='visual'} for f in fills[-6:]],
+    primary_zones=len({z['id'] for z in zones}),tactical_zones=len(defs),
+    limits=['No predictive edge or live deployment validation','No new upstream detector prefix-invariance proof',
+            'Historical invalid OHLC exclusions affect observation adjacency','No broker commission or explicit contract roll fills'])
+save('analysis_summary.json',results)
+print(json.dumps({k:v for k,v in results.items() if k not in ['last_fills','latest_state','limits']},ensure_ascii=False,indent=2))

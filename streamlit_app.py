@@ -42,10 +42,14 @@ def main() -> None:
     if st.query_params.get("market") != selected:
         st.query_params["market"] = selected
     item = manifest["markets"][selected]
+    refresh_text = "クラウド定期更新：毎日9時頃（日本時間）" if manifest.get("automatic_refresh") else "自動更新なし"
     st.caption(
         f"保存データ最終日 {item['end']} ｜ {item['symbol']} ｜ "
-        "保存済み結果の閲覧専用・自動更新なし"
+        f"閲覧専用 ｜ {refresh_text}"
     )
+    quality = item.get("data_quality", {})
+    if quality.get("provisional_from_date"):
+        st.warning(f"{quality['provisional_from_date']}以降の末尾データは暫定です。Yahoo配信値の変動を確認したため、確定扱いにしません。確定確認済みの保存範囲は{quality['verified_through']}までです。次回、配信元の日付が進んだ後にこの暫定末尾だけを再取得・再計算します。")
     with st.sidebar:
         st.header("表示設定", anchor=False)
         frame_height = st.slider("リプレイ画面の高さ", 800, 2400, 1400, 100)
@@ -54,7 +58,8 @@ def main() -> None:
         st.write(f"有効日足：{item['bars']:,}本")
         st.caption("収録期間はファイル全体の範囲です。選択日当時の状態はリプレイ画面内で確認してください。")
         st.write(f"保存結果の生成日時：{item['snapshot_generated_at']}")
-        st.caption("このアプリは価格APIを呼びません。画面の再読込だけでは価格や売買判定は更新されません。")
+        st.caption("価格の取得・再計算はGitHubのクラウドで実行します。画面は検査済みの保存結果を読み込みます。新しい確定足がない日や更新失敗時は直前の結果を維持します。更新時刻には遅延があり、表示中の画面は再読込が必要です。")
+        st.link_button("更新状況・実行履歴", "https://github.com/turnDeep/market-structure-replay/actions/workflows/refresh-data.yml")
         st.markdown("**アクセス制限**")
         st.caption("GitHubのPrivate設定に加え、Streamlit CloudのSharingを「Only specific people can view this app」に設定してください。アプリ内表示は認証の代わりにはなりません。")
 

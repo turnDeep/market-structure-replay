@@ -8,3 +8,5 @@ __pycache__/
 !.env.example
 qa/screenshots/
 local-import-report.json
+.refresh-reports/
+.refresh-work/
