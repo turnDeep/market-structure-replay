@@ -17,6 +17,21 @@ def replace_once(source, old, new):
     return source.replace(old,new)
 
 
+def refresh_metadata(replay, bars, audit, previous_end, prior_rows):
+    """Freshness/counts are derived from rows, not an accumulating stale label."""
+    result = dict(replay.get("refresh",{}),date=now_iso()[:10],previousEnd=previous_end,
+        refreshedThrough=bars[-1]["date"],extendedEnd=bars[-1]["date"],
+        latestAppendedBars=len(bars)-prior_rows,capturedAt=audit["captured_at_utc"],
+        partialDatesExcluded=audit.get("excluded_in_progress",[]),historicalRowsUnchanged=True,strategyReplayed=True,
+        strategyParametersChanged=False,dataPolicy="append_only",automaticScheduleEnabled=True)
+    if audit.get("provisional_saved_tail"):
+        result.update(dataPolicy="append_only_with_explicit_provisional_tail_finalization",
+            provisionalTailReplaced=audit["provisional_saved_tail"],verifiedHistoricalRowsUnchanged=True)
+    if result.get("frozenThrough"):
+        result["appendedBars"] = sum(b["date"]>result["frozenThrough"] for b in bars)
+    return result
+
+
 def add_unfilled_sells(ns):
     """Decision evidence comes from close-time logs, never a fictitious fill."""
     known = {d["id"] for d in ns["decisions"]}
@@ -126,10 +141,8 @@ def export(market, work, before):
     now = now_iso(); fresh["id"] = before["id"]; fresh["buildStatus"] = "complete"; fresh["generatedAt"] = now
     replay = dict(before["replay"],**fresh["replay"])
     replay["defaultDate"] = replay["end"]
-    replay["refresh"] = dict(before["replay"].get("refresh",{}),previousEnd=before["replay"]["end"],
-        refreshedThrough=replay["end"],latestAppendedBars=len(fresh["queries"]["market_prices"]["rows"])-n,
-        capturedAt=load(work/"fetch_audit.json")["captured_at_utc"],historicalRowsUnchanged=True,strategyReplayed=True,
-        strategyParametersChanged=False,dataPolicy="append_only",automaticScheduleEnabled=True)
+    replay["refresh"] = refresh_metadata(before["replay"],fresh["queries"]["market_prices"]["rows"],
+        load(work/"fetch_audit.json"),before["replay"]["end"],n)
     fresh["replay"] = replay
     for name,q in fresh["queries"].items():
         q["source"]["executedAt"] = now

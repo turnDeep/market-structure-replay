@@ -137,3 +137,58 @@ def test_pending_sell_has_close_time_evidence_without_a_fictitious_fill():
     assert ev["known_index"]==5 and all(m["known_index"]<=5 for m in ev["marks"])
     ns["decisions"]=rows
     assert add_unfilled_sells(ns)==[]
+
+
+def test_freshness_counts_are_derived_after_provisional_replacement():
+    from cloud.export_adapter import refresh_metadata
+    replay = dict(refresh=dict(frozenThrough="2026-08-27",appendedBars=999,extendedEnd="stale"))
+    bars = [dict(date=d) for d in ["2026-08-27","2026-08-28","2026-10-15"]]
+    result = refresh_metadata(replay,bars,dict(captured_at_utc="now",excluded_in_progress=["2026-10-16"]),"2026-10-14",2)
+    assert result["appendedBars"]==2 and result["latestAppendedBars"]==1
+    assert result["extendedEnd"]=="2026-10-15"
+    assert result["partialDatesExcluded"]==["2026-10-16"]
+    assert result["automaticScheduleEnabled"] is True
+
+
+def test_staged_state_can_be_loaded_without_original_machine_paths(tmp_path):
+    from cloud.common import digest,load,save
+    from cloud.refresh import stage_state
+    work = tmp_path/"work";seed=work/"seed";result=work/"result"
+    seed.mkdir(parents=True);(result/"campaign_replay").mkdir(parents=True)
+    inputs={}
+    for name in ["prices","objects","contexts","calendar","config","base_config"]:
+        extension=".csv" if name in ["prices","objects","contexts"] else ".json"
+        path=result/(name+extension);path.write_bytes(("column\nrow\n" if extension==".csv" else "{}\n").encode())
+        inputs[name]=dict(path=str(path),sha256=digest(path.read_bytes()))
+    meta=dict(daily_rows=2,end="2026-10-15",input_hashes=inputs)
+    save(seed/"metadata.json",meta);save(result/"campaign_replay/metadata.json",meta)
+    save(result/"execution_facts.json",[])
+    (seed/"excluded_invalid_ohlc_rows.csv").write_text("datetime\n",encoding="utf-8")
+    staged=tmp_path/"staged"
+    stage_state("nq",work,staged)
+    reopened=materialize_seed("nq",tmp_path/"independent",state_root=staged/"state")
+    assert reopened["daily_rows"]==2
+    assert all(Path(r["path"]).name==r["path"] for r in reopened["input_hashes"].values())
+    assert load(tmp_path/"independent/quality.json")["provisional_from_date"] is None
+
+
+def test_second_replay_failure_does_not_modify_production_generation(tmp_path,monkeypatch):
+    import cloud.refresh as refresh
+    from replay_assets import ASSETS
+    original={p:p.read_bytes() for p in ASSETS.glob("*") if p.is_file()}
+    def fetch(market,work,meta,now):
+        refresh.save(work/"fetch_audit.json",dict(captured_at_utc=now.isoformat()))
+        return True
+    def subprocess_run(args,**kwargs):
+        if "cloud.replay_worker" in args:
+            market=args[-2];work=Path(args[-1]);(work/"result").mkdir()
+            if market=="nikkei":
+                raise RuntimeError("Synthetic second-market replay failure")
+            for name in ["replay_audit","export_audit","view_audit"]:
+                refresh.save(work/"result"/(name+".json"),dict(status="SOFTWARE_TEST_STUB"))
+    monkeypatch.setattr(refresh,"fetch",fetch)
+    monkeypatch.setattr(refresh.subprocess,"run",subprocess_run)
+    monkeypatch.setattr(refresh,"export",lambda market,work,before:before)
+    with pytest.raises(RuntimeError,match="second-market replay failure"):
+        refresh.run("refresh",tmp_path/"reports")
+    assert all(p.read_bytes()==raw for p,raw in original.items())

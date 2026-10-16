@@ -22,7 +22,9 @@ permissions:
   contents: read
 
 concurrency:
-  group: v011-cloud-generation
+  # Read-only regressions must not block the daily publisher. All publishers
+  # still share one group; every run uses its own isolated checkout/temp data.
+  group: v011-cloud-${{ github.event_name == 'push' && 'verify' || inputs.mode || 'refresh' }}
   cancel-in-progress: false
 
 jobs:
