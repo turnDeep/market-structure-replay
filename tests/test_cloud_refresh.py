@@ -111,3 +111,29 @@ def test_schedule_and_permissions_are_scoped():
     assert "git push origin HEAD:main" in text
     assert "--force" not in text
     assert "pull_request_target" not in text
+
+
+def test_pending_sell_has_close_time_evidence_without_a_fictitious_fill():
+    from cloud.export_adapter import add_unfilled_sells
+    # Small deterministic SOFTWARE fixture, not market observations or a backtest.
+    bars = [dict(close=x) for x in [20,22,23,22,19,18]]
+    trigger = dict(h1=dict(origin_index=1,price=22,available_index=2,atr_at_origin=1),
+        neckline=dict(origin_index=2,price=20,available_index=3),reference=dict(price=20),
+        peak_index=2,peak=23,first_breaks=dict(early=4),levels_known_index=3)
+    saved = dict(order_id="sell-pending",position_id="long-existing",index=5,
+        representative_selection=dict(local_trigger=trigger))
+    def visual(family,i,mechanism,focus,marks,levels,steps):
+        return dict(family=family,known_index=i,decision_index=i,mechanism=mechanism,marks=marks,levels=levels,steps=steps)
+    ns = dict(decisions=[],bars=bars,day=lambda i:f"day-{i}",
+        mark=lambda code,label,i,p,k:dict(index=i,price=p,known_index=k),
+        level=lambda key,label,p,i:dict(id=key,price=p,from_index=i),
+        step=lambda code,title,detail:dict(code=code,title=title,detail=detail),visual=visual,
+        jl=lambda name:[saved],meta=dict(legacy_rules=dict(structure_buffer_atr=.05,sell_departure_atr=1)),
+        contexts={"long-existing":dict(stop=15)})
+    rows = add_unfilled_sells(ns)
+    assert len(rows)==1 and rows[0]["side"]=="SELL" and rows[0]["index"]==5
+    ev = json.loads(rows[0]["visual"])
+    assert "fill" not in ev and "price" not in rows[0]
+    assert ev["known_index"]==5 and all(m["known_index"]<=5 for m in ev["marks"])
+    ns["decisions"]=rows
+    assert add_unfilled_sells(ns)==[]

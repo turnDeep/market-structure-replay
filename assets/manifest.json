@@ -16,14 +16,13 @@
       "start": "2000-09-18",
       "end": "2026-10-15",
       "bars": 6560,
-      "data_quality": {"provisional_from_date": "2026-10-15", "verified_through": "2026-10-14"},
       "snapshot_generated_at": "2026-10-16T01:19:33.285266+00:00",
       "strategy_status": "NOT_VALIDATED",
-      "html_bytes": 12215630,
-      "html_sha256": "f5045e73e86545a391e070f29bc1a2ef5374f1905de829f9ca9b597a02e46445",
-      "gzip_bytes": 1586775,
-      "gzip_sha256": "efa9a7a7d9a42f7b26b1b970f0e333654867e426daf1a2db0e90dcb9f0ae2c16",
-      "source_html_sha256": "3c9a7a5d2fc026688e2748f27029df6724305ae71684f26e2c16dbe5fa3c0d08",
+      "html_bytes": 12215752,
+      "html_sha256": "eee32b987c0af7f6dbb6b4a5d9838bb1673515f18194eb2fe8cc8908fcbe8545",
+      "gzip_bytes": 1586808,
+      "gzip_sha256": "bc0ee3001f777d7f1ccbf74ecb9951e3920d7c731102a09308d0063a0a107da3",
+      "source_html_sha256": "076949079cdcdf8e92c0ce97c361a871d0624d3be69da993641e4253d8e2c9f4",
       "reviewed_rows_unchanged": true,
       "queries": {
         "market_prices": {
@@ -51,7 +50,11 @@
           "rows_sha256": "c5322e5b1d7b5423cf0a5278187ee2354e926587dfafed630f2bf1b86182c1b0"
         }
       },
-      "privacy_cleanup": "Absolute user-directory paths replaced with basenames in provenance only; reviewed query rows unchanged."
+      "privacy_cleanup": "Absolute user-directory paths replaced with basenames in provenance only; reviewed query rows unchanged.",
+      "data_quality": {
+        "provisional_from_date": "2026-10-15",
+        "verified_through": "2026-10-14"
+      }
     },
     "nikkei": {
       "symbol": "NKD=F",
@@ -59,14 +62,13 @@
       "start": "2004-02-17",
       "end": "2026-10-15",
       "bars": 5531,
-      "data_quality": {"provisional_from_date": "2026-10-15", "verified_through": "2026-10-14"},
       "snapshot_generated_at": "2026-10-16T01:14:43.316864+00:00",
       "strategy_status": "NOT_VALIDATED",
-      "html_bytes": 11669023,
-      "html_sha256": "3df29d0196155da54de8c6c4d014d7e49a3099efaf618e5063e16ffaecdc62ce",
-      "gzip_bytes": 1500582,
-      "gzip_sha256": "8548d5f6915c60fed18f89c59ba12d7592755b035588dd5ca439e14d39357831",
-      "source_html_sha256": "8421e20825b66c49d66b6f3d38430ecef8aba3624f797574218c4a8ef391f042",
+      "html_bytes": 11669178,
+      "html_sha256": "879e5525659775a21cc249e89f058bc0da6d6af5797397f5258067ed7b341a13",
+      "gzip_bytes": 1500652,
+      "gzip_sha256": "51efe7b0e929ad03c64249c73e1c8feacc800da5b8e69b5a00b6369f8d5adf54",
+      "source_html_sha256": "b83f96b331eca810c1a038aacf7246e0741fd09b7fa4a1ccb6d90052ec1ce1f1",
       "reviewed_rows_unchanged": true,
       "queries": {
         "market_prices": {
@@ -94,7 +96,11 @@
           "rows_sha256": "910cd93295fb2e69d857386b83d72b523261f5fd46b13760715dde132bf59b43"
         }
       },
-      "privacy_cleanup": "Absolute user-directory paths replaced with basenames in provenance only; reviewed query rows unchanged."
+      "privacy_cleanup": "Absolute user-directory paths replaced with basenames in provenance only; reviewed query rows unchanged.",
+      "data_quality": {
+        "provisional_from_date": "2026-10-15",
+        "verified_through": "2026-10-14"
+      }
     }
   }
 }
