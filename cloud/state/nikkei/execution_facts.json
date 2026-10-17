@@ -1438,5 +1438,23 @@
     null,
     65000.0,
     null
+  ],
+  [
+    5530,
+    "position_closed",
+    null,
+    null,
+    "major_campaign_proposal:order:78",
+    null,
+    -5990.0
+  ],
+  [
+    5530,
+    "intrabar_emergency_stop",
+    64995.0,
+    null,
+    null,
+    null,
+    null
   ]
 ]

@@ -1,5 +1,5 @@
 {
-  "provisional_from_date": "2026-10-15",
-  "verified_through": "2026-10-14",
-  "reason": "Initial latest saved Yahoo daily row was observed changing during its provider-local date; retain it visibly as provisional until a later completed-bar refresh replaces this bounded tail."
+  "provisional_from_date": null,
+  "verified_through": "2026-10-15",
+  "reason": "Admitted only after both CME boundary and provider-local date boundary; later vendor revisions remain possible and are not applied to frozen history."
 }
