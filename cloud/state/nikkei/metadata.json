@@ -1,7 +1,7 @@
 {
-  "daily_rows": 5531,
+  "daily_rows": 5532,
   "start": "2004-02-17T00:00:00",
-  "end": "2026-10-15T00:00:00",
+  "end": "2026-10-16T00:00:00",
   "campaign_config": {
     "confirmed_entry_mode": "structure_or_retest",
     "enable_post_structure_retest": true,
@@ -193,19 +193,19 @@
   "input_hashes": {
     "prices": {
       "path": "prices.csv",
-      "sha256": "509fe1d739d5de299150cf28ddad9ba8ce39a42f3ff5ff811897b3f463ec38a7"
+      "sha256": "88854e6ee8f91b76a087ba0e9a4e86602a43180c5ac2c428456f6c9d18117713"
     },
     "objects": {
       "path": "objects.csv",
-      "sha256": "8061fbf6f204daea7247edba7b0723b287a14d156d424a673e816a4d513e9d78"
+      "sha256": "f302763671e477c7d506ac7d351a8c365b5293454d14ac4c467990570f8a537e"
     },
     "contexts": {
       "path": "contexts.csv",
-      "sha256": "1db028320f8cf2777b15a7b8006947416bf14e979583dfbb3d20849a6cba2efe"
+      "sha256": "05a5f4a128f1c26e0b692019c5c667551546e30e0305d544e92a41a04076b4ca"
     },
     "calendar": {
       "path": "calendar.json",
-      "sha256": "b9a0b5e6caa3566a71d806c76409281cc83c5ebc9f70ec05ca8b3d521e5f1097"
+      "sha256": "1d7ff2194117c5ecac5fe2113bce390be44c8e757721dff4355a3aaf2bbd498c"
     },
     "config": {
       "path": "config.json",
