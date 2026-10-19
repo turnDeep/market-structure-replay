@@ -63,6 +63,9 @@ def package(path: Path, key: str, output: Path) -> dict:
     original = path.read_bytes()
     html = original.decode("utf-8")
     before = read_snapshot(html)
+    if before.get("replay",{}).get("strategyVersion") == "v0.12":
+        from cloud.version_labels import validate_current_labels
+        validate_current_labels(before)
     after = scrub(before)
     if before.get("buildStatus") != "complete":
         raise ValueError("The source must be a completed, standalone export")

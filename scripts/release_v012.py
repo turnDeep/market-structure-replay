@@ -103,6 +103,8 @@ def presentation_labels(html):
     """Mechanical display-label migration, never alter bundled runtime logic."""
     def labels(source):
         source=source.replace("v0.11","v0.12").replace("revision 0.11","revision 0.12").replace("_v011_","_v012_")
+        source=source.replace("原本：revision 0.12 / rev11_without_continuation / 収録 ","現行：v0.12 / BUY参照半径1 / 収録 ")
+        source=source.replace("revision 0.12 / rev11_without_continuation / 収録 ","現行：v0.12 / BUY参照半径1 / 収録 ")
         return source.replace("保存済み履歴を維持し、追加区間を同じv0.12設定で再計算しています。",
             "v0.12の保存結果です。αの正式採用時に過去売買を再計算し、以後の日次更新ではv0.12内の履歴を維持します。")
     def upgrade(match):

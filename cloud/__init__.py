@@ -1,1 +1,1 @@
-"""Portable, frozen v0.11 replay pipeline. No broker connectivity."""
+"""Portable v0.12 replay pipeline over frozen vendor sources. No broker connectivity."""

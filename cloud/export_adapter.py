@@ -10,6 +10,7 @@ from pathlib import Path
 
 from cloud.common import CLOUD, load, now_iso, save
 from cloud.strategy import STRATEGY_VERSION
+from cloud.version_labels import normalize_current_labels
 
 
 def replace_once(source, old, new):
@@ -167,6 +168,7 @@ def export(market, work, before, *, migration=False):
         q["source"]["label"] = q["source"]["label"].replace("v0.11",STRATEGY_VERSION)
         q["source"]["executedAt"] = now
         q["source"].setdefault("evidenceFlow",[]).append(dict(title="v0.12リリース" if migration else "クラウド更新",detail=("価格・原本OB入力を固定し、buy_reference_radius 2→1と確定済み半径1ピボット供給だけを変更して全履歴を再計算。β・γは不採用。" if migration else "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。")))
+    normalize_current_labels(fresh)
     save(dest/"snapshot.json",fresh)
     save(dest/"export_audit.json",dict(status="PASS_EXPLICIT_STRATEGY_MIGRATION" if migration else "PASS_REPLAY_FACTS_AND_PRESERVED_REVIEWED_HISTORY",preserved_rows=reconciled))
     return fresh

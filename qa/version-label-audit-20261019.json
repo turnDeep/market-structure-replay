@@ -1,0 +1,61 @@
+{
+  "status": "PASS_VERSION_LABEL_REPAIR",
+  "date_utc": "2026-10-19T08:42:41.468608+00:00",
+  "strategy_unchanged": true,
+  "market_data_fetched": false,
+  "query_rows_changed": false,
+  "markets": {
+    "nq": {
+      "changed_active_labels": [
+        "executions.metricDefinitions[0].label"
+      ],
+      "current_labels": {
+        "title": "NQ=F · v0.12 追体験",
+        "queries.market_prices.source.label": "NQ=F 日足・200SMA",
+        "queries.market_prices.source.metricDefinitions[0].label": "NQ=F 日足・200SMA",
+        "queries.market_prices.source.metricDefinitions[1].label": "未決済の含み損益（USD）",
+        "queries.primary_zones.source.label": "原本 v09 OB/FVG 状態イベント",
+        "queries.primary_zones.source.metricDefinitions[0].label": "原本 v09 OB/FVG 状態イベント",
+        "queries.tactical_zones.source.label": "補助 日足FVG/IFVG 状態イベント",
+        "queries.tactical_zones.source.metricDefinitions[0].label": "補助 日足FVG/IFVG 状態イベント",
+        "queries.executions.source.label": "v0.12 約定履歴",
+        "queries.executions.source.metricDefinitions[0].label": "v0.12 約定履歴",
+        "queries.executions.source.metricDefinitions[1].label": "売買の視覚的根拠",
+        "queries.executions.source.metricDefinitions[2].label": "選択日までの実現損益（USD）",
+        "queries.executions.source.metricDefinitions[3].label": "決済数・勝敗・勝率",
+        "queries.executions.source.metricDefinitions[4].label": "最大1取引への依存",
+        "queries.decisions.source.label": "終値判断・根拠",
+        "queries.decisions.source.metricDefinitions[0].label": "終値判断・根拠",
+        "queries.decisions.source.metricDefinitions[1].label": "売買の視覚的根拠",
+        "queries.daily_states.source.label": "日次の保有・注文状態",
+        "queries.daily_states.source.metricDefinitions[0].label": "日次の保有・注文状態",
+        "queries.daily_states.source.metricDefinitions[1].label": "集計の保有判定"
+      },
+      "all_query_row_hashes_unchanged": true,
+      "compiled_footer_shows_current_model": true
+    },
+    "nikkei": {
+      "changed_active_labels": [
+        "executions.metricDefinitions[0].label"
+      ],
+      "current_labels": {
+        "title": "日経先物 NKD=F · v0.12 追体験",
+        "queries.market_prices.source.label": "NKD=F 日足・200SMA",
+        "queries.market_prices.source.metricDefinitions[0].label": "NKD=F 日足・200SMA",
+        "queries.primary_zones.source.label": "v09 OB/FVGの状態",
+        "queries.primary_zones.source.metricDefinitions[0].label": "v09 OB/FVGの状態",
+        "queries.tactical_zones.source.label": "補助日足FVG/IFVG",
+        "queries.tactical_zones.source.metricDefinitions[0].label": "補助日足FVG/IFVG",
+        "queries.executions.source.label": "v0.12 約定モデル",
+        "queries.executions.source.metricDefinitions[0].label": "v0.12 約定モデル",
+        "queries.decisions.source.label": "終値判断・採用根拠",
+        "queries.decisions.source.metricDefinitions[0].label": "終値判断・採用根拠",
+        "queries.daily_states.source.label": "日次保有・未約定状態",
+        "queries.daily_states.source.metricDefinitions[0].label": "日次保有・未約定状態"
+      },
+      "all_query_row_hashes_unchanged": true,
+      "compiled_footer_shows_current_model": true
+    }
+  },
+  "v011_archive_unchanged": true
+}

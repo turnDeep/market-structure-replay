@@ -19,11 +19,11 @@
       "snapshot_generated_at": "2026-10-19T08:25:07.295252+00:00",
       "strategy_status": "NOT_VALIDATED",
       "strategy_version": "v0.12",
-      "html_bytes": 12187831,
-      "html_sha256": "492339df6237ab011e658c492996f2bfc2887f9a01516b04a1f6ecdc8928d6c5",
-      "gzip_bytes": 1584018,
-      "gzip_sha256": "1fdfa08239f7ae1d2d77bde01323eb888242bca82a3b8781feb8555dbe1b461e",
-      "source_html_sha256": "12f485f143bbb448a28322ad9ea4bdf1d95dfe6787ad2007be710f035593db78",
+      "html_bytes": 12189016,
+      "html_sha256": "4476d137cb7e754427f0524896d37b7e65ef3fb98c332169dab9e031b6b35128",
+      "gzip_bytes": 1584251,
+      "gzip_sha256": "23084efcef8306de362ea7328164edd9d03cad9096f743e810cb1c209009f876",
+      "source_html_sha256": "ee17f2f87b0b917d1761c1b2c58e60bfef5523236d038cc8cea08e137a254d46",
       "reviewed_rows_unchanged": true,
       "queries": {
         "market_prices": {
@@ -66,11 +66,11 @@
       "snapshot_generated_at": "2026-10-19T08:23:12.454889+00:00",
       "strategy_status": "NOT_VALIDATED",
       "strategy_version": "v0.12",
-      "html_bytes": 11642246,
-      "html_sha256": "7e654854e287033282c4bafd14ead66c6aac8f88f7716ae3bd3aae62340a2766",
-      "gzip_bytes": 1499937,
-      "gzip_sha256": "fb9ebbaf623c54940a47608447d728de5d03425fb6e48df3f368b8a54f2e837d",
-      "source_html_sha256": "a659aed43df7a0ae9c7b32639322407d125b5bb6e1b1d5d0809219e88d943aee",
+      "html_bytes": 11642669,
+      "html_sha256": "0b427a3dd3c2fb5448e9afe5c7751357ee9a6c893cb8328e60534636a0ce1d6e",
+      "gzip_bytes": 1499957,
+      "gzip_sha256": "c8f620d290f4d782489d037a175e09f1d5259f6e1d7b981890a879cd3a942d13",
+      "source_html_sha256": "5ad157b5c67c36407db15ea2490f74ce43fe1e7fe592a2e6e191d5b0ea8e26a9",
       "reviewed_rows_unchanged": true,
       "queries": {
         "market_prices": {
@@ -106,5 +106,6 @@
     }
   },
   "strategy_version": "v0.12",
-  "strategy_release": "v012_release.json"
+  "strategy_release": "v012_release.json",
+  "presentation_updated_at": "2026-10-19T08:42:48.263148+00:00"
 }
