@@ -11,6 +11,7 @@ from pathlib import Path
 from cloud.common import CLOUD, load, now_iso, save
 from cloud.strategy import STRATEGY_VERSION
 from cloud.version_labels import normalize_current_labels
+from cloud.protective_exit_view import adapt_template, protective_sell
 
 
 def replace_once(source, old, new):
@@ -47,7 +48,11 @@ def add_unfilled_sells(ns):
         i = sd["index"]
         t = sd["representative_selection"]["local_trigger"]
         if not t:
-            raise ValueError("SELL without a reviewed local-trigger mapping")
+            ev,steps,route,reason=protective_sell(ns,sd)
+            c=ns["contexts"][sd["position_id"]]
+            result.append(dict(id=sd["order_id"],index=i,date=day(i),side="SELL",route=route,
+                reason=reason,zone_id=None,initial_stop=c["stop"],visual=json.dumps(ev,ensure_ascii=False,separators=(",",":"))))
+            continue
         atr = t["h1"]["atr_at_origin"]
         boundary = t["reference"]["price"]-ns["meta"]["legacy_rules"]["structure_buffer_atr"]*atr
         assert t["first_breaks"]["early"] == i-1 and all(bars[j]["close"]<boundary for j in [i-1,i])
@@ -99,13 +104,18 @@ def export(market, work, before, *, migration=False):
     if source.count(marker)!=1:
         raise ValueError("Reviewed exporter summary boundary changed")
     source = source.split(marker,1)[0]
-    if market == "nq":
-        source = source.replace("NKD=F","NQ=F").replace("CMEドル建て / ","").replace("日経先物 NQ=F","NQ=F")
+    if market in {"nq", "es"}:
+        symbol={"nq":"NQ=F","es":"ES=F"}[market]
+        source = source.replace("NKD=F",symbol).replace("CMEドル建て / ","").replace("日経先物 "+symbol,symbol)
         source = source.replace(":03d}",":02d}")
-    namespace = {"__file__":str(dest/"export_reviewed.py"),"_pending_sells":add_unfilled_sells}
+    if market == "es":
+        from cloud.es_view import retest_labels
+        source=retest_labels(source)
+    source=adapt_template(source)
+    namespace = {"__file__":str(dest/"export_reviewed.py"),"_pending_sells":add_unfilled_sells,"_protective_sell":protective_sell}
     exec(compile(source,str(dest/"export_reviewed.py"),"exec"),namespace)
     fresh = load(app/"data.json")
-    if market == "nq":
+    if market in {"nq", "es"}:
         for row in fresh["queries"]["executions"]["rows"]:
             row["net_pnl_usd"] = row.pop("net_pnl_points")
             row.pop("net_pnl_usd_reference",None)
@@ -114,7 +124,7 @@ def export(market, work, before, *, migration=False):
         for name,q in fresh["queries"].items():
             q["source"] = deepcopy(before["queries"][name]["source"])
         fresh["title"] = before["title"]
-        fresh["replay"].update(pointValue=20,commissionSide=2.5,slippagePoints=.25)
+        fresh["replay"].update(pointValue=pv,commissionSide=commission,slippagePoints=slip)
     n = len(before["queries"]["market_prices"]["rows"])
     if migration:
         assert meta["legacy_rules"]["buy_reference_radius"] == 1

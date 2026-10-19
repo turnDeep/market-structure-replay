@@ -14,9 +14,9 @@ from scripts.import_replays import package,read_snapshot
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument("--nq",type=Path);p.add_argument("--nikkei",type=Path);args=p.parse_args()
-    selected=[(market,source) for market,source in [("nq",args.nq),("nikkei",args.nikkei)] if source is not None]
-    if not selected:p.error("At least one reviewed --nq or --nikkei HTML is required")
+    p=argparse.ArgumentParser();p.add_argument("--nq",type=Path);p.add_argument("--es",type=Path);args=p.parse_args()
+    selected=[(market,source) for market,source in [("nq",args.nq),("es",args.es)] if source is not None]
+    if not selected:p.error("At least one reviewed --nq or --es HTML is required")
     manifest=load_manifest()
     with tempfile.TemporaryDirectory(prefix="replay-copy-only-") as temporary:
         staged=Path(temporary)

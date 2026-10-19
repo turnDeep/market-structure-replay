@@ -25,7 +25,7 @@ def test_old_strategy_must_not_be_relabelled():
         normalize_current_labels(dict(replay=dict(strategyVersion="v0.11")))
 
 
-@pytest.mark.parametrize("market",["nq","nikkei"])
+@pytest.mark.parametrize("market",["nq","es"])
 def test_active_title_and_all_source_measurement_labels(market):
     from replay_assets import load_manifest,load_replay
     from scripts.import_replays import read_snapshot
@@ -47,7 +47,7 @@ def test_packager_rejects_stale_source_definition(tmp_path):
         package(path,"nq",tmp_path/"out")
 
 
-@pytest.mark.parametrize("market",["nq","nikkei"])
+@pytest.mark.parametrize("market",["nq","es"])
 def test_no_stale_version_in_active_compiled_ui_or_page_title(market):
     import base64
     import re

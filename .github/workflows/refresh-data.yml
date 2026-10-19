@@ -89,7 +89,7 @@ jobs:
       - name: Commit only a verified changed generation
         shell: bash
         run: |
-          git add -- assets/manifest.json assets/nq.html.gz assets/nikkei.html.gz cloud/state/
+          git add -- assets/manifest.json assets/nq.html.gz assets/es.html.gz cloud/state/nq/ cloud/state/es/
           if [ -f assets/cloud_refresh_latest.json ]; then
             git add -- assets/cloud_refresh_latest.json
           fi
@@ -99,7 +99,7 @@ jobs:
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'Refresh completed NQ and Nikkei daily replay data'
+          git commit -m 'Refresh completed NQ and ES daily replay data'
           # Ordinary push: concurrent human edits must cause a safe rejection,
           # never an automatic force push, merge or overwrite.
           git push origin HEAD:main

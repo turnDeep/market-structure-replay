@@ -10,7 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 ASSETS = ROOT / "assets"
-MARKETS = ("nq", "nikkei")
+MARKETS = ("nq", "es")
 MAX_HTML_BYTES = 40 * 1024 * 1024
 
 

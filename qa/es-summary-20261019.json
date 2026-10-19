@@ -1,0 +1,27 @@
+{
+  "status": "PASS_ES_ASOF_SUMMARY",
+  "checks": 65892,
+  "cutoffs": 6575,
+  "saved_ledger_reconciled": true,
+  "last": {
+    "asof_date": "2026-10-16",
+    "asof_index": 6574,
+    "realized_net_usd": 263792.5,
+    "closed_trades": 44,
+    "wins": 18,
+    "losses": 26,
+    "breakeven": 0,
+    "win_rate_pct": 40.90909090909091,
+    "open_position_id": "major_campaign_proposal:order:68",
+    "open_pnl_after_entry_fee_usd": 34997.5,
+    "largest_closed_gain_usd": 93457.5,
+    "realized_excluding_largest_gain_usd": 170335,
+    "point_value_usd": 50,
+    "commission_per_side_usd": 2.5,
+    "contracts": 1
+  },
+  "fvgBuy": "2003-10-06",
+  "protectiveSell": "2018-12-20",
+  "strategy_status": "NOT_VALIDATED",
+  "scope": "Saved-data accounting and view tests, not predictive validation"
+}

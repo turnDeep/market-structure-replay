@@ -4,7 +4,8 @@ import {pathToFileURL} from 'node:url';
 import assert from 'node:assert/strict';
 
 const [market,work]=process.argv.slice(2);
-assert.ok(['nq','nikkei'].includes(market));
+assert.ok(['nq','es','nikkei'].includes(market));
+const pointValue=market==='es'?50:20,slippage=market==='nikkei'?5:.25;
 const current=JSON.parse(await fs.readFile(path.join(work,'result/snapshot.json'),'utf8'));
 const before=JSON.parse(await fs.readFile(path.join(work,'before.json'),'utf8'));
 const {buildView}=await import(`./views/${market}/replay-model.mjs`);
@@ -43,11 +44,11 @@ for(const f of data.fills){
   if(f.kind==='BUY'){ok(entry===null,'single position');entry=f;eq(f.index,f.decision_index+1);}
   else{
     ok(entry?.position_id===f.position_id,'own position');const points=f.price-entry.price;
-    if(market==='nikkei')eq(f.net_pnl_points,points);else ok(Math.abs(f.net_pnl_usd-(points*20-5))<1e-7,'USD ledger');
+    if(market==='nikkei')eq(f.net_pnl_points,points);else ok(Math.abs(f.net_pnl_usd-(points*pointValue-5))<1e-7,'USD ledger');
     entry=null;
   }
-  if(f.kind!=='STOP')eq(f.price,b.open+(f.kind==='BUY'?1:-1)*(market==='nq'?.25:5));
-  else{const expected=(b.open<=f.initial_stop?b.open:f.initial_stop)-(market==='nq'?.25:5);eq(f.price,expected);ok(b.low<=f.initial_stop);}
+  if(f.kind!=='STOP')eq(f.price,b.open+(f.kind==='BUY'?1:-1)*slippage);
+  else{const expected=(b.open<=f.initial_stop?b.open:f.initial_stop)-slippage;eq(f.price,expected);ok(b.low<=f.initial_stop);}
 }
 for(const d of data.decisions){
   const v=JSON.parse(d.visual);eq(v.known_index,d.index);
@@ -57,6 +58,6 @@ for(const d of data.decisions){
 }
 for(const s of data.states)if(s.pending_order_id)ok(data.decisions.some(d=>d.id===s.pending_order_id&&d.index<=s.index),'pending decision is visible');
 const audit={status:'PASS_DATA_VIEW_AND_LEDGER',checks,prefixComparisons,market,bars:data.bars.length,end:data.bars.at(-1).date,
-  upstream_detector_full_prefix_proof:false,predictive_edge_validated:false,browser_rendering:'unchanged compiled view; separately checked'};
+  upstream_detector_full_prefix_proof:false,predictive_edge_validated:false,browser_rendering:'not covered by this data checker; separate rendered review required'};
 await fs.writeFile(path.join(work,'result/view_audit.json'),JSON.stringify(audit,null,2));
 console.log(JSON.stringify(audit));

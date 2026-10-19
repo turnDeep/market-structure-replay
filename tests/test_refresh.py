@@ -31,7 +31,10 @@ def test_v012_release_prefix_remains_frozen_during_daily_updates(market):
     release=json.loads((ASSETS/"v012_release.json").read_text(encoding="utf-8"))
     assert release["status"]=="PASS_V012_MIGRATION"
     pin=release["markets"][market]
-    current=read_snapshot(load_replay(market,load_manifest()["markets"][market]))
+    if market == "nikkei":
+        current=read_snapshot(gzip.decompress((ASSETS/"archive/nkd-v012/nikkei.html.gz").read_bytes()).decode("utf-8"))
+    else:
+        current=read_snapshot(load_replay(market,load_manifest()["markets"][market]))
     for name,record in pin["historical_prefix"].items():
         rows=[r for r in current["queries"][name]["rows"] if r["index"]<pin["bars"]]
         assert len(rows)==record["rows"]

@@ -716,6 +716,367 @@
     "views/nikkei/replay-model.mjs": {
       "sha256": "c6d7dca56f57cb4bce55b4bf0a5ef750010b56ddaf8bf67899d5ed7a39599643",
       "transformation": "none"
+    },
+    "vendor/es/nq_ict_detection_20260911_v03.py": {
+      "sha256": "3cb6f073b2c15371a79a44b610de724aafb6777d1cefe722386750e15874248e",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "31725fe02d2df4053b0fc22e884899192fb49b0233c5a27276464ba046f5dd04"
+    },
+    "vendor/es/nq_ict_evaluation_20260911_v03.py": {
+      "sha256": "80c2657d1b742ffe9ab06992b1f8609f847708b4ade34e302f7786c944077e02",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "1890c01713fdaa52fa9450c0234bd930f0345661af3689a0ce90dde8bd21f2cc"
+    },
+    "vendor/es/nq_ict_evaluation_20260911_v04.py": {
+      "sha256": "3b9eb8d800b4569d5463042fb670e7de7dc445b0bd3568f69a3f0fe0609c5eab",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "c4758e16f1c01cdde7501146dc7795a68863055edd3dac2fb6d96feaa4321d4f"
+    },
+    "vendor/es/nq_ict_evaluation_20260911_v05.py": {
+      "sha256": "b68922831dfaf8c517d791a2bbd7aad349f2375e477f4b77d1154e25fb614a57",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "cae94c3863c2f1356fa9f12934d91f2f82a8f59eb03ef550fbb9fb480796c971"
+    },
+    "vendor/es/nq_ict_evaluation_20260912_v08.py": {
+      "sha256": "415fa25b637764ca5a3e34b232c15cd190f31a67fc3144767fd255716289aba8",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "0f3ca5f4216e54a173fa1ab77a16b5c2a10e14a852bf6382050861c59e44d13f"
+    },
+    "vendor/es/nq_ict_evaluation_20260912_v09.py": {
+      "sha256": "4572de147280771bbf38b2399d791422b2bfcd422ddf7b41ff37cbf0e3675c02",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "8f8a2d6761f9586fc6c7b163306fc4d4b705a9ede302aac0a5ae9e0ebab65197"
+    },
+    "vendor/es/nq_ict_retest_trade_state_machine_20260915.py": {
+      "sha256": "35e89839968d688ded61c316fcef6d7ace2de1acc00eca5c4822c3002fbfa498",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "cb8660e56548c8dfb019978798ae21a36925fae8439b27225b24a6c891023885"
+    },
+    "vendor/es/nq_ict_retest_trade_state_machine_revision_20260915.py": {
+      "sha256": "0ee2d56d72433533f936940c6f96ebe0dce28343ba814eb2dab6d496d7fbd3c3",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "0ee2d56d72433533f936940c6f96ebe0dce28343ba814eb2dab6d496d7fbd3c3"
+    },
+    "vendor/es/run_nq_ict_early_buy_comparison_20260916.py": {
+      "sha256": "e72d11e3ec53328f03fe9ca50b186133a00ad84f80eccc1bd41b2586a651b691",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "e08554f3bd320d4240844d645b9be11b49c06ee08a0761821f79b9cbbf3c976c"
+    },
+    "vendor/es/run_nq_ict_macro_reversal_20260916.py": {
+      "sha256": "8b4edf41f438bd6aaae839ddff797f1238dde7049aaa0e1f2abd84aef5e4b9c9",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "be6e3500a379f76c1200fe4813d7c58e9148a524943d7637c75329c0cfb90fb6"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/__init__.py": {
+      "sha256": "0cd3c1c63523be1c2b2030cc3271288a02a864b714d6123b8dcd360633480604",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "0cd3c1c63523be1c2b2030cc3271288a02a864b714d6123b8dcd360633480604"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/audit_campaign_revision02.py": {
+      "sha256": "e134d2f31aef6152f90e31577d2b0da4bdebca821758eb38a0a7b3903a67de95",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "e134d2f31aef6152f90e31577d2b0da4bdebca821758eb38a0a7b3903a67de95"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/audit_campaign_revision03.py": {
+      "sha256": "67d4300e4d9d57c6caad69d5ff2d1968b7267264905ca74da85a683de6f192a6",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "67d4300e4d9d57c6caad69d5ff2d1968b7267264905ca74da85a683de6f192a6"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/audit_campaign_revision04.py": {
+      "sha256": "03b3a0ce8ce6d1b8e006732c7ffc0525cd884ab725478db91827952ded4f76e9",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "03b3a0ce8ce6d1b8e006732c7ffc0525cd884ab725478db91827952ded4f76e9"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/audit_campaign_revision05.py": {
+      "sha256": "daee64f6f5dfeda4bd7fcbb42a57c0d237b46b40fafa2bbef45cc43bcc1503f6",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "69b994f1db322cf23319690fabaea066e43c34b448fdc54b378f8546a6ba8aad"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/audit_campaign_revision06.py": {
+      "sha256": "19dac5940652ca950b5807f5b43f126164fd054037852239bb27dbfe06ffb85b",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "2cd9833206088917dfb72bb27964b68ccb699000e0c93847eeebeffb53d7ecc9"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/audit_campaign_revision07.py": {
+      "sha256": "71dfa665ca27400d4a20eb2315dd3f51e7fcc63fc47c303c5bf04ea1a21eca5e",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "7f8b599d04fec398b28ac4dd56543c18c02a784029e6b025a705d1264a884837"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/audit_campaign_revision08.py": {
+      "sha256": "6d96b2d38e19b891f4136f42eb0c3b071d45fd41d51cd8bd35b4e92912114fbf",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "0a480d2505842a64625f7e254a46ee6aa4dabc2d0197f7f336f92908022ed112"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/audit_campaign_revision09.py": {
+      "sha256": "7e4f9921e36fbb122a00e9caf593aa43da0324f3e4639ca551be767a94f8df83",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "26db80c5b1d04ceb506794caa8b38c59fbf43f9fe522f1f7122d77ecee1c4ae2"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/audit_campaign_revision10.py": {
+      "sha256": "60a847c6dce192cbc493dec31d1633c83e3bfc875c73437e7545b0d6dc1f0a2c",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "2b44ab2bc0300a5d2fc66e8ac8456f0164e10223fa9a0d0cf8ee8c0dfca9d497"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/audit_campaign_validation.py": {
+      "sha256": "6575f2ce49859c88344818145310b3177b1990015f20c6ff01f96953beca9c70",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "6575f2ce49859c88344818145310b3177b1990015f20c6ff01f96953beca9c70"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/build_observed_calendar.py": {
+      "sha256": "318adbbf6b946a60f1b5b8cf27fa31d4c53f19283d5c7b0d69023c448c6990a5",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "0cd1759f20858faf4f84e66677702d8eea4f750cecd9798545db01c56ed49c64"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/campaign.py": {
+      "sha256": "4e5f12312172bc86a79b571e509b3e1424dd9f9fc1097e0dcd857f7171b93181",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "4e5f12312172bc86a79b571e509b3e1424dd9f9fc1097e0dcd857f7171b93181"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/common.py": {
+      "sha256": "d0978fc7fa43e0150bfee32b07b2586034a3909dfa70c741890f01367231d47b",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "d0978fc7fa43e0150bfee32b07b2586034a3909dfa70c741890f01367231d47b"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/compare_rev06_rev07.py": {
+      "sha256": "5d31e9bb23e7d9ac6f5fc9023ffdf04147d7c2976491182cb93fe219b2419f13",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "36c76d2d45ecd8bd93e6ed727b10f23b297d0fe6b67f209552e927dcd50fc5b8"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/compare_rev08_stages.py": {
+      "sha256": "d98598f595bac06c0e97e6670df70f1d978e3823c1d92a573d5c311867b6727c",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "d98598f595bac06c0e97e6670df70f1d978e3823c1d92a573d5c311867b6727c"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/continuation.py": {
+      "sha256": "8d322ce96ced2785572c20578f8001caaf367d74d889747bc480d0ccbe1cd012",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "8d322ce96ced2785572c20578f8001caaf367d74d889747bc480d0ccbe1cd012"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/cycle_recovery.py": {
+      "sha256": "789d873585776683466fd2b39b61df1729320e6cb575e17b61446cff5f53e0d9",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "789d873585776683466fd2b39b61df1729320e6cb575e17b61446cff5f53e0d9"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/daily_evidence.py": {
+      "sha256": "b7aab3e4ae796a91617640cefecded586a69a7628972a31be1ff8997511156e7",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "b7aab3e4ae796a91617640cefecded586a69a7628972a31be1ff8997511156e7"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/double_top.py": {
+      "sha256": "04c71902c66e14fc709c6159e0059949407f5f75f053f88b4055d76633748827",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "04c71902c66e14fc709c6159e0059949407f5f75f053f88b4055d76633748827"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/episode_reentry.py": {
+      "sha256": "1a5c304b7ab3b27234cb343a6eef2a85847afadb0f6e6db245f1406dc87f2ced",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "1a5c304b7ab3b27234cb343a6eef2a85847afadb0f6e6db245f1406dc87f2ced"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/exit_reentry.py": {
+      "sha256": "882b8fd35ff431719c65443a6e18e5964be0de571737964d5698aaf2d4a0d6f6",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "882b8fd35ff431719c65443a6e18e5964be0de571737964d5698aaf2d4a0d6f6"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/major_top_cycle.py": {
+      "sha256": "1e192e452935667c2641f51b83f1f74e1ace4eefc56d7beb7da05d14583ff1d0",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "1e192e452935667c2641f51b83f1f74e1ace4eefc56d7beb7da05d14583ff1d0"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/major_top.py": {
+      "sha256": "6ec350a2004d265c620e1f512ecf9264a7da50b5d08b8f400f2e9cd24fbef5d7",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "6ec350a2004d265c620e1f512ecf9264a7da50b5d08b8f400f2e9cd24fbef5d7"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/path_links.py": {
+      "sha256": "0ace48680d61c621c53e78143a82c362de385222093c3c49ac0c4fed093a13ef",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "0ace48680d61c621c53e78143a82c362de385222093c3c49ac0c4fed093a13ef"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/plot_campaign_equity.py": {
+      "sha256": "150fa9c034d2489fe07199fba1d44ff16c89dab4ac84c65be6c86bfca4006ea2",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "fcf44d9536b9819ec780af0670a92da138598019743f4ce9ff4ded52b3eb70c3"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/plot_rev06_vs_buy_hold.py": {
+      "sha256": "7648bdbe18134f66a47f477d8e0ea5cb2bc393afd677d372212e19638b1db099",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "c5f80562a297da7776bedf0a8a7e152905a63731b27a9ba2f0da03da7a15e308"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/plot_rev07_vs_buy_hold.py": {
+      "sha256": "3ddbe38415e18256890d40a0039c6209b0c2899df9fd5f943a224430d48495e6",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "cc1e11016901860da203475b0d4f53eb0144c485c0284482179f2528be8736dd"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/plot_rev08_vs_buy_hold.py": {
+      "sha256": "b0126a1c5ba195ef15152d7b4f1577b4ba4b9a9724f580b73147f84a2b053ee3",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "73d92401eb0e1d2ddb9e8efaa3f8fcc47d0acea1adcedf447e6c4496d9280411"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/plot_rev10_equity_curve.py": {
+      "sha256": "821501f972f9b7424f88a2e30a872cdc0a4fcb603db63dde1b0e8a098e7d3196",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "cde25a75a42de3cfca46147684ed20db02d2bef7fc88da3f6d13b54439ba697d"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/post_sell.py": {
+      "sha256": "45de047be599e254cea254e00cabcfb2d59054cb032372e969ed4038b3240751",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "45de047be599e254cea254e00cabcfb2d59054cb032372e969ed4038b3240751"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/recovery_buy.py": {
+      "sha256": "ddf8f27b78f17bece2e4e0f19f48e43c0222f914f51d6184e716a9b59b86e3e4",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "ddf8f27b78f17bece2e4e0f19f48e43c0222f914f51d6184e716a9b59b86e3e4"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/reentry.py": {
+      "sha256": "84029f842792843528def103e11a6d1934ddb4dced430fab5619caad3ecee600",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "84029f842792843528def103e11a6d1934ddb4dced430fab5619caad3ecee600"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/refresh_sweep_holdout_data_20260925.py": {
+      "sha256": "ebebb21ab83541d5a875ebd3e8621843fabe37026c620c4fe76fe358dfb207d9",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "b27de0b5ad20f72d8e5d33cfae6783e9df46a197896b6a3229851e72407f0261"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/run_campaign.py": {
+      "sha256": "e370f12cf5620927eb63a55590dafea87c50648dd40f1fcf003a4c3222436aae",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "e370f12cf5620927eb63a55590dafea87c50648dd40f1fcf003a4c3222436aae"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/selective_reentry.py": {
+      "sha256": "fe058e6f47eece255c792bdf1b73844227d1f8f755c7f30d6723eac61a0ecbbc",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "fe058e6f47eece255c792bdf1b73844227d1f8f755c7f30d6723eac61a0ecbbc"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/sell_selection.py": {
+      "sha256": "cf13045d8cbd595985aff47b51baf9dc0a03ba8b06a884bf1876ce54b3636b09",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "cf13045d8cbd595985aff47b51baf9dc0a03ba8b06a884bf1876ce54b3636b09"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/source.py": {
+      "sha256": "93b7d0ed5fbf427b705a6e873b1656b89611c2ed13fa70e8f07cecdeafe5eb8b",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "93b7d0ed5fbf427b705a6e873b1656b89611c2ed13fa70e8f07cecdeafe5eb8b"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/structural_management.py": {
+      "sha256": "d721466dcfccd8dca1ce8fcab9784421995d42f0f489f8b0d9f6c3ce82382dac",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "d721466dcfccd8dca1ce8fcab9784421995d42f0f489f8b0d9f6c3ce82382dac"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/structural_support.py": {
+      "sha256": "87aefb686257485bb938cff8b8b55b2ab1e4f8975378c035cde8f3317a8179a6",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "87aefb686257485bb938cff8b8b55b2ab1e4f8975378c035cde8f3317a8179a6"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/support_signals.py": {
+      "sha256": "83fb2908db55fd50958d972412b2e59ec601a17511d69975ce8f14e9aad1c5e0",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "83fb2908db55fd50958d972412b2e59ec601a17511d69975ce8f14e9aad1c5e0"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/upward_leg_support.py": {
+      "sha256": "2df09c909f669a191d2050023e66a92fbea33999cfd3d2566319e6f158ad7dce",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "2df09c909f669a191d2050023e66a92fbea33999cfd3d2566319e6f158ad7dce"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/validate_v011_atr_sweep_20260925.py": {
+      "sha256": "6d5345f28498d58b0f74257c5f4c628c092b602b382bcdf352b990808c61d6ae",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "3e0368d31938c42d34794cb226b8737f3064a9575f3279764487ca80c47de45e"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/validate_v011_incremental_factors_20260925.py": {
+      "sha256": "c32bfcf475d692ddd910b0ff2f6cbd56e981165694fa2cbda1b4b2d1499bedbe",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "9d49c0166a0e5a75fc9858002ac78921ee30d481cf81223990a5e3a91d1421aa"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/validate_v011_research_20260924.py": {
+      "sha256": "a1400c560064b0f3ed5e1fd3a5a7088411771178e8777170722b83ce98aa0802",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "d437c9c58fb94adf6bf041be3b18244ac2776fa691f4abe340cce506791b1fa8"
+    },
+    "vendor/es/nq_ict_campaign_examples_20260921/wave_management.py": {
+      "sha256": "57e2c8b167c8de2fe6587a270931a68ab91089781a5b6a454bd76c7a8d85e575",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "57e2c8b167c8de2fe6587a270931a68ab91089781a5b6a454bd76c7a8d85e575"
+    },
+    "vendor/es/nq_ict_macro_reversal_examples_20260916/__init__.py": {
+      "sha256": "5037f68e965cad78e873affac6f94339a9a7313261ad1eb922ff73f77fb8a4b5",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "5037f68e965cad78e873affac6f94339a9a7313261ad1eb922ff73f77fb8a4b5"
+    },
+    "vendor/es/nq_ict_macro_reversal_examples_20260916/common.py": {
+      "sha256": "3adef7e7c938ae02aaecb106cf1e0335882884fe6734681a0a143f7a5ec4391f",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "3adef7e7c938ae02aaecb106cf1e0335882884fe6734681a0a143f7a5ec4391f"
+    },
+    "vendor/es/nq_ict_macro_reversal_examples_20260916/integration_example.py": {
+      "sha256": "bc2c79d773153ede50613cea264a6ba0e9dfe07178814dae4809ffaecf0b60ef",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "bc2c79d773153ede50613cea264a6ba0e9dfe07178814dae4809ffaecf0b60ef"
+    },
+    "vendor/es/nq_ict_macro_reversal_examples_20260916/proposal_01_market_episodes.py": {
+      "sha256": "506c8191fbb8fa281631aea96a377812c7959d27621788910715f4620a1e81d2",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "506c8191fbb8fa281631aea96a377812c7959d27621788910715f4620a1e81d2"
+    },
+    "vendor/es/nq_ict_macro_reversal_examples_20260916/proposal_02_macro_position_management.py": {
+      "sha256": "3de294ab71ec2a03453bab5034f37e4fe1bdf9eb96c48ffc6ea3fd67f09f2fdb",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "3de294ab71ec2a03453bab5034f37e4fe1bdf9eb96c48ffc6ea3fd67f09f2fdb"
+    },
+    "vendor/es/nq_ict_macro_reversal_examples_20260916/proposal_03_confirmed_top_sell.py": {
+      "sha256": "5b4b620a83630e9e1fc1c971feba2335a102252cfdac7797b87cdf313bd2328f",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "5b4b620a83630e9e1fc1c971feba2335a102252cfdac7797b87cdf313bd2328f"
+    },
+    "vendor/es/nq_ict_macro_reversal_examples_20260916/proposal_04_confirmed_ob_buy.py": {
+      "sha256": "d85211c319524741a94dcd4fdd3a701d04c8a0ab6a9f2726ad246d549123f1f1",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "d85211c319524741a94dcd4fdd3a701d04c8a0ab6a9f2726ad246d549123f1f1"
+    },
+    "vendor/es/nq_ict_macro_reversal_examples_20260916/proposal_05_episode_attempts.py": {
+      "sha256": "9f63802f0044550bc4f69c675d177511cb274d14de93c0d14a6046bd400d4646",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "9f63802f0044550bc4f69c675d177511cb274d14de93c0d14a6046bd400d4646"
+    },
+    "vendor/es/nq_ict_priority_entry_examples_20260916/__init__.py": {
+      "sha256": "69c1a2624436cd892cf6c5c8f476ebe525e7ded2a82b223985fa1036c709ebd2",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "69c1a2624436cd892cf6c5c8f476ebe525e7ded2a82b223985fa1036c709ebd2"
+    },
+    "vendor/es/nq_ict_priority_entry_examples_20260916/common.py": {
+      "sha256": "a805cb0f4614a6cc25e065cf850e51d8f0bc623423e6a9a8e382d59ac03098ee",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "a805cb0f4614a6cc25e065cf850e51d8f0bc623423e6a9a8e382d59ac03098ee"
+    },
+    "vendor/es/nq_ict_priority_entry_examples_20260916/integration_example.py": {
+      "sha256": "33dc2854c410c59a5d91d5a474e9a8717322fce17dc645c99ceae2428f6f57fe",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "33dc2854c410c59a5d91d5a474e9a8717322fce17dc645c99ceae2428f6f57fe"
+    },
+    "vendor/es/nq_ict_priority_entry_examples_20260916/proposal_01_watch_and_confirm.py": {
+      "sha256": "4179f6b2e8fc7befeed9bfd167e82709548306810308f87d777272788f12eb61",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "4179f6b2e8fc7befeed9bfd167e82709548306810308f87d777272788f12eb61"
+    },
+    "vendor/es/nq_ict_priority_entry_examples_20260916/proposal_02_reserved_attempts.py": {
+      "sha256": "72923a82daf02e0a58da386a8e0ac00fe51775afb9b985788b24ffedb018c944",
+      "transformation": "literal NQ=F to ES=F only",
+      "original_sha256": "72923a82daf02e0a58da386a8e0ac00fe51775afb9b985788b24ffedb018c944"
+    },
+    "views/es/decision-focus.mjs": {
+      "transformation": "reviewed route-aware ES view helper",
+      "sha256": "ea4894c8ba259ca07dab22a5e4b8c2eaed1606e1fa8b42883ee1ee3088156096"
+    },
+    "views/es/replay-model.mjs": {
+      "transformation": "reviewed route-aware ES view helper",
+      "sha256": "c6d7dca56f57cb4bce55b4bf0a5ef750010b56ddaf8bf67899d5ed7a39599643"
+    },
+    "protective_exit_view.py": {
+      "transformation": "presentation-only native structural-protection exit evidence",
+      "sha256": "6dd8dd091956a39a3bb29c3b2973fabe40c4023c8a9acef993e0520730e5ab50"
+    },
+    "es_view.py": {
+      "transformation": "presentation-only FVG versus IFVG labels",
+      "sha256": "9b38885baf28950b554dcbca9c8b5eeaf7b68c9c05c3f46fc33acdf00a83ce2f"
     }
   },
   "markets": {
@@ -736,6 +1097,16 @@
       "detector_sensitivities": [
         "balanced"
       ]
+    },
+    "es": {
+      "symbol": "ES=F",
+      "detector_sensitivities": [
+        "strict",
+        "balanced",
+        "exploratory"
+      ],
+      "end": "2026-10-16",
+      "bars": 6575
     }
   }
 }

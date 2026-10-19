@@ -11,7 +11,7 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parents[1]
 CLOUD = ROOT / "cloud"
 FACT_FIELDS = ["index", "action", "price", "order_id", "position_id", "stop", "net_pnl_usd"]
-MARKETS = {"nq": "NQ=F", "nikkei": "NKD=F"}
+MARKETS = {"nq": "NQ=F", "es": "ES=F", "nikkei": "NKD=F"}
 
 
 def load(path):

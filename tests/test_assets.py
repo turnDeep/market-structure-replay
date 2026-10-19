@@ -12,7 +12,7 @@ from replay_assets import AssetError, load_manifest, load_replay
 from scripts.import_replays import canonical, check_sensitive_text, digest, read_snapshot
 
 
-@pytest.mark.parametrize("market", ["nq", "nikkei"])
+@pytest.mark.parametrize("market", ["nq", "es"])
 def test_bundled_snapshot(market):
     manifest = load_manifest()
     item = manifest["markets"][market]
@@ -71,16 +71,16 @@ def test_failed_second_import_keeps_previous_assets(tmp_path, monkeypatch):
     import scripts.import_replays as importer
     output = tmp_path / "assets"
     output.mkdir()
-    for name in ["nq.html.gz", "nikkei.html.gz", "manifest.json"]:
+    for name in ["nq.html.gz", "es.html.gz", "manifest.json"]:
         (output / name).write_bytes(b"previous-verified-generation")
     def staged_package(path, key, directory):
-        if key == "nikkei":
+        if key == "es":
             raise ValueError("Invalid second source")
         (directory / f"{key}.html.gz").write_bytes(b"unpublished-first-market")
         return {}
     monkeypatch.setattr(importer, "package", staged_package)
-    monkeypatch.setattr(sys, "argv", ["import_replays.py", "--nq", "first.html", "--nikkei", "bad.html", "--output", str(output)])
+    monkeypatch.setattr(sys, "argv", ["import_replays.py", "--nq", "first.html", "--es", "bad.html", "--output", str(output)])
     with pytest.raises(ValueError, match="Invalid second source"):
         importer.main()
-    for name in ["nq.html.gz", "nikkei.html.gz", "manifest.json"]:
+    for name in ["nq.html.gz", "es.html.gz", "manifest.json"]:
         assert (output / name).read_bytes() == b"previous-verified-generation"

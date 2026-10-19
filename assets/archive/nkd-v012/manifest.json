@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "packaged_at": "2026-10-19T08:25:22.874269+00:00",
+  "automatic_refresh": true,
+  "refresh_schedule": {
+    "provider": "GitHub Actions",
+    "timezone": "Asia/Tokyo",
+    "local_time": "09:00",
+    "cadence": "daily",
+    "failure_policy": "retain_previous_verified_generation"
+  },
+  "markets": {
+    "nq": {
+      "symbol": "NQ=F",
+      "asset": "nq.html.gz",
+      "start": "2000-09-18",
+      "end": "2026-10-16",
+      "bars": 6561,
+      "snapshot_generated_at": "2026-10-19T08:25:07.295252+00:00",
+      "strategy_status": "NOT_VALIDATED",
+      "strategy_version": "v0.12",
+      "html_bytes": 12189016,
+      "html_sha256": "4476d137cb7e754427f0524896d37b7e65ef3fb98c332169dab9e031b6b35128",
+      "gzip_bytes": 1584251,
+      "gzip_sha256": "23084efcef8306de362ea7328164edd9d03cad9096f743e810cb1c209009f876",
+      "source_html_sha256": "ee17f2f87b0b917d1761c1b2c58e60bfef5523236d038cc8cea08e137a254d46",
+      "reviewed_rows_unchanged": true,
+      "queries": {
+        "market_prices": {
+          "rows": 6561,
+          "rows_sha256": "36e294e61dd04d32c24bacffa041f8d139b7eb30a6080ceb553439cd039b24f4"
+        },
+        "primary_zones": {
+          "rows": 11390,
+          "rows_sha256": "185d3f5bff1012a9daa75e5b8500d6a83f638c0f2a915cab2acf1abe386a87ea"
+        },
+        "tactical_zones": {
+          "rows": 4187,
+          "rows_sha256": "a5f4c5118ce5911d03aefe7c5fee14f589d366e132e7e8e2e56c505f4a8fb424"
+        },
+        "executions": {
+          "rows": 83,
+          "rows_sha256": "8dcfa1865afe3808958c9a682bb1aca1b7ca9d9c3e33e56e7ae58eed6cc409b9"
+        },
+        "decisions": {
+          "rows": 63,
+          "rows_sha256": "783f9b0bfaabf122bbf646d33926e36fe6557389fb812ba7d5004922b4c23913"
+        },
+        "daily_states": {
+          "rows": 6561,
+          "rows_sha256": "eb9f2a85a65ff3d39c74218391c28bf863957af8e3a95f28cab537f04536561e"
+        }
+      },
+      "privacy_cleanup": "Absolute user-directory paths replaced with basenames in provenance only; reviewed query rows unchanged.",
+      "data_quality": {
+        "provisional_from_date": null,
+        "verified_through": "2026-10-16"
+      }
+    },
+    "nikkei": {
+      "symbol": "NKD=F",
+      "asset": "nikkei.html.gz",
+      "start": "2004-02-17",
+      "end": "2026-10-16",
+      "bars": 5532,
+      "snapshot_generated_at": "2026-10-19T08:23:12.454889+00:00",
+      "strategy_status": "NOT_VALIDATED",
+      "strategy_version": "v0.12",
+      "html_bytes": 11642669,
+      "html_sha256": "0b427a3dd3c2fb5448e9afe5c7751357ee9a6c893cb8328e60534636a0ce1d6e",
+      "gzip_bytes": 1499957,
+      "gzip_sha256": "c8f620d290f4d782489d037a175e09f1d5259f6e1d7b981890a879cd3a942d13",
+      "source_html_sha256": "5ad157b5c67c36407db15ea2490f74ce43fe1e7fe592a2e6e191d5b0ea8e26a9",
+      "reviewed_rows_unchanged": true,
+      "queries": {
+        "market_prices": {
+          "rows": 5532,
+          "rows_sha256": "3d68c542c79645c12e24d0b65b231134c4a702b306dab7af3a1ec7a0d52285cf"
+        },
+        "primary_zones": {
+          "rows": 10673,
+          "rows_sha256": "9d406f3b9a34292486e117803380c1ab3247d5ca04a7ad421f44b749e01cf7d8"
+        },
+        "tactical_zones": {
+          "rows": 4423,
+          "rows_sha256": "7f266e640b0a2647746531c99e459fcbf33a8cbf3d2c555bce456fe5bfb00f3b"
+        },
+        "executions": {
+          "rows": 101,
+          "rows_sha256": "ff80209ad1d12c9039bbb44c5285a7d33bf773438a2a804a4cf80503fa27cb89"
+        },
+        "decisions": {
+          "rows": 76,
+          "rows_sha256": "d1450e106920f631a4a580d6954f7e754c44d7a34f6416c548b674636ef2bd10"
+        },
+        "daily_states": {
+          "rows": 5532,
+          "rows_sha256": "5ce309b46e4b7507cf86217e218b4055017bd0946d0378496c7fe8db98acc71d"
+        }
+      },
+      "privacy_cleanup": "Absolute user-directory paths replaced with basenames in provenance only; reviewed query rows unchanged.",
+      "data_quality": {
+        "provisional_from_date": null,
+        "verified_through": "2026-10-16"
+      }
+    }
+  },
+  "strategy_version": "v0.12",
+  "strategy_release": "v012_release.json",
+  "presentation_updated_at": "2026-10-19T08:42:48.263148+00:00"
+}

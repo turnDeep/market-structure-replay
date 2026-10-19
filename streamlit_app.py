@@ -1,4 +1,4 @@
-"""Streamlit entrypoint: NQ / Nikkei saved-decision replay, not live trading."""
+"""Streamlit entrypoint: NQ / ES saved-decision replay, not live trading."""
 
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
-LABELS = {"nq": "NQ · NASDAQ 100先物", "nikkei": "日経 · CMEドル建て先物"}
+LABELS = {"nq": "NQ · NASDAQ 100先物", "es": "ES · S&P 500先物"}
 
 
 @st.cache_data(show_spinner=False, max_entries=2)
@@ -31,7 +31,7 @@ def main() -> None:
         st.stop()
 
     version = manifest.get("strategy_version", "v0.11")
-    st.caption(f"NQ・日経先物｜{version} 売買判断リプレイ")
+    st.caption(f"NQ・ES先物｜{version} 売買判断リプレイ")
 
     markets = list(LABELS)
     requested = st.query_params.get("market", "nq")
@@ -73,8 +73,9 @@ def main() -> None:
             "当時の判断根拠を確認できます。銘柄ごとの表示状態は独立しています。\n\n"
             "200SMAは参照指標です。BUY・通常SELL・初期STOPを区別し、判断日と翌観測日の"
             "約定日を混同しないでください。FVGの扱いは各保存結果の説明を維持しています。\n\n"
-            "日経は大阪・円建て契約ではなく **NKD=F（CMEドル建て日経）** です。"
-            "コスト・契約倍率等の前提は銘柄ごとに異なります。"
+            "**NQ=FはNASDAQ 100、ES=FはS&P 500のE-mini先物**です。"
+            "1枚固定でNQは20USD/pt、ESは50USD/pt。いずれも片道手数料2.5USD、"
+            "片道スリッページ0.25ptをモデルに反映しています。"
             "既存モデルは **NOT_VALIDATED** のままで、将来の成績や実運用の優位性を保証しません。"
         )
     try:

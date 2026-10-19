@@ -95,7 +95,7 @@ def test_second_market_fetch_failure_never_publishes_first(tmp_path,monkeypatch)
     from replay_assets import ASSETS
     original = {p:p.read_bytes() for p in ASSETS.glob("*") if p.is_file()}
     def failed(market,work,meta,now):
-        if market == "nikkei":
+        if market == "es":
             raise ValueError("Provider unavailable")
         refresh.save(work/"fetch_audit.json",dict(captured_at_utc=now.isoformat()))
         return True
@@ -186,7 +186,7 @@ def test_second_replay_failure_does_not_modify_production_generation(tmp_path,mo
     def subprocess_run(args,**kwargs):
         if "cloud.replay_worker" in args:
             market=args[-2];work=Path(args[-1]);(work/"result").mkdir()
-            if market=="nikkei":
+            if market=="es":
                 raise RuntimeError("Synthetic second-market replay failure")
             for name in ["replay_audit","export_audit","view_audit"]:
                 refresh.save(work/"result"/(name+".json"),dict(status="SOFTWARE_TEST_STUB"))

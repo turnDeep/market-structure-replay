@@ -3,4 +3,6 @@ cloud/vendor/** -text
 cloud/views/** -text
 cloud/export_template.py.txt -text
 cloud/strategy.py -text
+cloud/protective_exit_view.py -text
+cloud/es_view.py -text
 *.gz binary

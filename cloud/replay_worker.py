@@ -117,5 +117,5 @@ def run(market, work):
 
 
 if __name__ == "__main__":
-    p = argparse.ArgumentParser(); p.add_argument("market",choices=["nq","nikkei"]); p.add_argument("work",type=Path)
+    p = argparse.ArgumentParser(); p.add_argument("market",choices=["nq","es","nikkei"]); p.add_argument("work",type=Path)
     args = p.parse_args(); run(args.market,args.work.resolve())

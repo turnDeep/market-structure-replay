@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "packaged_at": "2026-10-19T08:25:22.874269+00:00",
+  "packaged_at": "2026-10-19T13:11:41.211401+00:00",
   "automatic_refresh": true,
   "refresh_schedule": {
     "provider": "GitHub Actions",
@@ -57,45 +57,45 @@
         "verified_through": "2026-10-16"
       }
     },
-    "nikkei": {
-      "symbol": "NKD=F",
-      "asset": "nikkei.html.gz",
-      "start": "2004-02-17",
+    "es": {
+      "symbol": "ES=F",
+      "asset": "es.html.gz",
+      "start": "2000-09-18",
       "end": "2026-10-16",
-      "bars": 5532,
-      "snapshot_generated_at": "2026-10-19T08:23:12.454889+00:00",
+      "bars": 6575,
+      "snapshot_generated_at": "2026-10-19T13:06:38.248124+00:00",
       "strategy_status": "NOT_VALIDATED",
       "strategy_version": "v0.12",
-      "html_bytes": 11642669,
-      "html_sha256": "0b427a3dd3c2fb5448e9afe5c7751357ee9a6c893cb8328e60534636a0ce1d6e",
-      "gzip_bytes": 1499957,
-      "gzip_sha256": "c8f620d290f4d782489d037a175e09f1d5259f6e1d7b981890a879cd3a942d13",
-      "source_html_sha256": "5ad157b5c67c36407db15ea2490f74ce43fe1e7fe592a2e6e191d5b0ea8e26a9",
+      "html_bytes": 12240325,
+      "html_sha256": "e9527fbf6519ec115f0afaf34994690aefbab6c22dacd3a1a28f0ff1828a60cf",
+      "gzip_bytes": 1581284,
+      "gzip_sha256": "f75f876ba055845012a5327cb702cefc46a8b9c0c62b25b3b786721941646292",
+      "source_html_sha256": "0ded7bedcf815bb4295fe218567ae9f4dbf833259726724a3b0e795b6f92474e",
       "reviewed_rows_unchanged": true,
       "queries": {
         "market_prices": {
-          "rows": 5532,
-          "rows_sha256": "3d68c542c79645c12e24d0b65b231134c4a702b306dab7af3a1ec7a0d52285cf"
+          "rows": 6575,
+          "rows_sha256": "6adf4a56f2cd8e4bafa101ea349dc247a65f389dd284384b4a7e8ddd90bd9ad9"
         },
         "primary_zones": {
-          "rows": 10673,
-          "rows_sha256": "9d406f3b9a34292486e117803380c1ab3247d5ca04a7ad421f44b749e01cf7d8"
+          "rows": 11347,
+          "rows_sha256": "046ae0de3ce38766f749bc3077165a6d2ad72ef1610c5b4fb56e8b98a4ff1bbb"
         },
         "tactical_zones": {
-          "rows": 4423,
-          "rows_sha256": "7f266e640b0a2647746531c99e459fcbf33a8cbf3d2c555bce456fe5bfb00f3b"
+          "rows": 4243,
+          "rows_sha256": "328ffa3d4a574f6b34aa3b0df5af4283627475e852cbd02eded8622650b8a00f"
         },
         "executions": {
-          "rows": 101,
-          "rows_sha256": "ff80209ad1d12c9039bbb44c5285a7d33bf773438a2a804a4cf80503fa27cb89"
+          "rows": 89,
+          "rows_sha256": "dccb1b870b2ae9bffa8be71b21b01083471310185de88071d3c42d7a8698457d"
         },
         "decisions": {
-          "rows": 76,
-          "rows_sha256": "d1450e106920f631a4a580d6954f7e754c44d7a34f6416c548b674636ef2bd10"
+          "rows": 68,
+          "rows_sha256": "8933911e0cc14ac41d1cbfd5f0b47e1514e6d14e7f647aab6c1f16000baca3df"
         },
         "daily_states": {
-          "rows": 5532,
-          "rows_sha256": "5ce309b46e4b7507cf86217e218b4055017bd0946d0378496c7fe8db98acc71d"
+          "rows": 6575,
+          "rows_sha256": "b254428d7a5cfec69c2736dc7a07990aabccdf87ba19eebfc0e114fea319dc99"
         }
       },
       "privacy_cleanup": "Absolute user-directory paths replaced with basenames in provenance only; reviewed query rows unchanged.",
@@ -107,5 +107,7 @@
   },
   "strategy_version": "v0.12",
   "strategy_release": "v012_release.json",
-  "presentation_updated_at": "2026-10-19T08:42:48.263148+00:00"
+  "presentation_updated_at": "2026-10-19T08:42:48.263148+00:00",
+  "active_markets_change": "NQ + ES; NKD retained in archive/nkd-v012",
+  "market_addition": "es_addition_20261019.json"
 }

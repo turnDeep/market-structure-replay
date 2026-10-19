@@ -1,6 +1,6 @@
 """Package existing standalone HTML; do not recalculate or alter trading rows.
 
-Run locally with explicit --nq and --nikkei paths. No source paths are retained.
+Run locally with explicit --nq and --es paths. No source paths are retained.
 Output is deterministic apart from the recorded packaging timestamp.
 """
 
@@ -104,7 +104,7 @@ def package(path: Path, key: str, output: Path) -> dict:
     (output / f"{key}.html.gz").write_bytes(packed)
     replay = before["replay"]
     return {
-        "symbol": "NQ=F" if key == "nq" else "NKD=F",
+        "symbol": {"nq": "NQ=F", "es": "ES=F", "nikkei": "NKD=F"}[key],
         "asset": f"{key}.html.gz",
         "start": replay["start"], "end": replay["end"],
         "bars": len(before["queries"]["market_prices"]["rows"]),
@@ -123,7 +123,7 @@ def package(path: Path, key: str, output: Path) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--nq", type=Path, required=True)
-    parser.add_argument("--nikkei", type=Path, required=True)
+    parser.add_argument("--es", type=Path, required=True)
     parser.add_argument("--output", type=Path, default=ROOT / "assets")
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
@@ -131,10 +131,10 @@ def main() -> None:
     # Validate both in a sibling staging directory, then publish manifest last.
     with tempfile.TemporaryDirectory(prefix="replay-staging-", dir=args.output.parent) as temporary:
         staged = Path(temporary)
-        markets = {key: package(path, key, staged) for key, path in [("nq", args.nq), ("nikkei", args.nikkei)]}
+        markets = {key: package(path, key, staged) for key, path in [("nq", args.nq), ("es", args.es)]}
         manifest = {"schema_version": 1, "packaged_at": datetime.now(timezone.utc).isoformat(), "automatic_refresh": False, "markets": markets}
         (staged / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        for name in ["nq.html.gz", "nikkei.html.gz", "manifest.json"]:
+        for name in ["nq.html.gz", "es.html.gz", "manifest.json"]:
             os.replace(staged / name, args.output / name)
     print(json.dumps({key: {"bars": item["bars"], "end": item["end"], "gzip_bytes": item["gzip_bytes"]} for key, item in markets.items()}))
 

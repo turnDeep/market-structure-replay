@@ -1,0 +1,26 @@
+{
+  "status": "PASS_NQ_ASOF_SUMMARY",
+  "checks": 52498,
+  "cutoffs": 6561,
+  "saved_ledger_reconciled": false,
+  "last": {
+    "asof_date": "2026-10-16",
+    "asof_index": 6560,
+    "realized_net_usd": 489845,
+    "closed_trades": 41,
+    "wins": 18,
+    "losses": 23,
+    "breakeven": 0,
+    "win_rate_pct": 43.90243902439025,
+    "open_position_id": "major_campaign_proposal:order:63",
+    "open_pnl_after_entry_fee_usd": 110042.5,
+    "largest_closed_gain_usd": 186770,
+    "realized_excluding_largest_gain_usd": 303075,
+    "point_value_usd": 20,
+    "commission_per_side_usd": 2.5,
+    "contracts": 1
+  },
+  "original_trading_rows_changed": false,
+  "strategy_parameters_changed": false,
+  "strategy_status": "NOT_VALIDATED"
+}
