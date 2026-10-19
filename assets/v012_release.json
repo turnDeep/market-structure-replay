@@ -1,0 +1,132 @@
+{
+  "strategy_version": "v0.12",
+  "baseline_commit": "cdfc3f5d58eaf89700eca354a30527db956b1df6",
+  "started_at_utc": "2026-10-19T08:08:58.466347+00:00",
+  "status": "PASS_V012_MIGRATION",
+  "parameter_change": {
+    "buy_reference_radius": [
+      2,
+      1
+    ]
+  },
+  "market_data_refresh": false,
+  "markets": {
+    "nq": {
+      "bars": 6561,
+      "end": "2026-10-16",
+      "historical_prefix": {
+        "market_prices": {
+          "rows": 6561,
+          "rows_sha256": "36e294e61dd04d32c24bacffa041f8d139b7eb30a6080ceb553439cd039b24f4"
+        },
+        "primary_zones": {
+          "rows": 11390,
+          "rows_sha256": "185d3f5bff1012a9daa75e5b8500d6a83f638c0f2a915cab2acf1abe386a87ea"
+        },
+        "tactical_zones": {
+          "rows": 4187,
+          "rows_sha256": "a5f4c5118ce5911d03aefe7c5fee14f589d366e132e7e8e2e56c505f4a8fb424"
+        },
+        "executions": {
+          "rows": 83,
+          "rows_sha256": "8dcfa1865afe3808958c9a682bb1aca1b7ca9d9c3e33e56e7ae58eed6cc409b9"
+        },
+        "decisions": {
+          "rows": 63,
+          "rows_sha256": "783f9b0bfaabf122bbf646d33926e36fe6557389fb812ba7d5004922b4c23913"
+        },
+        "daily_states": {
+          "rows": 6561,
+          "rows_sha256": "eb9f2a85a65ff3d39c74218391c28bf863957af8e3a95f28cab537f04536561e"
+        }
+      },
+      "replay": {
+        "status": "PASS_SINGLE_PARAMETER_MIGRATION",
+        "strategy_version": "v0.12",
+        "daily_rows": 6561,
+        "price_and_original_zone_inputs_unchanged": true,
+        "sole_legacy_override": "buy_reference_radius 2 -> 1",
+        "beta_gamma_not_applied": true
+      },
+      "view": {
+        "status": "PASS_DATA_VIEW_AND_LEDGER",
+        "checks": 27698,
+        "prefixComparisons": 195,
+        "market": "nq",
+        "bars": 6561,
+        "end": "2026-10-16",
+        "upstream_detector_full_prefix_proof": false,
+        "predictive_edge_validated": false,
+        "browser_rendering": "unchanged compiled view; separately checked"
+      },
+      "research_prefix": {
+        "status": "PASS",
+        "through": "2026-10-14",
+        "closed_trades": 41,
+        "daily_mtm_and_exposure_rows": 6559,
+        "native_accounting_units": true,
+        "expected_trades_sha256": "e2061c0530cc97fcbe790f2e4b191e4344cd09f351f54a6d922b9eb4b4836c02"
+      }
+    },
+    "nikkei": {
+      "bars": 5532,
+      "end": "2026-10-16",
+      "historical_prefix": {
+        "market_prices": {
+          "rows": 5532,
+          "rows_sha256": "3d68c542c79645c12e24d0b65b231134c4a702b306dab7af3a1ec7a0d52285cf"
+        },
+        "primary_zones": {
+          "rows": 10673,
+          "rows_sha256": "9d406f3b9a34292486e117803380c1ab3247d5ca04a7ad421f44b749e01cf7d8"
+        },
+        "tactical_zones": {
+          "rows": 4423,
+          "rows_sha256": "7f266e640b0a2647746531c99e459fcbf33a8cbf3d2c555bce456fe5bfb00f3b"
+        },
+        "executions": {
+          "rows": 101,
+          "rows_sha256": "ff80209ad1d12c9039bbb44c5285a7d33bf773438a2a804a4cf80503fa27cb89"
+        },
+        "decisions": {
+          "rows": 76,
+          "rows_sha256": "d1450e106920f631a4a580d6954f7e754c44d7a34f6416c548b674636ef2bd10"
+        },
+        "daily_states": {
+          "rows": 5532,
+          "rows_sha256": "5ce309b46e4b7507cf86217e218b4055017bd0946d0378496c7fe8db98acc71d"
+        }
+      },
+      "replay": {
+        "status": "PASS_SINGLE_PARAMETER_MIGRATION",
+        "strategy_version": "v0.12",
+        "daily_rows": 5532,
+        "price_and_original_zone_inputs_unchanged": true,
+        "sole_legacy_override": "buy_reference_radius 2 -> 1",
+        "beta_gamma_not_applied": true
+      },
+      "view": {
+        "status": "PASS_DATA_VIEW_AND_LEDGER",
+        "checks": 23919,
+        "prefixComparisons": 234,
+        "market": "nikkei",
+        "bars": 5532,
+        "end": "2026-10-16",
+        "upstream_detector_full_prefix_proof": false,
+        "predictive_edge_validated": false,
+        "browser_rendering": "unchanged compiled view; separately checked"
+      },
+      "research_prefix": {
+        "status": "PASS",
+        "through": "2026-10-14",
+        "closed_trades": 50,
+        "daily_mtm_and_exposure_rows": 5530,
+        "native_accounting_units": true,
+        "expected_trades_sha256": "b6b63451e6d5992cb47613c61c65ea503f56e730b0831626f0ebac32a2c2d9fb"
+      }
+    }
+  },
+  "finished_at_utc": "2026-10-19T08:25:22.874269+00:00",
+  "published_to_github": false,
+  "baseline_archive": "assets/archive/v011"
+}

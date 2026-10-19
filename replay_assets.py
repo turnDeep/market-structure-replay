@@ -29,6 +29,8 @@ def load_manifest() -> dict:
         item = manifest["markets"][market]
         if item.get("asset") != f"{market}.html.gz":
             raise AssetError("許可されていないデータファイルです。")
+        if item.get("strategy_version", "v0.11") != manifest.get("strategy_version", "v0.11"):
+            raise AssetError("売買モデルのバージョンが一致しません。")
     return manifest
 
 

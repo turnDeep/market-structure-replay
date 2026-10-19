@@ -1,0 +1,33 @@
+{
+  "scope": "Local saved-artifact/UI verification, not live strategy or Cloud deployment validation",
+  "markets": {
+    "nq": {
+      "status": "PASS",
+      "end": "2026-10-16",
+      "bars": 6561,
+      "changedAlphaBuyInspected": "2024-05-17",
+      "download": "NQ_v012_asof_2024-05-17.json",
+      "closedThroughAsOf": 38,
+      "decisionEvidence": true,
+      "asOfFutureGuard": true,
+      "modelSummaryPresent": true,
+      "visibleSummaryLedgerChecked": true
+    },
+    "nikkei": {
+      "status": "PASS",
+      "end": "2026-10-16",
+      "bars": 5532,
+      "changedAlphaBuyInspected": "2026-10-06",
+      "download": "NKD_v012_asof_2026-10-06.json",
+      "closedThroughAsOf": 50,
+      "decisionEvidence": true,
+      "asOfFutureGuard": true,
+      "modelSummaryPresent": true,
+      "visibleSummaryLedgerChecked": true
+    }
+  },
+  "marketSwitching": true,
+  "mobileRendering": true,
+  "status": "PASS_LOCAL_BROWSER",
+  "javascriptErrors": []
+}

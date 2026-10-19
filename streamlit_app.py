@@ -23,13 +23,15 @@ def cached_html(market: str, item: dict) -> str:
 
 def main() -> None:
     st.title("Market Structure Replay", anchor=False)
-    st.caption("NQ・日経先物｜v0.11 売買判断リプレイ")
     try:
         manifest = load_manifest()
     except AssetError as exc:
         st.error(str(exc))
         st.info("管理者が保存済みブラウザ版を取り込んでから再度開いてください。配置手順はREADMEを参照してください。")
         st.stop()
+
+    version = manifest.get("strategy_version", "v0.11")
+    st.caption(f"NQ・日経先物｜{version} 売買判断リプレイ")
 
     markets = list(LABELS)
     requested = st.query_params.get("market", "nq")
@@ -64,6 +66,8 @@ def main() -> None:
         st.caption("GitHubのPrivate設定に加え、Streamlit CloudのSharingを「Only specific people can view this app」に設定してください。アプリ内表示は認証の代わりにはなりません。")
 
     with st.expander("使い方・分析上の注意", expanded=False):
+        if version == "v0.12":
+            st.markdown("**v0.12**：検証時のαを正式採用。v0.11からBUY参照半径を2→1とし、確定済み半径1ピボットを追加しています。β・γは採用していません。価格を固定して過去の売買履歴を再計算した別バージョンです。旧v0.11はリポジトリの比較用アーカイブに保存しています。")
         st.markdown(
             "日付は下のリプレイ画面内で指定します。採用された帯・売買矢印・履歴行から、"
             "当時の判断根拠を確認できます。銘柄ごとの表示状態は独立しています。\n\n"
@@ -80,7 +84,7 @@ def main() -> None:
         st.stop()
     # Only repository-owned, manifest-checked HTML is allowed here. No URL,
     # upload, user HTML, query parameter, or remote response reaches this iframe.
-    st.iframe(html, height=frame_height, alt=f"{LABELS[selected]} v0.11 過去時点リプレイ")
+    st.iframe(html, height=frame_height, alt=f"{LABELS[selected]} {version} 過去時点リプレイ")
 
 
 if __name__ == "__main__":

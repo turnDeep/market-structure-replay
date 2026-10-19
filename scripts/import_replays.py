@@ -107,6 +107,7 @@ def package(path: Path, key: str, output: Path) -> dict:
         "bars": len(before["queries"]["market_prices"]["rows"]),
         "snapshot_generated_at": before["generatedAt"],
         "strategy_status": replay["strategyStatus"],
+        "strategy_version": replay.get("strategyVersion", "v0.11"),
         "html_bytes": len(raw), "html_sha256": digest(raw),
         "gzip_bytes": len(packed), "gzip_sha256": digest(packed),
         "source_html_sha256": digest(original),

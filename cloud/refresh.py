@@ -25,6 +25,7 @@ from cloud.common import CLOUD, ROOT, MARKETS, completed_cutoff, digest, load, m
 from cloud.export_adapter import export
 from replay_assets import load_manifest, load_replay
 from scripts.import_replays import SCRIPT, package, read_snapshot
+from cloud.strategy import STRATEGY_VERSION
 
 
 def fetch(market, work, meta, now):
@@ -142,6 +143,9 @@ def stage_state(market, work, staged):
     old = load(work/"seed/metadata.json")
     meta = load(result/"campaign_replay/metadata.json")
     slim = {k:meta[k] for k in old}
+    for key in ["strategy_version", "strategy_base_stage", "strategy_change", "extra_supplied_pivot_radii"]:
+        if key in meta:
+            slim[key] = meta[key]
     for name,record in meta["input_hashes"].items():
         filename = name+(".csv" if name in ["prices","objects","contexts"] else ".json")
         raw = Path(record["path"]).read_bytes()
@@ -159,7 +163,7 @@ def run(mode, report_dir):
     now = datetime.now(timezone.utc)
     original = load_manifest()
     report = dict(started_at_utc=now.isoformat(),mode=mode,status="RUNNING",markets={},
-        strategy_parameters_changed=False,strategy_status="NOT_VALIDATED")
+        strategy_parameters_changed=False,strategy_status="NOT_VALIDATED",strategy_version=STRATEGY_VERSION)
     report_dir.mkdir(parents=True,exist_ok=True)
     save(report_dir/"run.json",report)
     with tempfile.TemporaryDirectory(prefix="v011-cloud-") as temp:
@@ -226,6 +230,7 @@ def run(mode, report_dir):
             stage_state(market,work,staged)
             manifest["markets"][market]["data_quality"] = dict(provisional_from_date=None,verified_through=snapshots[market]["replay"]["end"])
         manifest.update(packaged_at=now_iso(),automatic_refresh=True,
+            strategy_version=STRATEGY_VERSION,
             refresh_schedule=dict(provider="GitHub Actions",timezone="Asia/Tokyo",local_time="09:00",cadence="daily",failure_policy="retain_previous_verified_generation"))
         report.update(status="PASS_STAGED_GENERATION",published=False,finished_at_utc=now_iso(),
             changed_markets=changed,publication="Staged locally; GitHub commit/push must succeed to publish")

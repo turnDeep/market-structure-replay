@@ -23,7 +23,9 @@ for(let i=0;i<data.bars.length;i++){
   ok(i===0||data.bars[i-1].date<b.date,'ordered dates');
   if(i>=199){const sma=data.bars.slice(i-199,i+1).reduce((s,b)=>s+b.close,0)/200;ok(Math.abs(sma-b.sma200)<1e-8,'independent SMA200');}
 }
-const cutoffs=[...new Set([n-1,data.bars.length-1,...data.decisions.filter(d=>d.index>=n).map(d=>d.index)])];
+// An explicit strategy migration has no immutable prior trade rows (n=0).
+// Test the first real observation, never a fictitious cutoff of -1.
+const cutoffs=[...new Set([Math.max(0,n-1),data.bars.length-1,...data.decisions.filter(d=>d.index>=n).map(d=>d.index)])];
 for(const i of cutoffs){
   const options={cutoff:i,window:120,pan:0,sma:true,ob:true,fvg:true,ifvg:false,tactical:false,waiting:false,history:false,frames:['1D','1W','1M']};
   const truncated={bars:data.bars.slice(0,i+1),states:data.states.slice(0,i+1),primary:data.primary.filter(r=>r.index<=i),

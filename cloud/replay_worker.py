@@ -8,6 +8,7 @@ import sys
 import time
 
 from cloud.common import CLOUD, FACT_FIELDS, digest, load, save
+from cloud.strategy import install_pivot_supply, stamp_metadata, validate_strategy
 
 
 def append_csv(old, tail, dest):
@@ -25,6 +26,7 @@ def run(market, work):
     seed = work/"seed"; dest = work/"result"
     dest.mkdir(exist_ok=True)
     before = load(seed/"metadata.json")
+    validate_strategy(before)
     cutoff = pd.Timestamp(before["end"]).normalize()
     engine = CLOUD/"vendor"/market
     sys.path.insert(0, str(engine))
@@ -82,6 +84,7 @@ def run(market, work):
     save(dest/"calendar.json",calendar)
     from nq_ict_campaign_examples_20260921.campaign import CampaignLedger
     from nq_ict_campaign_examples_20260921.run_campaign import main as replay_main
+    install_pivot_supply()
     feed = CampaignLedger.feed; started = time.monotonic(); count = 0
     def progress(self,*a,**kw):
         nonlocal count
@@ -96,6 +99,8 @@ def run(market, work):
         "--revision-stage","rev11_without_continuation","--allow-unvalidated-replay"]
     replay_main()
     after = load(dest/"campaign_replay/metadata.json")
+    stamp_metadata(after)
+    save(dest/"campaign_replay/metadata.json",after)
     for field in ["campaign_config","legacy_rules","execution_config","stage_overrides"]:
         if before[field] != after[field]:
             raise ValueError(f"Strategy settings changed: {field}")

@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 
 from cloud.common import CLOUD, load, now_iso, save
+from cloud.strategy import STRATEGY_VERSION
 
 
 def replace_once(source, old, new):
@@ -27,8 +28,10 @@ def refresh_metadata(replay, bars, audit, previous_end, prior_rows):
     if audit.get("provisional_saved_tail"):
         result.update(dataPolicy="append_only_with_explicit_provisional_tail_finalization",
             provisionalTailReplaced=audit["provisional_saved_tail"],verifiedHistoricalRowsUnchanged=True)
-    if result.get("frozenThrough"):
-        result["appendedBars"] = sum(b["date"]>result["frozenThrough"] for b in bars)
+    # Older NKD snapshots had no cumulative-count anchor. Establish one from
+    # the actual prior saved end, not an invented original acquisition date.
+    result.setdefault("frozenThrough",previous_end)
+    result["appendedBars"] = sum(b["date"]>result["frozenThrough"] for b in bars)
     return result
 
 
@@ -65,7 +68,7 @@ def add_unfilled_sells(ns):
     return result
 
 
-def export(market, work, before):
+def export(market, work, before, *, migration=False):
     dest = work/"result"; app = dest/"app/src"
     app.mkdir(parents=True,exist_ok=True)
     save(app/"data.json",before)
@@ -112,10 +115,18 @@ def export(market, work, before):
         fresh["title"] = before["title"]
         fresh["replay"].update(pointValue=20,commissionSide=2.5,slippagePoints=.25)
     n = len(before["queries"]["market_prices"]["rows"])
+    if migration:
+        assert meta["legacy_rules"]["buy_reference_radius"] == 1
+        assert fresh["queries"]["market_prices"]["rows"] == before["queries"]["market_prices"]["rows"], "Release must not change prices"
     reconciled = {}
     exact = {"market_prices","primary_zones","tactical_zones","daily_states"}
     for name,query in before["queries"].items():
         current = fresh["queries"][name]["rows"]
+        if migration:
+            if name == "primary_zones":
+                assert current == query["rows"], "Release must not change primary OB input/lifecycle"
+            reconciled[name] = len(query["rows"]) if name in {"market_prices", "primary_zones"} else 0
+            continue
         prefix = [r for r in current if r["index"]<n]
         if name in exact:
             assert prefix == query["rows"],f"Historical data changed: {name}"
@@ -136,17 +147,26 @@ def export(market, work, before):
     # Existing compiled NQ UI's legacy text does not support a new FVG route.
     # Never silently mislabel that exceptional route: retain the verified
     # generation until the explicitly reviewed renderer adapter is upgraded.
-    if market == "nq" and any(json.loads(r["visual"]).get("fvg_used") for r in fresh["queries"]["decisions"]["rows"] if r["index"]>=n):
+    if market == "nq" and any(json.loads(r["visual"]).get("fvg_used") for r in fresh["queries"]["decisions"]["rows"] if migration or r["index"]>=n):
         raise ValueError("New NQ FVG route requires reviewed UI support; old published generation retained")
     now = now_iso(); fresh["id"] = before["id"]; fresh["buildStatus"] = "complete"; fresh["generatedAt"] = now
     replay = dict(before["replay"],**fresh["replay"])
+    replay.update(strategyVersion=STRATEGY_VERSION, revision="rev12_radius_one",
+        baseRevision="rev11_without_continuation", buyReferenceRadius=1)
     replay["defaultDate"] = replay["end"]
     replay["refresh"] = refresh_metadata(before["replay"],fresh["queries"]["market_prices"]["rows"],
         load(work/"fetch_audit.json"),before["replay"]["end"],n)
+    if migration:
+        replay["refresh"].update(strategyParametersChanged=True, historicalRowsUnchanged=False,
+            strategyMigration="v0.11 -> v0.12; radius 2 -> 1 only; full history recomputed", dataPolicy="frozen_prices_strategy_release")
+        for key in ["provisionalTailReplaced", "verifiedHistoricalRowsUnchanged"]:
+            replay["refresh"].pop(key,None)
     fresh["replay"] = replay
+    fresh["title"] = fresh["title"].replace("v0.11",STRATEGY_VERSION)
     for name,q in fresh["queries"].items():
+        q["source"]["label"] = q["source"]["label"].replace("v0.11",STRATEGY_VERSION)
         q["source"]["executedAt"] = now
-        q["source"].setdefault("evidenceFlow",[]).append(dict(title="クラウド更新",detail="確定済み日足を追加し、固定v0.11設定の全履歴再計算と既存履歴照合を実施。価格補間・過去入力の遡及変更なし。"))
+        q["source"].setdefault("evidenceFlow",[]).append(dict(title="v0.12リリース" if migration else "クラウド更新",detail=("価格・原本OB入力を固定し、buy_reference_radius 2→1と確定済み半径1ピボット供給だけを変更して全履歴を再計算。β・γは不採用。" if migration else "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。")))
     save(dest/"snapshot.json",fresh)
-    save(dest/"export_audit.json",dict(status="PASS_REPLAY_FACTS_AND_PRESERVED_REVIEWED_HISTORY",preserved_rows=reconciled))
+    save(dest/"export_audit.json",dict(status="PASS_EXPLICIT_STRATEGY_MIGRATION" if migration else "PASS_REPLAY_FACTS_AND_PRESERVED_REVIEWED_HISTORY",preserved_rows=reconciled))
     return fresh

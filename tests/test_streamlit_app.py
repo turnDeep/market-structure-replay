@@ -10,6 +10,7 @@ sys.path.insert(0, str(ROOT))
 def test_entrypoint_and_switching():
     app = AppTest.from_file(str(ROOT / "streamlit_app.py"), default_timeout=45).run()
     assert not app.exception
+    assert "v0.12" in app.caption[0].value
     assert app.radio[0].value == "nq"
     assert app.query_params["market"] == "nq"
     app.radio[0].set_value("nikkei").run()

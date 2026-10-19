@@ -1,7 +1,12 @@
 {
   "schema": 1,
   "strategy_status": "NOT_VALIDATED",
+  "strategy_version": "v0.12",
   "files": {
+    "strategy.py": {
+      "sha256": "3cd6793d7f87e805d77be2a6cd332d04d20abad67b0661f06033ecb35c1f49dc",
+      "transformation": "v0.12 alpha radius-one strict pivot supply; frozen vendor sources unchanged"
+    },
     "vendor/nq/nq_ict_campaign_examples_20260921/__init__.py": {
       "sha256": "0cd3c1c63523be1c2b2030cc3271288a02a864b714d6123b8dcd360633480604",
       "original_sha256": "0cd3c1c63523be1c2b2030cc3271288a02a864b714d6123b8dcd360633480604",

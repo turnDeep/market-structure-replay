@@ -27,12 +27,39 @@
     null
   ],
   [
-    714,
+    568,
     "buy_fill",
-    1270.75,
+    1032.75,
     "major_campaign_proposal:order:3",
     null,
-    1184.5,
+    969.5,
+    null
+  ],
+  [
+    594,
+    "position_closed",
+    null,
+    null,
+    "major_campaign_proposal:order:3",
+    null,
+    -1275.0
+  ],
+  [
+    594,
+    "intrabar_emergency_stop",
+    969.25,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    630,
+    "buy_fill",
+    1085.25,
+    "major_campaign_proposal:order:4",
+    null,
+    935.25,
     null
   ],
   [
@@ -40,15 +67,15 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:3",
+    "major_campaign_proposal:order:4",
     null,
-    -1045.0
+    2665.0
   ],
   [
     724,
     "sell_fill",
     1218.75,
-    "major_campaign_proposal:order:4",
+    "major_campaign_proposal:order:5",
     null,
     null,
     null
@@ -57,7 +84,7 @@
     736,
     "buy_fill",
     1319.75,
-    "major_campaign_proposal:order:5",
+    "major_campaign_proposal:order:6",
     null,
     1217.0,
     null
@@ -67,7 +94,7 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:5",
+    "major_campaign_proposal:order:6",
     null,
     835.0
   ],
@@ -75,45 +102,18 @@
     794,
     "sell_fill",
     1361.75,
-    "major_campaign_proposal:order:6",
-    null,
-    null,
-    null
-  ],
-  [
-    825,
-    "buy_fill",
-    1468.25,
     "major_campaign_proposal:order:7",
     null,
-    1382.75,
-    null
-  ],
-  [
-    879,
-    "position_closed",
-    null,
-    null,
-    "major_campaign_proposal:order:7",
-    null,
-    -1720.0
-  ],
-  [
-    879,
-    "intrabar_emergency_stop",
-    1382.5,
-    null,
-    null,
     null,
     null
   ],
   [
-    889,
+    888,
     "buy_fill",
-    1493.75,
+    1458.75,
     "major_campaign_proposal:order:8",
     null,
-    1362.75,
+    1362.5,
     null
   ],
   [
@@ -123,7 +123,7 @@
     null,
     "major_campaign_proposal:order:8",
     null,
-    -995.0
+    -295.0
   ],
   [
     958,
@@ -162,12 +162,12 @@
     null
   ],
   [
-    1021,
+    1019,
     "buy_fill",
-    1479.25,
+    1464.75,
     "major_campaign_proposal:order:11",
     null,
-    1378.75,
+    1369.75,
     null
   ],
   [
@@ -177,7 +177,7 @@
     null,
     "major_campaign_proposal:order:11",
     null,
-    2315.0
+    2605.0
   ],
   [
     1235,
@@ -189,28 +189,28 @@
     null
   ],
   [
-    1255,
+    1265,
     "buy_fill",
-    1609.75,
+    1592.25,
     "major_campaign_proposal:order:13",
     null,
-    1542.5,
+    1553.25,
     null
   ],
   [
-    1275,
+    1273,
     "position_closed",
     null,
     null,
     "major_campaign_proposal:order:13",
     null,
-    -965.0
+    -790.0
   ],
   [
-    1275,
-    "sell_fill",
-    1561.75,
-    "major_campaign_proposal:order:14",
+    1273,
+    "intrabar_emergency_stop",
+    1553.0,
+    null,
     null,
     null,
     null
@@ -219,7 +219,7 @@
     1291,
     "buy_fill",
     1578.25,
-    "major_campaign_proposal:order:15",
+    "major_campaign_proposal:order:14",
     null,
     1543.0,
     null
@@ -229,7 +229,7 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:15",
+    "major_campaign_proposal:order:14",
     null,
     1205.0
   ],
@@ -237,7 +237,7 @@
     1427,
     "sell_fill",
     1638.75,
-    "major_campaign_proposal:order:16",
+    "major_campaign_proposal:order:15",
     null,
     null,
     null
@@ -246,7 +246,7 @@
     1436,
     "buy_fill",
     1604.0,
-    "major_campaign_proposal:order:17",
+    "major_campaign_proposal:order:16",
     null,
     1552.25,
     null
@@ -256,7 +256,7 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:17",
+    "major_campaign_proposal:order:16",
     null,
     -1045.0
   ],
@@ -273,7 +273,7 @@
     1451,
     "buy_fill",
     1572.5,
-    "major_campaign_proposal:order:18",
+    "major_campaign_proposal:order:17",
     null,
     1394.25,
     null
@@ -283,7 +283,7 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:18",
+    "major_campaign_proposal:order:17",
     null,
     3830.0
   ],
@@ -291,33 +291,33 @@
     1630,
     "sell_fill",
     1764.25,
+    "major_campaign_proposal:order:18",
+    null,
+    null,
+    null
+  ],
+  [
+    1665,
+    "buy_fill",
+    1848.75,
     "major_campaign_proposal:order:19",
     null,
-    null,
+    1800.0,
     null
   ],
   [
-    1646,
-    "buy_fill",
-    1818.25,
-    "major_campaign_proposal:order:20",
-    null,
-    1708.25,
-    null
-  ],
-  [
-    1854,
+    1853,
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:20",
+    "major_campaign_proposal:order:19",
     null,
-    -2210.0
+    -985.0
   ],
   [
-    1854,
+    1853,
     "intrabar_emergency_stop",
-    1708.0,
+    1799.75,
     null,
     null,
     null,
@@ -327,7 +327,7 @@
     1856,
     "buy_fill",
     1847.25,
-    "major_campaign_proposal:order:21",
+    "major_campaign_proposal:order:20",
     null,
     1691.5,
     null
@@ -337,7 +337,7 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:21",
+    "major_campaign_proposal:order:20",
     null,
     -3125.0
   ],
@@ -354,7 +354,7 @@
     1888,
     "buy_fill",
     1751.25,
-    "major_campaign_proposal:order:22",
+    "major_campaign_proposal:order:21",
     null,
     1629.75,
     null
@@ -364,7 +364,7 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:22",
+    "major_campaign_proposal:order:21",
     null,
     855.0
   ],
@@ -372,7 +372,7 @@
     2011,
     "sell_fill",
     1794.25,
-    "major_campaign_proposal:order:23",
+    "major_campaign_proposal:order:22",
     null,
     null,
     null
@@ -381,7 +381,7 @@
     2015,
     "buy_fill",
     1773.5,
-    "major_campaign_proposal:order:24",
+    "major_campaign_proposal:order:23",
     null,
     1669.5,
     null
@@ -391,7 +391,7 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:24",
+    "major_campaign_proposal:order:23",
     null,
     -2090.0
   ],
@@ -408,7 +408,7 @@
     2021,
     "buy_fill",
     1735.25,
-    "major_campaign_proposal:order:25",
+    "major_campaign_proposal:order:24",
     null,
     1600.0,
     null
@@ -418,7 +418,7 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:25",
+    "major_campaign_proposal:order:24",
     null,
     -2715.0
   ],
@@ -435,7 +435,7 @@
     2037,
     "buy_fill",
     1452.0,
-    "major_campaign_proposal:order:26",
+    "major_campaign_proposal:order:25",
     null,
     1188.75,
     null
@@ -445,7 +445,7 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:26",
+    "major_campaign_proposal:order:25",
     null,
     -5275.0
   ],
@@ -462,7 +462,7 @@
     2048,
     "buy_fill",
     1305.75,
-    "major_campaign_proposal:order:27",
+    "major_campaign_proposal:order:26",
     null,
     1125.0,
     null
@@ -472,7 +472,7 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:27",
+    "major_campaign_proposal:order:26",
     null,
     -3625.0
   ],
@@ -489,7 +489,7 @@
     2121,
     "buy_fill",
     1245.5,
-    "major_campaign_proposal:order:28",
+    "major_campaign_proposal:order:27",
     null,
     1183.5,
     null
@@ -499,7 +499,7 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:28",
+    "major_campaign_proposal:order:27",
     null,
     -1250.0
   ],
@@ -516,7 +516,7 @@
     2155,
     "buy_fill",
     1315.75,
-    "major_campaign_proposal:order:29",
+    "major_campaign_proposal:order:28",
     null,
     1143.75,
     null
@@ -526,7 +526,7 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:29",
+    "major_campaign_proposal:order:28",
     null,
     9140.0
   ],
@@ -534,18 +534,18 @@
     2507,
     "sell_fill",
     1773.0,
-    "major_campaign_proposal:order:30",
+    "major_campaign_proposal:order:29",
     null,
     null,
     null
   ],
   [
-    2547,
+    2538,
     "buy_fill",
-    2127.0,
-    "major_campaign_proposal:order:31",
+    2095.25,
+    "major_campaign_proposal:order:30",
     null,
-    2048.25,
+    1978.25,
     null
   ],
   [
@@ -553,15 +553,15 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:31",
+    "major_campaign_proposal:order:30",
     null,
-    3465.0
+    4100.0
   ],
   [
     2690,
     "sell_fill",
     2300.5,
-    "major_campaign_proposal:order:32",
+    "major_campaign_proposal:order:31",
     null,
     null,
     null
@@ -570,7 +570,7 @@
     2715,
     "buy_fill",
     2319.0,
-    "major_campaign_proposal:order:33",
+    "major_campaign_proposal:order:32",
     null,
     2170.0,
     null
@@ -580,7 +580,7 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:33",
+    "major_campaign_proposal:order:32",
     null,
     -2990.0
   ],
@@ -597,7 +597,7 @@
     2786,
     "buy_fill",
     2300.0,
-    "major_campaign_proposal:order:34",
+    "major_campaign_proposal:order:33",
     null,
     2076.25,
     null
@@ -607,7 +607,7 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:34",
+    "major_campaign_proposal:order:33",
     null,
     -1705.0
   ],
@@ -615,7 +615,7 @@
     2814,
     "sell_fill",
     2215.0,
-    "major_campaign_proposal:order:35",
+    "major_campaign_proposal:order:34",
     null,
     null,
     null
@@ -624,7 +624,7 @@
     2818,
     "buy_fill",
     2221.25,
-    "major_campaign_proposal:order:36",
+    "major_campaign_proposal:order:35",
     null,
     2077.75,
     null
@@ -634,7 +634,7 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:36",
+    "major_campaign_proposal:order:35",
     null,
     43420.0
   ],
@@ -642,7 +642,34 @@
     3719,
     "sell_fill",
     4392.5,
+    "major_campaign_proposal:order:36",
+    null,
+    null,
+    null
+  ],
+  [
+    3730,
+    "buy_fill",
+    4610.0,
     "major_campaign_proposal:order:37",
+    null,
+    4324.5,
+    null
+  ],
+  [
+    3755,
+    "position_closed",
+    null,
+    null,
+    "major_campaign_proposal:order:37",
+    null,
+    -5720.0
+  ],
+  [
+    3755,
+    "intrabar_emergency_stop",
+    4324.25,
+    null,
     null,
     null,
     null
@@ -756,39 +783,12 @@
     null
   ],
   [
-    4000,
+    3980,
     "buy_fill",
-    4782.5,
+    4561.25,
     "major_campaign_proposal:order:44",
     null,
-    4677.5,
-    null
-  ],
-  [
-    4020,
-    "position_closed",
-    null,
-    null,
-    "major_campaign_proposal:order:44",
-    null,
-    -2110.0
-  ],
-  [
-    4020,
-    "intrabar_emergency_stop",
-    4677.25,
-    null,
-    null,
-    null,
-    null
-  ],
-  [
-    4033,
-    "buy_fill",
-    4857.75,
-    "major_campaign_proposal:order:45",
-    null,
-    4622.5,
+    4357.25,
     null
   ],
   [
@@ -796,15 +796,15 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:45",
+    "major_campaign_proposal:order:44",
     null,
-    -3165.0
+    2765.0
   ],
   [
     4058,
     "sell_fill",
     4699.75,
-    "major_campaign_proposal:order:46",
+    "major_campaign_proposal:order:45",
     null,
     null,
     null
@@ -813,9 +813,9 @@
     4088,
     "buy_fill",
     4916.0,
-    "major_campaign_proposal:order:47",
+    "major_campaign_proposal:order:46",
     null,
-    4695.25,
+    4757.25,
     null
   ],
   [
@@ -823,7 +823,7 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:47",
+    "major_campaign_proposal:order:46",
     null,
     49490.0
   ],
@@ -831,7 +831,7 @@
     4542,
     "sell_fill",
     7390.75,
-    "major_campaign_proposal:order:48",
+    "major_campaign_proposal:order:47",
     null,
     null,
     null
@@ -840,7 +840,7 @@
     4559,
     "buy_fill",
     6960.25,
-    "major_campaign_proposal:order:49",
+    "major_campaign_proposal:order:48",
     null,
     6282.25,
     null
@@ -850,7 +850,7 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:49",
+    "major_campaign_proposal:order:48",
     null,
     -13570.0
   ],
@@ -867,9 +867,9 @@
     4596,
     "buy_fill",
     6283.25,
-    "major_campaign_proposal:order:50",
+    "major_campaign_proposal:order:49",
     null,
-    5795.5,
+    5799.5,
     null
   ],
   [
@@ -877,7 +877,7 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:50",
+    "major_campaign_proposal:order:49",
     null,
     186770.0
   ],
@@ -885,7 +885,7 @@
     5362,
     "sell_fill",
     15622.0,
-    "major_campaign_proposal:order:51",
+    "major_campaign_proposal:order:50",
     null,
     null,
     null
@@ -894,7 +894,7 @@
     5406,
     "buy_fill",
     13452.0,
-    "major_campaign_proposal:order:52",
+    "major_campaign_proposal:order:51",
     null,
     12723.5,
     null
@@ -904,7 +904,7 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:52",
+    "major_campaign_proposal:order:51",
     null,
     1420.0
   ],
@@ -912,7 +912,7 @@
     5434,
     "sell_fill",
     13523.25,
-    "major_campaign_proposal:order:53",
+    "major_campaign_proposal:order:52",
     null,
     null,
     null
@@ -921,7 +921,7 @@
     5448,
     "buy_fill",
     12409.25,
-    "major_campaign_proposal:order:54",
+    "major_campaign_proposal:order:53",
     null,
     11637.0,
     null
@@ -931,7 +931,7 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:54",
+    "major_campaign_proposal:order:53",
     null,
     -15455.0
   ],
@@ -948,7 +948,7 @@
     5456,
     "buy_fill",
     11887.75,
-    "major_campaign_proposal:order:55",
+    "major_campaign_proposal:order:54",
     null,
     10893.5,
     null
@@ -958,7 +958,7 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:55",
+    "major_campaign_proposal:order:54",
     null,
     -19895.0
   ],
@@ -975,7 +975,7 @@
     5546,
     "buy_fill",
     11630.5,
-    "major_campaign_proposal:order:56",
+    "major_campaign_proposal:order:55",
     null,
     10856.75,
     null
@@ -985,7 +985,7 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:56",
+    "major_campaign_proposal:order:55",
     null,
     -15485.0
   ],
@@ -1002,7 +1002,7 @@
     5553,
     "buy_fill",
     11065.0,
-    "major_campaign_proposal:order:57",
+    "major_campaign_proposal:order:56",
     null,
     10265.75,
     null
@@ -1012,7 +1012,7 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:57",
+    "major_campaign_proposal:order:56",
     null,
     136630.0
   ],
@@ -1020,18 +1020,18 @@
     5931,
     "sell_fill",
     17896.75,
-    "major_campaign_proposal:order:58",
+    "major_campaign_proposal:order:57",
     null,
     null,
     null
   ],
   [
-    5969,
+    5953,
     "buy_fill",
-    19107.5,
-    "major_campaign_proposal:order:59",
+    18642.25,
+    "major_campaign_proposal:order:58",
     null,
-    18216.25,
+    18046.75,
     null
   ],
   [
@@ -1039,14 +1039,14 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:59",
+    "major_campaign_proposal:order:58",
     null,
-    -17835.0
+    -11920.0
   ],
   [
     6006,
     "intrabar_emergency_stop",
-    18216.0,
+    18046.5,
     null,
     null,
     null,
@@ -1056,7 +1056,7 @@
     6011,
     "buy_fill",
     18590.25,
-    "major_campaign_proposal:order:60",
+    "major_campaign_proposal:order:59",
     null,
     17057.25,
     null
@@ -1066,7 +1066,7 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:60",
+    "major_campaign_proposal:order:59",
     null,
     53165.0
   ],
@@ -1074,61 +1074,7 @@
     6148,
     "sell_fill",
     21248.75,
-    "major_campaign_proposal:order:61",
-    null,
-    null,
-    null
-  ],
-  [
-    6160,
-    "buy_fill",
-    19668.5,
-    "major_campaign_proposal:order:62",
-    null,
-    19081.25,
-    null
-  ],
-  [
-    6170,
-    "position_closed",
-    null,
-    null,
-    "major_campaign_proposal:order:62",
-    null,
-    -11755.0
-  ],
-  [
-    6170,
-    "intrabar_emergency_stop",
-    19081.0,
-    null,
-    null,
-    null,
-    null
-  ],
-  [
-    6172,
-    "buy_fill",
-    19600.75,
-    "major_campaign_proposal:order:63",
-    null,
-    18929.75,
-    null
-  ],
-  [
-    6173,
-    "position_closed",
-    null,
-    null,
-    "major_campaign_proposal:order:63",
-    null,
-    -13430.0
-  ],
-  [
-    6173,
-    "intrabar_emergency_stop",
-    18929.5,
-    null,
+    "major_campaign_proposal:order:60",
     null,
     null,
     null
@@ -1137,7 +1083,7 @@
     6178,
     "buy_fill",
     19267.0,
-    "major_campaign_proposal:order:64",
+    "major_campaign_proposal:order:61",
     null,
     16382.0,
     null
@@ -1147,7 +1093,7 @@
     "position_closed",
     null,
     null,
-    "major_campaign_proposal:order:64",
+    "major_campaign_proposal:order:61",
     null,
     102970.0
   ],
@@ -1155,7 +1101,7 @@
     6386,
     "sell_fill",
     24415.75,
-    "major_campaign_proposal:order:65",
+    "major_campaign_proposal:order:62",
     null,
     null,
     null
@@ -1164,7 +1110,7 @@
     6423,
     "buy_fill",
     23889.25,
-    "major_campaign_proposal:order:66",
+    "major_campaign_proposal:order:63",
     null,
     22910.0,
     null

@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "packaged_at": "2026-10-18T03:26:18.554601+00:00",
+  "automatic_refresh": true,
+  "refresh_schedule": {
+    "provider": "GitHub Actions",
+    "timezone": "Asia/Tokyo",
+    "local_time": "09:00",
+    "cadence": "daily",
+    "failure_policy": "retain_previous_verified_generation"
+  },
+  "markets": {
+    "nq": {
+      "symbol": "NQ=F",
+      "asset": "nq.html.gz",
+      "start": "2000-09-18",
+      "end": "2026-10-16",
+      "bars": 6561,
+      "snapshot_generated_at": "2026-10-18T03:18:23.788857+00:00",
+      "strategy_status": "NOT_VALIDATED",
+      "html_bytes": 12229687,
+      "html_sha256": "f512f7d00705ea95c14892a666394423954c38930e7829874443f4ab09ede4ad",
+      "gzip_bytes": 1589727,
+      "gzip_sha256": "7c857003fda4fc9523a810b0dd9fd25477e5640a14ff132287e5711d06b5fc35",
+      "source_html_sha256": "270438711f7afda00f11bdef5722be2a10249f4c15cc86bf90a3505cef02166d",
+      "reviewed_rows_unchanged": true,
+      "queries": {
+        "market_prices": {
+          "rows": 6561,
+          "rows_sha256": "36e294e61dd04d32c24bacffa041f8d139b7eb30a6080ceb553439cd039b24f4"
+        },
+        "primary_zones": {
+          "rows": 11390,
+          "rows_sha256": "185d3f5bff1012a9daa75e5b8500d6a83f638c0f2a915cab2acf1abe386a87ea"
+        },
+        "tactical_zones": {
+          "rows": 4187,
+          "rows_sha256": "a5f4c5118ce5911d03aefe7c5fee14f589d366e132e7e8e2e56c505f4a8fb424"
+        },
+        "executions": {
+          "rows": 87,
+          "rows_sha256": "8a0c4dfce06f9702e10c9be2c9461bf4f5eb969e59901905f4d3c08f56d469fe"
+        },
+        "decisions": {
+          "rows": 66,
+          "rows_sha256": "ea94d013faab2df70a70ea04c3733bcd0c87e553dfd33aa7d2742e86378e736f"
+        },
+        "daily_states": {
+          "rows": 6561,
+          "rows_sha256": "6e1b287eab9608536356a1008574b14b976e789491a93318ed8ef7462bbe8661"
+        }
+      },
+      "privacy_cleanup": "Absolute user-directory paths replaced with basenames in provenance only; reviewed query rows unchanged.",
+      "data_quality": {
+        "provisional_from_date": null,
+        "verified_through": "2026-10-16"
+      }
+    },
+    "nikkei": {
+      "symbol": "NKD=F",
+      "asset": "nikkei.html.gz",
+      "start": "2004-02-17",
+      "end": "2026-10-16",
+      "bars": 5532,
+      "snapshot_generated_at": "2026-10-18T03:26:11.970712+00:00",
+      "strategy_status": "NOT_VALIDATED",
+      "html_bytes": 11672823,
+      "html_sha256": "131326bb631525c6afdb58f3944e9dc996e426559c85362f6c4dc4a89005020c",
+      "gzip_bytes": 1500728,
+      "gzip_sha256": "1bcb1608a3e36b2c9fc62925a29730512e5756b662b3371f2ac484bb7266c3e6",
+      "source_html_sha256": "568b8538779a7caaa91e48694a2e9d3f3805bb9de968457f153262580e187111",
+      "reviewed_rows_unchanged": true,
+      "queries": {
+        "market_prices": {
+          "rows": 5532,
+          "rows_sha256": "3d68c542c79645c12e24d0b65b231134c4a702b306dab7af3a1ec7a0d52285cf"
+        },
+        "primary_zones": {
+          "rows": 10673,
+          "rows_sha256": "9d406f3b9a34292486e117803380c1ab3247d5ca04a7ad421f44b749e01cf7d8"
+        },
+        "tactical_zones": {
+          "rows": 4423,
+          "rows_sha256": "7f266e640b0a2647746531c99e459fcbf33a8cbf3d2c555bce456fe5bfb00f3b"
+        },
+        "executions": {
+          "rows": 108,
+          "rows_sha256": "0f4c96f18685ae5496a25fa3d16d84e371155d6f4b526d24cb90667aebfb0dc5"
+        },
+        "decisions": {
+          "rows": 78,
+          "rows_sha256": "0ffd72a5cba9f6d61ff8d7b2215c039b363da6210c85063d781607249555e7dd"
+        },
+        "daily_states": {
+          "rows": 5532,
+          "rows_sha256": "4f5d5c8bbe154cc4f5d8a04b8a6237abc6d4f731a16aa77858bc54ce8bc00cdb"
+        }
+      },
+      "privacy_cleanup": "Absolute user-directory paths replaced with basenames in provenance only; reviewed query rows unchanged.",
+      "data_quality": {
+        "provisional_from_date": null,
+        "verified_through": "2026-10-16"
+      }
+    }
+  }
+}

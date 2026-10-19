@@ -42,6 +42,10 @@ def test_code_and_seed_integrity(tmp_path):
         assert meta["campaign_config"]["enable_recovery_buy"] is True
         assert not meta["campaign_config"]["enable_continuation_buy"]
         assert meta["campaign_config"]["reaction_filter"] == "observe_only"
+        assert meta["legacy_rules"]["buy_reference_radius"] == 1
+        assert meta["legacy_rules"]["emergency_buffer_atr"] == .10
+        assert meta["legacy_rules"]["major_decline_bars"] == 15
+        assert meta["strategy_version"] == "v0.12"
 
 
 def test_nkd_adapter_is_symbol_only():

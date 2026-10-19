@@ -2,4 +2,5 @@
 cloud/vendor/** -text
 cloud/views/** -text
 cloud/export_template.py.txt -text
+cloud/strategy.py -text
 *.gz binary

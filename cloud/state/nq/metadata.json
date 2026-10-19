@@ -81,7 +81,7 @@
   },
   "legacy_rules": {
     "pivot_radius": 5,
-    "buy_reference_radius": 2,
+    "buy_reference_radius": 1,
     "sell_support_radius": 2,
     "area_tolerance_atr": 0.5,
     "area_max_age": 504,
@@ -209,12 +209,23 @@
     },
     "config": {
       "path": "config.json",
-      "sha256": "1bba570e1defb67a03a23ab69d22a3f40fb1a7c1a96effeb3779c1f7c6e09703"
+      "sha256": "44309e5c4dbc6b24d687caf400ae4e94772f9e36077ff62cf292929de7277f1b"
     },
     "base_config": {
       "path": "base_config.json",
       "sha256": "d01995b345b449dd448d2ded4954fe0271249303c0db66b2fd203d3b87f11f11"
     }
   },
-  "revision_stage": "rev11_without_continuation"
+  "revision_stage": "rev11_without_continuation",
+  "strategy_version": "v0.12",
+  "strategy_base_stage": "rev11_without_continuation",
+  "strategy_change": {
+    "legacy_rules.buy_reference_radius": {
+      "from": 2,
+      "to": 1
+    }
+  },
+  "extra_supplied_pivot_radii": [
+    1
+  ]
 }
