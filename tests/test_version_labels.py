@@ -1,4 +1,7 @@
 from copy import deepcopy
+from pathlib import Path
+import shutil
+import subprocess
 
 import pytest
 
@@ -62,3 +65,17 @@ def test_no_stale_version_in_active_compiled_ui_or_page_title(market):
         encoded=re.search(r'base64,([^\"]+)',match.group(1))
         source=base64.b64decode(encoded.group(1)).decode() if encoded else match.group(2)
         assert not OLD_LABEL.search(source)
+
+
+def test_saved_obsolete_title_guard_uses_public_api_and_preserves_preferences():
+    root=Path(__file__).resolve().parents[1]
+    result=subprocess.run([shutil.which("node"),str(root/"scripts/verify_saved_title.mjs")],
+        cwd=root,capture_output=True,text=True,timeout=30)
+    assert result.returncode==0,result.stdout+result.stderr
+    assert '"status":"PASS_SAVED_TITLE_GUARD"' in result.stdout
+    for market in ["nq","es"]:
+        source=(root/"ui"/market/"DashboardContent.jsx").read_text(encoding="utf-8")
+        assert "currentReplayTitle(snapshot,appTitle)" in source
+        assert "setAppTitle(title)" in source
+    helper=(root/"ui/shared/current-model-title.mjs").read_text(encoding="utf-8")
+    assert "localStorage" not in helper and "removeItem" not in helper

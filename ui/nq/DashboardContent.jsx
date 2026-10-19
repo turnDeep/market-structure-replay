@@ -4,6 +4,7 @@ import {buildView,floorIndex,STATE_JA} from './replay-model.mjs';
 import {selectCase,focusedView,fittedWindow} from './decision-focus.mjs';
 import {DecisionOverlay,DecisionSteps} from './DecisionOverlay.jsx';
 import {summarizeModel} from './model-summary.mjs';
+import {currentReplayTitle} from '../shared/current-model-title.mjs';
 import './example.css';
 const n=(v,d=2)=>Number.isFinite(v)?v.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
 const compact=v=>Number.isFinite(v)?new Intl.NumberFormat('en-US',{notation:'compact',maximumFractionDigits:1}).format(v):'—';
@@ -49,7 +50,8 @@ function CandleChart({view,showSma,showTrades,showStop,selectedZone,selectedEven
 }
 
 export function DashboardContent(){
-  const {reviewedRows,snapshot}=useDataApp();
+  const {reviewedRows,snapshot,appTitle,setAppTitle}=useDataApp();
+  useEffect(()=>{const title=currentReplayTitle(snapshot,appTitle);if(title!==null&&typeof setAppTitle==='function')setAppTitle(title);},[snapshot,appTitle,setAppTitle]);
   const data=useMemo(()=>({bars:reviewedRows('market_prices',['date','index']),primary:reviewedRows('primary_zones',['id','index']),tactical:reviewedRows('tactical_zones',['id','index']),fills:reviewedRows('executions',['id','index']),decisions:reviewedRows('decisions',['id','index']),states:reviewedRows('daily_states',['date','index'])}),[snapshot]);
   const [cutoff,setCutoff]=useState(()=>floorIndex(data.bars,snapshot.replay.defaultDate)),[requestedDate,setRequestedDate]=useState(snapshot.replay.defaultDate),[windowBars,setWindowBars]=useState(120),[pan,setPan]=useState(0),[playing,setPlaying]=useState(false),[speed,setSpeed]=useState(700),[advance,setAdvance]=useState(1),[layerMode,setLayerMode]=useState('decision');
   const [show,setShow]=useState({sma:true,ob:true,fvg:true,ifvg:false,trades:true,stop:true,tactical:false,waiting:false,history:false}),[frames,setFrames]=useState(['1D','1W','1M']),[selectedId,setSelectedId]=useState(null),[zoneId,setZoneId]=useState(null),[allHistory,setAllHistory]=useState(false),[page,setPage]=useState(0);

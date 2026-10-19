@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "packaged_at": "2026-10-19T13:11:41.211401+00:00",
+  "packaged_at": "2026-10-19T14:32:34.597442+00:00",
   "automatic_refresh": true,
   "refresh_schedule": {
     "provider": "GitHub Actions",
@@ -19,11 +19,11 @@
       "snapshot_generated_at": "2026-10-19T08:25:07.295252+00:00",
       "strategy_status": "NOT_VALIDATED",
       "strategy_version": "v0.12",
-      "html_bytes": 12189016,
-      "html_sha256": "4476d137cb7e754427f0524896d37b7e65ef3fb98c332169dab9e031b6b35128",
-      "gzip_bytes": 1584251,
-      "gzip_sha256": "23084efcef8306de362ea7328164edd9d03cad9096f743e810cb1c209009f876",
-      "source_html_sha256": "ee17f2f87b0b917d1761c1b2c58e60bfef5523236d038cc8cea08e137a254d46",
+      "html_bytes": 12208665,
+      "html_sha256": "c95140cec4c59e516651ff1738118622381918f5338cbf81ed067e0e86522988",
+      "gzip_bytes": 1592812,
+      "gzip_sha256": "553888f376f6969c68abc5d7508bd8e4923e3b1e5b495a1aa8b562c08998a918",
+      "source_html_sha256": "e97cec79617d4d152db7d6acdd2bb011f893c3ed9f272174d94b2ed6dff08c3b",
       "reviewed_rows_unchanged": true,
       "queries": {
         "market_prices": {
@@ -66,11 +66,11 @@
       "snapshot_generated_at": "2026-10-19T13:06:38.248124+00:00",
       "strategy_status": "NOT_VALIDATED",
       "strategy_version": "v0.12",
-      "html_bytes": 12240325,
-      "html_sha256": "e9527fbf6519ec115f0afaf34994690aefbab6c22dacd3a1a28f0ff1828a60cf",
-      "gzip_bytes": 1581284,
-      "gzip_sha256": "f75f876ba055845012a5327cb702cefc46a8b9c0c62b25b3b786721941646292",
-      "source_html_sha256": "0ded7bedcf815bb4295fe218567ae9f4dbf833259726724a3b0e795b6f92474e",
+      "html_bytes": 12241433,
+      "html_sha256": "45e17f48dc99d072664b9d4f3bbe3221369f4b8bd76ad26010c233d26532e4e7",
+      "gzip_bytes": 1581809,
+      "gzip_sha256": "4df16f6ad0273d295750200a3906820ebd1f567710e12e4068483752dcb1b0f6",
+      "source_html_sha256": "861467e93b4c201b418f022425cd90d9904cde442d6fd0a95abd4cbd6c5601af",
       "reviewed_rows_unchanged": true,
       "queries": {
         "market_prices": {
