@@ -158,6 +158,30 @@ def stage_state(market, work, staged):
         reason="Admitted only after both CME boundary and provider-local date boundary; later vendor revisions remain possible and are not applied to frozen history."))
 
 
+def replace_staged_file(source, target):
+    """Atomically replace one file even when staging lives on another disk.
+
+    Git publishes the complete generation in one commit after all checks. The
+    per-file rename must use a sibling of the destination: GitHub-hosted /tmp
+    and the checkout can be separate filesystems (rename otherwise raises EXDEV).
+    """
+    target = Path(target)
+    target.parent.mkdir(parents=True,exist_ok=True)
+    sibling = None
+    try:
+        with tempfile.NamedTemporaryFile(prefix="."+target.name+".",suffix=".tmp",
+                                         dir=target.parent,delete=False) as handle:
+            sibling = Path(handle.name)
+            with Path(source).open("rb") as original:
+                shutil.copyfileobj(original,handle)
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.replace(sibling,target)
+    finally:
+        if sibling is not None:
+            sibling.unlink(missing_ok=True)
+
+
 def run(mode, report_dir):
     verify_package()
     now = datetime.now(timezone.utc)
@@ -242,8 +266,7 @@ def run(mode, report_dir):
             if path.is_file():
                 rel = path.relative_to(staged)
                 target = ROOT/("cloud" if rel.parts[0]=="state" else "")/rel
-                target.parent.mkdir(parents=True,exist_ok=True)
-                os.replace(path,target)
+                replace_staged_file(path,target)
         save(report_dir/"run.json",report)
         print(json.dumps(report,ensure_ascii=False)); return report
 

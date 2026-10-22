@@ -115,6 +115,61 @@ def test_schedule_and_permissions_are_scoped():
     assert "git push origin HEAD:main" in text
     assert "--force" not in text
     assert "pull_request_target" not in text
+    assert text.count("include-hidden-files: true") == 2
+
+
+def test_staged_replacement_renames_only_within_destination_filesystem(tmp_path,monkeypatch):
+    import errno
+    import cloud.refresh as refresh
+    source=tmp_path/"external-tmp"/"new.bin";source.parent.mkdir()
+    source.write_bytes(b"verified generation\x00\xff")
+    target=tmp_path/"checkout"/"assets"/"data.bin"
+    target.parent.mkdir(parents=True);target.write_bytes(b"previous generation")
+    original_replace=refresh.os.replace
+    def same_parent_replace(src,dst):
+        if Path(src).parent!=Path(dst).parent:
+            raise OSError(errno.EXDEV,"Invalid cross-device link")
+        original_replace(src,dst)
+    monkeypatch.setattr(refresh.os,"replace",same_parent_replace)
+    refresh.replace_staged_file(source,target)
+    assert target.read_bytes()==source.read_bytes()
+    assert list(target.parent.iterdir())==[target]
+
+
+def test_staged_copy_failure_keeps_previous_file_and_cleans_temp(tmp_path,monkeypatch):
+    import cloud.refresh as refresh
+    source=tmp_path/"source.bin";source.write_bytes(b"new")
+    target=tmp_path/"assets"/"data.bin";target.parent.mkdir();target.write_bytes(b"old")
+    def fail_copy(src,dst):
+        dst.write(b"partial")
+        raise OSError("Synthetic copy failure")
+    monkeypatch.setattr(refresh.shutil,"copyfileobj",fail_copy)
+    with pytest.raises(OSError,match="copy failure"):
+        refresh.replace_staged_file(source,target)
+    assert target.read_bytes()==b"old" and source.read_bytes()==b"new"
+    assert list(target.parent.iterdir())==[target]
+
+
+def test_staged_rename_failure_keeps_previous_file_and_cleans_temp(tmp_path,monkeypatch):
+    import cloud.refresh as refresh
+    source=tmp_path/"source.bin";source.write_bytes(b"new")
+    target=tmp_path/"assets"/"data.bin";target.parent.mkdir();target.write_bytes(b"old")
+    def fail_replace(src,dst):
+        raise PermissionError("Synthetic destination denied")
+    monkeypatch.setattr(refresh.os,"replace",fail_replace)
+    with pytest.raises(PermissionError,match="destination denied"):
+        refresh.replace_staged_file(source,target)
+    assert target.read_bytes()==b"old" and source.read_bytes()==b"new"
+    assert list(target.parent.iterdir())==[target]
+
+
+def test_staged_replacement_installs_first_generation_in_new_parent(tmp_path):
+    from cloud.refresh import replace_staged_file
+    source=tmp_path/"source.bin";source.write_bytes(b"first generation")
+    target=tmp_path/"new"/"assets"/"data.bin"
+    replace_staged_file(source,target)
+    assert target.read_bytes()==source.read_bytes()
+    assert list(target.parent.iterdir())==[target]
 
 
 def test_pending_sell_has_close_time_evidence_without_a_fictitious_fill():

@@ -56,6 +56,7 @@ jobs:
         with:
           name: frozen-replay-regression-${{ github.run_id }}
           path: .refresh-reports/
+          include-hidden-files: true
           retention-days: 14
 
   refresh:
@@ -109,4 +110,5 @@ jobs:
         with:
           name: daily-refresh-report-${{ github.run_id }}
           path: .refresh-reports/
+          include-hidden-files: true
           retention-days: 14
