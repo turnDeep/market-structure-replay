@@ -1,9 +1,8 @@
 name: Cloud daily market refresh
 
 on:
-  schedule:
-    # 00:00 UTC = 09:00 Asia/Tokyo (Japan has no DST).
-    - cron: '0 0 * * *'
+  # Scheduled 09:00 JST refresh stopped at the user's request (2026-10-29).
+  # Manual refresh and read-only push regressions remain available.
   workflow_dispatch:
     inputs:
       mode:
@@ -60,7 +59,7 @@ jobs:
           retention-days: 14
 
   refresh:
-    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.mode == 'refresh')
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'refresh'
     runs-on: ubuntu-latest
     timeout-minutes: 85
     permissions:
