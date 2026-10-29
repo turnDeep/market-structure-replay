@@ -44,7 +44,7 @@ def main() -> None:
     if st.query_params.get("market") != selected:
         st.query_params["market"] = selected
     item = manifest["markets"][selected]
-    refresh_text = "クラウド定期更新：毎日9時頃（日本時間）" if manifest.get("automatic_refresh") else "自動更新なし"
+    refresh_text = "クラウド定期更新：米国先物営業日の翌日9時頃（日本時間）" if manifest.get("automatic_refresh") else "自動更新なし"
     st.caption(
         f"保存データ最終日 {item['end']} ｜ {item['symbol']} ｜ "
         f"閲覧専用 ｜ {refresh_text}"
