@@ -255,7 +255,7 @@ def run(mode, report_dir):
             manifest["markets"][market]["data_quality"] = dict(provisional_from_date=None,verified_through=snapshots[market]["replay"]["end"])
         manifest.update(packaged_at=now_iso(),automatic_refresh=True,
             strategy_version=STRATEGY_VERSION,
-            refresh_schedule=dict(provider="GitHub Actions",timezone="Asia/Tokyo",local_time="09:00",cadence="day_after_cme_equity_session",calendar="CME_Equity",calendar_gate=True,failure_policy="retain_previous_verified_generation"))
+            refresh_schedule=dict(provider="GitHub Actions",timezone="Asia/Tokyo",local_time="14:10",cadence="day_after_cme_equity_session",calendar="CME_Equity",calendar_gate=True,failure_policy="retain_previous_verified_generation"))
         report.update(status="PASS_STAGED_GENERATION",published=False,finished_at_utc=now_iso(),
             changed_markets=changed,publication="Staged locally; GitHub commit/push must succeed to publish")
         save(assets/"cloud_refresh_latest.json",report)
