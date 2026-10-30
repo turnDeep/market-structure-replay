@@ -2,7 +2,7 @@ name: Cloud daily market refresh
 
 on:
   schedule:
-    # 00:00 UTC = 09:00 JST. Mon-Fri US sessions are followed by Tue-Sat JST.
+    # 05:10 UTC = 14:10 JST. Mon-Fri US sessions are followed by Tue-Sat JST.
     # A CME equity-session calendar gate below excludes full market holidays.
     - cron: '10 5 * * 2-6'
   workflow_dispatch:
