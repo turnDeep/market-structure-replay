@@ -1,7 +1,7 @@
 """Gate scheduled NQ/ES refreshes on the previous CME equity trade date.
 
-At 09:00 JST Tuesday-Saturday, yesterday's calendar date is the US trade
-date that has finished. Japanese public holidays are irrelevant. Do not use
+At 14:10 JST Tuesday-Saturday (just after midnight in New York),
+yesterday's calendar date is the US trade date that has finished. Japanese public holidays are irrelevant. Do not use
 an NYSE calendar: CME can have shortened sessions on US stock-market holidays.
 This gate controls scheduling only; it does not relax the price-finality,
 append-only, verification or publication rules in cloud.refresh.
@@ -35,7 +35,7 @@ def refresh_decision(now: datetime, event_name: str = 'schedule', *, calendar=No
         'session_date': session_day.isoformat(),
         'calendar': CALENDAR_NAME,
         'calendar_version': mcal.__version__,
-        'scheduled_time_jst': '09:00',
+        'scheduled_time_jst': '14:10',
     }
     if event_name == 'workflow_dispatch':
         return result | {'should_refresh': True, 'reason': 'explicit_manual_refresh'}
