@@ -108,7 +108,7 @@ def test_second_market_fetch_failure_never_publishes_first(tmp_path,monkeypatch)
 
 def test_schedule_and_permissions_are_scoped():
     text = (CLOUD.parent/".github/workflows/refresh-data.yml").read_text(encoding="utf-8")
-    assert "cron: '0 0 * * 2-6'" in text
+    assert "cron: '10 5 * * 2-6'" in text
     assert "calendar-gate:" in text
     assert "needs: calendar-gate" in text
     assert "needs.calendar-gate.outputs.should_refresh == 'true'" in text
