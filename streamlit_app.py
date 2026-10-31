@@ -66,7 +66,9 @@ def main() -> None:
         st.caption("GitHubのPrivate設定に加え、Streamlit CloudのSharingを「Only specific people can view this app」に設定してください。アプリ内表示は認証の代わりにはなりません。")
 
     with st.expander("使い方・分析上の注意", expanded=False):
-        if version == "v0.12":
+        if version == "v0.13":
+            st.markdown("**v0.13**：v0.12にNFCI持続性レジームゲートを追加。金融環境指数NFCIが0以上で4週以上継続した局面ではBUYを見送ります（公表ラグ7日で参照）。価格を固定して過去の売買履歴を再計算した別バージョンです。旧v0.12はリポジトリの比較用アーカイブに保存しています。")
+        elif version == "v0.12":
             st.markdown("**v0.12**：検証時のαを正式採用。v0.11からBUY参照半径を2→1とし、確定済み半径1ピボットを追加しています。β・γは採用していません。価格を固定して過去の売買履歴を再計算した別バージョンです。旧v0.11はリポジトリの比較用アーカイブに保存しています。")
         st.markdown(
             "日付は下のリプレイ画面内で指定します。採用された帯・売買矢印・履歴行から、"

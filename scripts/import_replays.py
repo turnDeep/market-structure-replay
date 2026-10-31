@@ -63,7 +63,8 @@ def package(path: Path, key: str, output: Path) -> dict:
     original = path.read_bytes()
     html = original.decode("utf-8")
     before = read_snapshot(html)
-    if before.get("replay",{}).get("strategyVersion") == "v0.12":
+    from cloud.strategy import STRATEGY_VERSION
+    if before.get("replay",{}).get("strategyVersion") == STRATEGY_VERSION:
         from cloud.version_labels import validate_current_labels
         validate_current_labels(before)
     after = scrub(before)
