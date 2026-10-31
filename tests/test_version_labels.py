@@ -67,6 +67,28 @@ def test_no_stale_version_in_active_compiled_ui_or_page_title(market):
         assert not OLD_LABEL.search(source)
 
 
+def test_packaged_title_guard_targets_previous_release():
+    # The guard compiled into the packaged bundles must name the current
+    # canonical version and the immediately previous release; the v0.13
+    # release initially shipped with the previous-version literal still at
+    # '11', so v0.12 saved titles were never corrected.
+    import base64, re
+    from replay_assets import load_manifest, load_replay
+    manifest = load_manifest()
+    for market in ["nq", "es"]:
+        html = load_replay(market, manifest["markets"][market])
+        bundles = []
+        for match in re.finditer(r'src="data:text/javascript[^,]*;base64,([^"]+)"', html):
+            try:
+                bundles.append(base64.b64decode(match.group(1)).decode("utf-8"))
+            except Exception:
+                pass
+        guard = [b for b in bundles if "currentReplayTitle" in b]
+        assert len(guard) == 1
+        assert "prior?.[2] === '12'" in guard[0]
+        assert "v0\\.13 追体験" in guard[0]
+
+
 def test_saved_obsolete_title_guard_uses_public_api_and_preserves_preferences():
     root=Path(__file__).resolve().parents[1]
     result=subprocess.run([shutil.which("node"),str(root/"scripts/verify_saved_title.mjs")],

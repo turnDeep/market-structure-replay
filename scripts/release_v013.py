@@ -122,6 +122,10 @@ def presentation_labels(html):
         source = source.replace("v0.12", "v0.13").replace("revision 0.12", "revision 0.13").replace("_v012_", "_v013_")
         # Escaped forms inside bundled regular expressions (e.g. v0\.12).
         source = source.replace("v0\\.12", "v0\\.13").replace("v0\\\\.12", "v0\\\\.13")
+        # The saved-title guard compares the saved title's version against the
+        # previous release; move that literal forward too, or titles saved
+        # under v0.12 are never auto-corrected to the v0.13 canonical title.
+        source = source.replace("prior?.[2] === '11'", "prior?.[2] === '12'")
         return source
     def upgrade(match):
         import re
