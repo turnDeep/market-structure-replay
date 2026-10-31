@@ -36,7 +36,9 @@ def test_excludes_yahoo_current_date_after_cme_break():
 def test_code_and_seed_integrity(tmp_path):
     manifest = verify_package()
     assert manifest["strategy_status"] == "NOT_VALIDATED"
-    for market in ["nq","nikkei"]:
+    # Nikkei is retired and its seed stays frozen at v0.12 (pinned by the
+    # archive tests); the current-strategy assertion covers live markets.
+    for market in ["nq","es"]:
         meta = materialize_seed(market,tmp_path/market)
         assert meta["campaign_config"]["support_selection"] == "structural_or_leg"
         assert meta["campaign_config"]["enable_recovery_buy"] is True
@@ -45,7 +47,7 @@ def test_code_and_seed_integrity(tmp_path):
         assert meta["legacy_rules"]["buy_reference_radius"] == 1
         assert meta["legacy_rules"]["emergency_buffer_atr"] == .10
         assert meta["legacy_rules"]["major_decline_bars"] == 15
-        assert meta["strategy_version"] == "v0.12"
+        assert meta["strategy_version"] == "v0.13"
 
 
 def test_nkd_adapter_is_symbol_only():

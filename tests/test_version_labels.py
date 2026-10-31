@@ -9,7 +9,7 @@ from cloud.version_labels import HISTORY_PREFIX, current_labels, normalize_curre
 
 
 def test_normalization_changes_labels_not_trades_or_historical_facts():
-    sample=dict(title="NQ=F · v0.11 追体験",replay=dict(strategyVersion="v0.12"),queries=dict(
+    sample=dict(title="NQ=F · v0.11 追体験",replay=dict(strategyVersion="v0.13"),queries=dict(
         executions=dict(rows=[dict(price=100,version="v0.11",source_file="v011_source.json")],source=dict(
             label="v0.11 約定履歴",metricDefinitions=[dict(label="v0.11 約定モデル",definition="約定1行")],
             evidenceFlow=[dict(title="クラウド更新",detail="固定v0.11設定で当時再計算。")]))))
@@ -34,7 +34,7 @@ def test_active_title_and_all_source_measurement_labels(market):
     from scripts.import_replays import read_snapshot
     snapshot=read_snapshot(load_replay(market,load_manifest()["markets"][market]))
     validate_current_labels(snapshot)
-    assert "v0.12" in snapshot["title"]
+    assert "v0.13" in snapshot["title"]
 
 
 def test_packager_rejects_stale_source_definition(tmp_path):

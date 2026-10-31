@@ -13,10 +13,30 @@ from cloud.strategy import STRATEGY_VERSION, stamp_metadata, validate_strategy
 def test_only_alpha_is_the_released_strategy():
     base=dict(legacy_rules=dict(buy_reference_radius=1,emergency_buffer_atr=.10,major_decline_bars=15),
               campaign_config=dict(enable_continuation_buy=False))
-    assert stamp_metadata(deepcopy(base))["strategy_version"]==STRATEGY_VERSION=="v0.12"
+    assert stamp_metadata(deepcopy(base))["strategy_version"]==STRATEGY_VERSION=="v0.13"
     for key,value in [("buy_reference_radius",2),("emergency_buffer_atr",.12),("major_decline_bars",18)]:
         bad=deepcopy(base);bad["legacy_rules"][key]=value
         with pytest.raises(ValueError):validate_strategy(bad)
+
+
+def test_regime_gate_blocks_only_entrenched_tightening():
+    from cloud.strategy import regime_state, stamp_metadata
+    # Lehman-era tightening was entrenched for over two years.
+    lehman = regime_state("2008-09-17")
+    assert lehman["blocked"] is True and lehman["consecutive_weeks"] >= 4
+    # The COVID entry decision (2020-03-24) saw only the first week of the
+    # spike and stays allowed; the gate bites only once tightening persists.
+    covid_entry = regime_state("2020-03-24")
+    assert covid_entry["blocked"] is False and covid_entry["consecutive_weeks"] == 1
+    assert regime_state("2020-04-20")["blocked"] is True
+    # The final saved decision date is in a loose regime.
+    assert regime_state("2026-10-28")["blocked"] is False
+    base = dict(legacy_rules=dict(buy_reference_radius=1, emergency_buffer_atr=.10, major_decline_bars=15),
+                campaign_config=dict(enable_continuation_buy=False))
+    stamped = stamp_metadata(deepcopy(base))
+    assert stamped["regime_gate"]["id"] == "nfci_persistence_gate"
+    assert stamped["regime_gate"]["min_consecutive_weeks"] == 4
+    assert stamped["regime_gate"]["publication_lag_days"] == 7
 
 
 def test_presentation_labels_upgrade_inline_and_encoded_scripts_not_data():
@@ -100,10 +120,10 @@ def test_released_view_and_seed_names_are_consistent():
     from replay_assets import load_manifest, load_replay
     from scripts.import_replays import read_snapshot
     manifest=load_manifest()
-    assert manifest["strategy_version"]=="v0.12"
+    assert manifest["strategy_version"]=="v0.13"
     for market,item in manifest["markets"].items():
         snapshot=read_snapshot(load_replay(market,item))
-        assert snapshot["replay"]["strategyVersion"]=="v0.12"
+        assert snapshot["replay"]["strategyVersion"]=="v0.13"
         assert snapshot["replay"]["buyReferenceRadius"]==1
-        assert "v0.12" in snapshot["title"]
+        assert "v0.13" in snapshot["title"]
         validate_strategy(load(CLOUD/"state"/market/"metadata.json"))
