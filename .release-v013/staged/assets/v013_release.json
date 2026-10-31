@@ -1,0 +1,113 @@
+{
+  "strategy_version": "v0.13",
+  "baseline_commit": "a358cf97f4fbbc9c3010a4332db8b54bbcac845c",
+  "started_at_utc": "2026-10-31T09:49:40.088250+00:00",
+  "status": "PASS_V013_MIGRATION",
+  "parameter_change": {
+    "regime_gate": "nfci_persistence_gate"
+  },
+  "market_data_refresh": false,
+  "markets": {
+    "nq": {
+      "bars": 6569,
+      "end": "2026-10-28",
+      "historical_prefix": {
+        "market_prices": {
+          "rows": 6569,
+          "rows_sha256": "fb06ad9c4a4692d51719186c4c2185e88982da1148664df4743b73c5f9da5753"
+        },
+        "primary_zones": {
+          "rows": 11397,
+          "rows_sha256": "d90da7cdc654b728191e819c02be2e66beac71ab4cd010207b0b733223a5191f"
+        },
+        "tactical_zones": {
+          "rows": 4195,
+          "rows_sha256": "1c41455062ceaba635d5156db7023ab69d62e317a54ab0f92b7cda803d36c637"
+        },
+        "executions": {
+          "rows": 71,
+          "rows_sha256": "f8d7b7aa053eae48f988a293ed62a5c35b5e04027f68b6caeb527fa9e60db3d6"
+        },
+        "decisions": {
+          "rows": 56,
+          "rows_sha256": "67f9b8aba079a2263d9841de6d88156238ecaa3631e97188b8e1cc7dfe19e60c"
+        },
+        "daily_states": {
+          "rows": 6569,
+          "rows_sha256": "27f0132df95636cc88a1a6cf50fea5c62b26077534e30081a1cfd769523ad76d"
+        }
+      },
+      "replay": {
+        "status": "PASS_REGIME_GATE_MIGRATION",
+        "strategy_version": "v0.13",
+        "daily_rows": 6569,
+        "price_and_original_zone_inputs_unchanged": true,
+        "config_unchanged": true,
+        "sole_strategy_change": "nfci_persistence_regime_gate"
+      },
+      "view": {
+        "status": "PASS_DATA_VIEW_AND_LEDGER",
+        "checks": 27537,
+        "prefixComparisons": 174,
+        "market": "nq",
+        "bars": 6569,
+        "end": "2026-10-28",
+        "upstream_detector_full_prefix_proof": false,
+        "predictive_edge_validated": false,
+        "browser_rendering": "not covered by this data checker; separate rendered review required"
+      }
+    },
+    "es": {
+      "bars": 6583,
+      "end": "2026-10-28",
+      "historical_prefix": {
+        "market_prices": {
+          "rows": 6583,
+          "rows_sha256": "586c4312db0324e1747a721bb198eded7c962819964f064fe29b7cdfef4e6b23"
+        },
+        "primary_zones": {
+          "rows": 11355,
+          "rows_sha256": "10e4d554728d78daef22eb7e18ba3c822f57b002a972b226fff60b6ea59309c1"
+        },
+        "tactical_zones": {
+          "rows": 4250,
+          "rows_sha256": "db081e533691d4512f6f5e3651403d49b37c072268859f813a50e239e03bf055"
+        },
+        "executions": {
+          "rows": 79,
+          "rows_sha256": "3eac71127d5008e0fa5c32f4060621fcbf97b8d2370adac003dad7b640569b22"
+        },
+        "decisions": {
+          "rows": 63,
+          "rows_sha256": "e02d167dad02787152a8313c4fb93a7c2843b024f5c1684d925d235948c9ed3c"
+        },
+        "daily_states": {
+          "rows": 6583,
+          "rows_sha256": "d1d14d6b142707f2d93ab144b14207ed4284d40cc423e656ec27446c79b5ce86"
+        }
+      },
+      "replay": {
+        "status": "PASS_REGIME_GATE_MIGRATION",
+        "strategy_version": "v0.13",
+        "daily_rows": 6583,
+        "price_and_original_zone_inputs_unchanged": true,
+        "config_unchanged": true,
+        "sole_strategy_change": "nfci_persistence_regime_gate"
+      },
+      "view": {
+        "status": "PASS_DATA_VIEW_AND_LEDGER",
+        "checks": 27766,
+        "prefixComparisons": 195,
+        "market": "es",
+        "bars": 6583,
+        "end": "2026-10-28",
+        "upstream_detector_full_prefix_proof": false,
+        "predictive_edge_validated": false,
+        "browser_rendering": "not covered by this data checker; separate rendered review required"
+      }
+    }
+  },
+  "finished_at_utc": "2026-10-31T10:07:04.213318+00:00",
+  "published_to_github": false,
+  "baseline_archive": "assets/archive/v012"
+}

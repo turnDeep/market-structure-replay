@@ -1,0 +1,11 @@
+{
+  "status": "PASS_DATA_VIEW_AND_LEDGER",
+  "checks": 27766,
+  "prefixComparisons": 195,
+  "market": "es",
+  "bars": 6583,
+  "end": "2026-10-28",
+  "upstream_detector_full_prefix_proof": false,
+  "predictive_edge_validated": false,
+  "browser_rendering": "not covered by this data checker; separate rendered review required"
+}

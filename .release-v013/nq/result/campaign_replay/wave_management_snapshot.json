@@ -1,0 +1,40 @@
+{
+  "index": 6568,
+  "phase": "advancing",
+  "valid": true,
+  "active": {
+    "pivot": {
+      "id": "pivot:5:low:2026-09-16",
+      "kind": "low",
+      "origin_index": 6538,
+      "origin_at": "2026-09-16T00:00:00",
+      "available_index": 6543,
+      "available_at": "2026-09-23T00:00:00",
+      "price": 28763.75,
+      "atr_at_origin": 384.2142857142857,
+      "radius": 5
+    },
+    "supporting_high": {
+      "id": "pivot:5:high:2026-08-28",
+      "kind": "high",
+      "origin_index": 6526,
+      "origin_at": "2026-08-28T00:00:00",
+      "available_index": 6531,
+      "available_at": "2026-09-04T00:00:00",
+      "price": 29811.5,
+      "atr_at_origin": 391.5,
+      "radius": 5
+    },
+    "breakout_index": 6541,
+    "decided_index": 6543,
+    "effective_from_index": 6544
+  },
+  "active_id": "wave:pivot:5:high:2026-08-28:6538:6541",
+  "pending_id": null,
+  "last_top_index": 6385,
+  "scale": {
+    "pivot_radius": 5,
+    "minimum_depth_atr": 2.5
+  },
+  "weekly_or_elliott_degree": "not_asserted"
+}

@@ -1,0 +1,8 @@
+{
+  "status": "PASS_REGIME_GATE_MIGRATION",
+  "strategy_version": "v0.13",
+  "daily_rows": 6583,
+  "price_and_original_zone_inputs_unchanged": true,
+  "config_unchanged": true,
+  "sole_strategy_change": "nfci_persistence_regime_gate"
+}

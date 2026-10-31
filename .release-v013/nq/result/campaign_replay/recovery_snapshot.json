@@ -1,0 +1,30 @@
+{
+  "enabled": true,
+  "index": 6568,
+  "phase": "waiting_recovery",
+  "context_id": "episode-exit:major_campaign_proposal:order:54:6386",
+  "structure_id": null,
+  "cutoff": 6386,
+  "checks": {
+    "actual_exit": true,
+    "after_exit": true,
+    "exit_level_reclaimed": true,
+    "structure_matches_exit_scope": false,
+    "structure_available": false,
+    "pivots_preknown_at_break": false,
+    "structure_still_valid": false,
+    "no_same_close_top": true,
+    "prior_atr": true
+  },
+  "structure_qualification": {
+    "policy": "post_exit_low",
+    "cutoff": 6386,
+    "eligible": false,
+    "strict_post_exit_low": false,
+    "path": "waiting_post_exit_low",
+    "preserved_support": null,
+    "local_checks": {}
+  },
+  "contact_required": false,
+  "probability": null
+}

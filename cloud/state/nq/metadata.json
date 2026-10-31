@@ -217,15 +217,32 @@
     }
   },
   "revision_stage": "rev11_without_continuation",
-  "strategy_version": "v0.12",
+  "strategy_version": "v0.13",
   "strategy_base_stage": "rev11_without_continuation",
   "strategy_change": {
     "legacy_rules.buy_reference_radius": {
       "from": 2,
       "to": 1
+    },
+    "regime_gate": {
+      "from": null,
+      "to": "nfci_persistence_gate"
     }
   },
   "extra_supplied_pivot_radii": [
     1
-  ]
+  ],
+  "regime_gate": {
+    "id": "nfci_persistence_gate",
+    "series": "FRED NFCI, weekly, week-ending Friday",
+    "data_file": "regime/nfci_weekly.csv",
+    "threshold": 0.0,
+    "min_consecutive_weeks": 4,
+    "publication_lag_days": 7,
+    "reason_blocked": "nfci_tightening_persistent",
+    "reason_clear": "nfci_regime_clear",
+    "data_rows": 2912,
+    "data_start": "1971-01-08",
+    "data_end": "2026-10-23"
+  }
 }

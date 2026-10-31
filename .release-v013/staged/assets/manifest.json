@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "packaged_at": "2026-10-31T10:07:04.213360+00:00",
+  "automatic_refresh": true,
+  "refresh_schedule": {
+    "provider": "GitHub Actions",
+    "timezone": "Asia/Tokyo",
+    "local_time": "09:00",
+    "cadence": "day_after_cme_equity_session",
+    "calendar": "CME_Equity",
+    "calendar_gate": true,
+    "failure_policy": "retain_previous_verified_generation"
+  },
+  "markets": {
+    "nq": {
+      "symbol": "NQ=F",
+      "asset": "nq.html.gz",
+      "start": "2000-09-18",
+      "end": "2026-10-28",
+      "bars": 6569,
+      "snapshot_generated_at": "2026-10-31T09:58:15.141121+00:00",
+      "strategy_status": "NOT_VALIDATED",
+      "strategy_version": "v0.13",
+      "html_bytes": 12156218,
+      "html_sha256": "df0fde9d598769f84b30678a87334dc26e034f73a598577659370cbac07c3d1a",
+      "gzip_bytes": 1588640,
+      "gzip_sha256": "eaeb7ef4de72f616775e876b503012c8f88f2922f13e3bd939870acdb213e6cd",
+      "source_html_sha256": "d9f0af510f5327ddc47ad56323da3de20232f50f22375c9b5c31bb02f1b008b6",
+      "reviewed_rows_unchanged": true,
+      "queries": {
+        "market_prices": {
+          "rows": 6569,
+          "rows_sha256": "fb06ad9c4a4692d51719186c4c2185e88982da1148664df4743b73c5f9da5753"
+        },
+        "primary_zones": {
+          "rows": 11397,
+          "rows_sha256": "d90da7cdc654b728191e819c02be2e66beac71ab4cd010207b0b733223a5191f"
+        },
+        "tactical_zones": {
+          "rows": 4195,
+          "rows_sha256": "1c41455062ceaba635d5156db7023ab69d62e317a54ab0f92b7cda803d36c637"
+        },
+        "executions": {
+          "rows": 71,
+          "rows_sha256": "f8d7b7aa053eae48f988a293ed62a5c35b5e04027f68b6caeb527fa9e60db3d6"
+        },
+        "decisions": {
+          "rows": 56,
+          "rows_sha256": "67f9b8aba079a2263d9841de6d88156238ecaa3631e97188b8e1cc7dfe19e60c"
+        },
+        "daily_states": {
+          "rows": 6569,
+          "rows_sha256": "27f0132df95636cc88a1a6cf50fea5c62b26077534e30081a1cfd769523ad76d"
+        }
+      },
+      "privacy_cleanup": "Absolute user-directory paths replaced with basenames in provenance only; reviewed query rows unchanged.",
+      "data_quality": {
+        "provisional_from_date": null,
+        "verified_through": "2026-10-28"
+      }
+    },
+    "es": {
+      "symbol": "ES=F",
+      "asset": "es.html.gz",
+      "start": "2000-09-18",
+      "end": "2026-10-28",
+      "bars": 6583,
+      "snapshot_generated_at": "2026-10-31T10:06:56.735577+00:00",
+      "strategy_status": "NOT_VALIDATED",
+      "strategy_version": "v0.13",
+      "html_bytes": 12209924,
+      "html_sha256": "33758a21b24bdf3fbbed0aea0a32ce1dd11d14a712050fddec41a61b7668ced0",
+      "gzip_bytes": 1578759,
+      "gzip_sha256": "2a9c293ca46a2859dfbf4fa27436b1cc3a389c820a0d248b20a0ded4ff3a2db2",
+      "source_html_sha256": "d653fc7f820d6d36eae0c85d0bf08c86d6ec738bab7ed2a54042f587c6ac2766",
+      "reviewed_rows_unchanged": true,
+      "queries": {
+        "market_prices": {
+          "rows": 6583,
+          "rows_sha256": "586c4312db0324e1747a721bb198eded7c962819964f064fe29b7cdfef4e6b23"
+        },
+        "primary_zones": {
+          "rows": 11355,
+          "rows_sha256": "10e4d554728d78daef22eb7e18ba3c822f57b002a972b226fff60b6ea59309c1"
+        },
+        "tactical_zones": {
+          "rows": 4250,
+          "rows_sha256": "db081e533691d4512f6f5e3651403d49b37c072268859f813a50e239e03bf055"
+        },
+        "executions": {
+          "rows": 79,
+          "rows_sha256": "3eac71127d5008e0fa5c32f4060621fcbf97b8d2370adac003dad7b640569b22"
+        },
+        "decisions": {
+          "rows": 63,
+          "rows_sha256": "e02d167dad02787152a8313c4fb93a7c2843b024f5c1684d925d235948c9ed3c"
+        },
+        "daily_states": {
+          "rows": 6583,
+          "rows_sha256": "d1d14d6b142707f2d93ab144b14207ed4284d40cc423e656ec27446c79b5ce86"
+        }
+      },
+      "privacy_cleanup": "Absolute user-directory paths replaced with basenames in provenance only; reviewed query rows unchanged.",
+      "data_quality": {
+        "provisional_from_date": null,
+        "verified_through": "2026-10-28"
+      }
+    }
+  },
+  "strategy_version": "v0.13",
+  "strategy_release": "v013_release.json",
+  "presentation_updated_at": "2026-10-19T08:42:48.263148+00:00",
+  "active_markets_change": "NQ + ES; NKD retained in archive/nkd-v012",
+  "market_addition": "es_addition_20261019.json"
+}

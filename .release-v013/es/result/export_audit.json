@@ -1,0 +1,11 @@
+{
+  "status": "PASS_EXPLICIT_STRATEGY_MIGRATION",
+  "preserved_rows": {
+    "market_prices": 6583,
+    "primary_zones": 11355,
+    "tactical_zones": 0,
+    "executions": 0,
+    "decisions": 0,
+    "daily_states": 0
+  }
+}

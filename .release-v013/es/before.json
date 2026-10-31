@@ -1,0 +1,422 @@
+{
+  "title": "ES=F · v0.12 追体験",
+  "surface": "dashboard",
+  "status": "reviewed",
+  "buildStatus": "complete",
+  "generatedAt": "2026-10-30T03:46:58.247555+00:00",
+  "filters": [],
+  "replay": {
+    "start": "2000-09-18",
+    "end": "2026-10-28",
+    "defaultDate": "2026-10-28",
+    "strategyStatus": "NOT_VALIDATED",
+    "strategyVersion": "v0.12",
+    "pointValue": 50.0,
+    "commissionSide": 2.5,
+    "slippagePoints": 0.25,
+    "analysisReady": true,
+    "hashes": {
+      "prices": {
+        "path": "/tmp/v011-cloud-36fk49l6/es/result/prices.csv",
+        "sha256": "fd2dcc5b3163c8b8c6b8b3f5385b02de83c77e2abb82d082d0dfd8c635cd9065"
+      },
+      "objects": {
+        "path": "/tmp/v011-cloud-36fk49l6/es/result/objects.csv",
+        "sha256": "520102c61353949110b5bfdb085771507a7a3245c5ed6dd8a46d0f139f5c97e9"
+      },
+      "contexts": {
+        "path": "/tmp/v011-cloud-36fk49l6/es/result/contexts.csv",
+        "sha256": "8eb4b7d4cac46b112321acf568966b1ad94eadeed9514d09023b7802dec3d85d"
+      },
+      "calendar": {
+        "path": "/tmp/v011-cloud-36fk49l6/es/result/calendar.json",
+        "sha256": "16bce609b53918238503d24716eaa7e333ff330fe1eee71eeafb1d2e97fc266c"
+      },
+      "config": {
+        "path": "/tmp/v011-cloud-36fk49l6/es/seed/config.json",
+        "sha256": "d0fe639c7ab715f955fe32531fb5766c01de36b31d116c3dbf098461755055d0"
+      },
+      "base_config": {
+        "path": "/tmp/v011-cloud-36fk49l6/es/seed/base_config.json",
+        "sha256": "b3ab1b6bdfcfe645ffddbb0e4d2228631f493e4a78243bbbebe3eb704449e7f4"
+      }
+    },
+    "revision": "rev12_radius_one",
+    "fvgRole": "200SMAは参照。FVGは全BUYの必須条件ではないが、構造後の再テストBUYに採用されうる。継続BUYはオフ。",
+    "baseRevision": "rev11_without_continuation",
+    "buyReferenceRadius": 1,
+    "refresh": {
+      "date": "2026-10-30",
+      "previousEnd": "2026-10-27",
+      "refreshedThrough": "2026-10-28",
+      "extendedEnd": "2026-10-28",
+      "latestAppendedBars": 1,
+      "capturedAt": "2026-10-30T03:18:09.031360+00:00",
+      "partialDatesExcluded": [
+        "2026-10-29"
+      ],
+      "historicalRowsUnchanged": true,
+      "strategyReplayed": true,
+      "strategyParametersChanged": false,
+      "dataPolicy": "append_only",
+      "automaticScheduleEnabled": true,
+      "frozenThrough": "2026-10-14",
+      "appendedBars": 10,
+      "marketAdded": "ES=F"
+    },
+    "summaryUiRevision": "2026-10-19-es-asof-summary"
+  },
+  "queries": {
+    "market_prices": {
+      "rows": [],
+      "source": {
+        "label": "ES=F 日足・200SMA",
+        "tables": [
+          "prices.csv"
+        ],
+        "executedAt": "2026-10-30T03:46:58.247555+00:00",
+        "filters": [
+          "ES=F / 2000-09-18以降の有効配信日足 / 選択日・表示窓に連動"
+        ],
+        "metricDefinitions": [
+          {
+            "label": "ES=F 日足・200SMA",
+            "definition": "1行=有効配信日足。200SMA=当日を含む直近200有効終値の単純平均。"
+          },
+          {
+            "label": "未決済の含み損益（USD）",
+            "componentIds": [
+              "es-asof-results"
+            ],
+            "definition": "保有1枚について(選択日終値−実BUY約定価格)×50−新規手数料2.5USD。未発生の決済手数料は控除しない。実現損益と分離。"
+          }
+        ],
+        "caveats": [
+          "Yahoo連続先物。限月別ロール約定・証拠金・金利は未再現。日足OHLCのSTOPは代理約定。研究用NOT_VALIDATED。",
+          "元取得時の不正日足53行は除外・価格補間なし。過去の配信修正は凍結入力へ遡及適用しない。"
+        ],
+        "evidenceFlow": [
+          {
+            "title": "ES v0.12α照合",
+            "detail": "同一の凍結入力・半径1設定で6573日分の損益・保有と44件の決済を先行研究に照合。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          }
+        ]
+      }
+    },
+    "primary_zones": {
+      "rows": [],
+      "source": {
+        "label": "v09 OB/FVGの状態",
+        "tables": [
+          "primary_zone_state_events.jsonl"
+        ],
+        "executedAt": "2026-10-30T03:46:58.247555+00:00",
+        "filters": [
+          "ES=F / 2000-09-18以降の有効配信日足 / 選択日・表示窓に連動"
+        ],
+        "metricDefinitions": [
+          {
+            "label": "v09 OB/FVGの状態",
+            "definition": "起点日と利用可能日は別。選択日までの保存状態だけを使用。"
+          }
+        ],
+        "caveats": [
+          "Yahoo連続先物。限月別ロール約定・証拠金・金利は未再現。日足OHLCのSTOPは代理約定。研究用NOT_VALIDATED。",
+          "元取得時の不正日足53行は除外・価格補間なし。過去の配信修正は凍結入力へ遡及適用しない。"
+        ],
+        "evidenceFlow": [
+          {
+            "title": "ES v0.12α照合",
+            "detail": "同一の凍結入力・半径1設定で6573日分の損益・保有と44件の決済を先行研究に照合。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          }
+        ]
+      }
+    },
+    "tactical_zones": {
+      "rows": [],
+      "source": {
+        "label": "補助日足FVG/IFVG",
+        "tables": [
+          "tactical_zone_events.jsonl"
+        ],
+        "executedAt": "2026-10-30T03:46:58.247555+00:00",
+        "filters": [
+          "ES=F / 2000-09-18以降の有効配信日足 / 選択日・表示窓に連動"
+        ],
+        "metricDefinitions": [
+          {
+            "label": "補助日足FVG/IFVG",
+            "definition": "原本v09とは別定義の補助帯。採用された構造後再テストは紫のR帯で表示。"
+          }
+        ],
+        "caveats": [
+          "Yahoo連続先物。限月別ロール約定・証拠金・金利は未再現。日足OHLCのSTOPは代理約定。研究用NOT_VALIDATED。",
+          "元取得時の不正日足53行は除外・価格補間なし。過去の配信修正は凍結入力へ遡及適用しない。"
+        ],
+        "evidenceFlow": [
+          {
+            "title": "ES v0.12α照合",
+            "detail": "同一の凍結入力・半径1設定で6573日分の損益・保有と44件の決済を先行研究に照合。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          }
+        ]
+      }
+    },
+    "executions": {
+      "rows": [],
+      "source": {
+        "label": "v0.12 約定モデル",
+        "tables": [
+          "execution_events.jsonl",
+          "entry_structural_contexts.json"
+        ],
+        "executedAt": "2026-10-30T03:46:58.247555+00:00",
+        "filters": [
+          "ES=F / 2000-09-18以降の有効配信日足 / 選択日・表示窓に連動"
+        ],
+        "metricDefinitions": [
+          {
+            "label": "v0.12 約定モデル",
+            "definition": "1行=約定モデル。ES 1枚50USD/pt、片道手数料2.5USD、片道スリッページ0.25pt。決済済みだけnet_pnl_usdを公開。"
+          },
+          {
+            "label": "選択日までの実現損益・勝率",
+            "componentIds": [
+              "es-asof-results"
+            ],
+            "definition": "選択日以下のSELL/STOP net_pnl_usdを合算。勝率=正損益決済数/全決済数。未決済・未約定は除外。50USD/pt、往復手数料5USD控除済み。"
+          },
+          {
+            "label": "最大1取引への依存",
+            "componentIds": [
+              "es-asof-results"
+            ],
+            "definition": "選択日までの最大の正の決済損益と、累計からその1件を引いた値。未来の決済を含めない。"
+          }
+        ],
+        "caveats": [
+          "Yahoo連続先物。限月別ロール約定・証拠金・金利は未再現。日足OHLCのSTOPは代理約定。研究用NOT_VALIDATED。",
+          "元取得時の不正日足53行は除外・価格補間なし。過去の配信修正は凍結入力へ遡及適用しない。"
+        ],
+        "evidenceFlow": [
+          {
+            "title": "ES v0.12α照合",
+            "detail": "同一の凍結入力・半径1設定で6573日分の損益・保有と44件の決済を先行研究に照合。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          }
+        ]
+      },
+      "payloadColumns": [
+        "visual",
+        "gates"
+      ]
+    },
+    "decisions": {
+      "rows": [],
+      "source": {
+        "label": "終値判断・採用根拠",
+        "tables": [
+          "entry_structural_contexts.json",
+          "close_plans.jsonl"
+        ],
+        "executedAt": "2026-10-30T03:46:58.247555+00:00",
+        "filters": [
+          "ES=F / 2000-09-18以降の有効配信日足 / 選択日・表示窓に連動"
+        ],
+        "metricDefinitions": [
+          {
+            "label": "終値判断・採用根拠",
+            "definition": "判断時点に未来の翌始値約定・最終決済を含めない。FVG採用の有無は各保存ルートに従う。"
+          }
+        ],
+        "caveats": [
+          "Yahoo連続先物。限月別ロール約定・証拠金・金利は未再現。日足OHLCのSTOPは代理約定。研究用NOT_VALIDATED。",
+          "元取得時の不正日足53行は除外・価格補間なし。過去の配信修正は凍結入力へ遡及適用しない。"
+        ],
+        "evidenceFlow": [
+          {
+            "title": "ES v0.12α照合",
+            "detail": "同一の凍結入力・半径1設定で6573日分の損益・保有と44件の決済を先行研究に照合。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          }
+        ]
+      },
+      "payloadColumns": [
+        "visual",
+        "gates"
+      ]
+    },
+    "daily_states": {
+      "rows": [],
+      "source": {
+        "label": "日次保有・未約定状態",
+        "tables": [
+          "daily_states.jsonl",
+          "close_plans.jsonl"
+        ],
+        "executedAt": "2026-10-30T03:46:58.247555+00:00",
+        "filters": [
+          "ES=F / 2000-09-18以降の有効配信日足 / 選択日・表示窓に連動"
+        ],
+        "metricDefinitions": [
+          {
+            "label": "日次保有・未約定状態",
+            "definition": "1行=観測日終値処理後の状態。未約定注文を実保有に含めない。"
+          }
+        ],
+        "caveats": [
+          "Yahoo連続先物。限月別ロール約定・証拠金・金利は未再現。日足OHLCのSTOPは代理約定。研究用NOT_VALIDATED。",
+          "元取得時の不正日足53行は除外・価格補間なし。過去の配信修正は凍結入力へ遡及適用しない。"
+        ],
+        "evidenceFlow": [
+          {
+            "title": "ES v0.12α照合",
+            "detail": "同一の凍結入力・半径1設定で6573日分の損益・保有と44件の決済を先行研究に照合。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          },
+          {
+            "title": "クラウド更新",
+            "detail": "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。"
+          }
+        ]
+      }
+    }
+  },
+  "id": "es-v012-decision-replay-20261019"
+}

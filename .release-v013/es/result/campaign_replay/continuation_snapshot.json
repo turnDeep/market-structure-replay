@@ -1,0 +1,14 @@
+{
+  "enabled": true,
+  "orders_enabled": false,
+  "index": 6582,
+  "phase": "unestablished",
+  "effective_index": null,
+  "structure": null,
+  "pending": null,
+  "linked_zone_ids": [],
+  "active_zone_ids": [],
+  "buy_quota": null,
+  "htf_direction_gate": false,
+  "observation_depends_on_position": false
+}
