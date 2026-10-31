@@ -22,9 +22,9 @@
       "strategy_status": "NOT_VALIDATED",
       "strategy_version": "v0.13",
       "html_bytes": 12156218,
-      "html_sha256": "df0fde9d598769f84b30678a87334dc26e034f73a598577659370cbac07c3d1a",
+      "html_sha256": "012401be21e7bcd0fe69656b18304091ab021b4e6bcbff730150b4c940a4f631",
       "gzip_bytes": 1588640,
-      "gzip_sha256": "eaeb7ef4de72f616775e876b503012c8f88f2922f13e3bd939870acdb213e6cd",
+      "gzip_sha256": "a48d895a1baa044eb8a4668805dd5c5b67177ad283d242c00f37ebd8ddda76b5",
       "source_html_sha256": "d9f0af510f5327ddc47ad56323da3de20232f50f22375c9b5c31bb02f1b008b6",
       "reviewed_rows_unchanged": true,
       "queries": {
@@ -69,9 +69,9 @@
       "strategy_status": "NOT_VALIDATED",
       "strategy_version": "v0.13",
       "html_bytes": 12209924,
-      "html_sha256": "33758a21b24bdf3fbbed0aea0a32ce1dd11d14a712050fddec41a61b7668ced0",
+      "html_sha256": "d4ab5a16e00457de0fd71f83ac3fb9b80ae95e20b3a1aedda5d59e3a30940683",
       "gzip_bytes": 1578759,
-      "gzip_sha256": "2a9c293ca46a2859dfbf4fa27436b1cc3a389c820a0d248b20a0ded4ff3a2db2",
+      "gzip_sha256": "686c67c992c969d8b53d93aa6bcd5fd5da8b40ba4522509dc1eecb0670a81711",
       "source_html_sha256": "d653fc7f820d6d36eae0c85d0bf08c86d6ec738bab7ed2a54042f587c6ac2766",
       "reviewed_rows_unchanged": true,
       "queries": {
