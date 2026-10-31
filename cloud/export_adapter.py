@@ -74,7 +74,7 @@ def add_unfilled_sells(ns):
     return result
 
 
-def export(market, work, before, *, migration=False):
+def export(market, work, before, *, migration=False, migration_detail=None):
     dest = work/"result"; app = dest/"app/src"
     app.mkdir(parents=True,exist_ok=True)
     save(app/"data.json",before)
@@ -162,22 +162,22 @@ def export(market, work, before, *, migration=False):
         raise ValueError("New NQ FVG route requires reviewed UI support; old published generation retained")
     now = now_iso(); fresh["id"] = before["id"]; fresh["buildStatus"] = "complete"; fresh["generatedAt"] = now
     replay = dict(before["replay"],**fresh["replay"])
-    replay.update(strategyVersion=STRATEGY_VERSION, revision="rev12_radius_one",
+    replay.update(strategyVersion=STRATEGY_VERSION, revision="rev13_nfci_persistence_gate",
         baseRevision="rev11_without_continuation", buyReferenceRadius=1)
     replay["defaultDate"] = replay["end"]
     replay["refresh"] = refresh_metadata(before["replay"],fresh["queries"]["market_prices"]["rows"],
         load(work/"fetch_audit.json"),before["replay"]["end"],n)
     if migration:
         replay["refresh"].update(strategyParametersChanged=True, historicalRowsUnchanged=False,
-            strategyMigration="v0.11 -> v0.12; radius 2 -> 1 only; full history recomputed", dataPolicy="frozen_prices_strategy_release")
+            strategyMigration=migration if isinstance(migration,str) else "v0.11 -> v0.12; radius 2 -> 1 only; full history recomputed", dataPolicy="frozen_prices_strategy_release")
         for key in ["provisionalTailReplaced", "verifiedHistoricalRowsUnchanged"]:
             replay["refresh"].pop(key,None)
     fresh["replay"] = replay
-    fresh["title"] = fresh["title"].replace("v0.11",STRATEGY_VERSION)
+    fresh["title"] = fresh["title"].replace("v0.11",STRATEGY_VERSION).replace("v0.12",STRATEGY_VERSION)
     for name,q in fresh["queries"].items():
-        q["source"]["label"] = q["source"]["label"].replace("v0.11",STRATEGY_VERSION)
+        q["source"]["label"] = q["source"]["label"].replace("v0.11",STRATEGY_VERSION).replace("v0.12",STRATEGY_VERSION)
         q["source"]["executedAt"] = now
-        q["source"].setdefault("evidenceFlow",[]).append(dict(title="v0.12リリース" if migration else "クラウド更新",detail=("価格・原本OB入力を固定し、buy_reference_radius 2→1と確定済み半径1ピボット供給だけを変更して全履歴を再計算。β・γは不採用。" if migration else "確定済み日足を追加し、固定v0.12設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。")))
+        q["source"].setdefault("evidenceFlow",[]).append(dict(title=f"{STRATEGY_VERSION}リリース" if migration else "クラウド更新",detail=((migration_detail or "価格・原本OB入力を固定し、buy_reference_radius 2→1と確定済み半径1ピボット供給だけを変更して全履歴を再計算。β・γは不採用。") if migration else f"確定済み日足を追加し、固定{STRATEGY_VERSION}設定で全履歴再計算と既存履歴を照合。過去入力の遡及変更なし。")))
     normalize_current_labels(fresh)
     save(dest/"snapshot.json",fresh)
     save(dest/"export_audit.json",dict(status="PASS_EXPLICIT_STRATEGY_MIGRATION" if migration else "PASS_REPLAY_FACTS_AND_PRESERVED_REVIEWED_HISTORY",preserved_rows=reconciled))

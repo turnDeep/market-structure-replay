@@ -8,7 +8,7 @@ import sys
 import time
 
 from cloud.common import CLOUD, FACT_FIELDS, digest, load, save
-from cloud.strategy import install_pivot_supply, stamp_metadata, validate_strategy
+from cloud.strategy import install_pivot_supply, install_regime_gate, stamp_metadata, validate_strategy
 
 
 def append_csv(old, tail, dest):
@@ -85,6 +85,7 @@ def run(market, work):
     from nq_ict_campaign_examples_20260921.campaign import CampaignLedger
     from nq_ict_campaign_examples_20260921.run_campaign import main as replay_main
     install_pivot_supply()
+    install_regime_gate()
     feed = CampaignLedger.feed; started = time.monotonic(); count = 0
     def progress(self,*a,**kw):
         nonlocal count

@@ -143,7 +143,7 @@ def stage_state(market, work, staged):
     old = load(work/"seed/metadata.json")
     meta = load(result/"campaign_replay/metadata.json")
     slim = {k:meta[k] for k in old}
-    for key in ["strategy_version", "strategy_base_stage", "strategy_change", "extra_supplied_pivot_radii"]:
+    for key in ["strategy_version", "strategy_base_stage", "strategy_change", "extra_supplied_pivot_radii", "regime_gate"]:
         if key in meta:
             slim[key] = meta[key]
     for name,record in meta["input_hashes"].items():
@@ -156,6 +156,51 @@ def stage_state(market, work, staged):
     shutil.copyfile(work/"seed/excluded_invalid_ohlc_rows.csv",target/"excluded_invalid_ohlc_rows.csv")
     save(target/"quality.json",dict(provisional_from_date=None,verified_through=str(meta["end"])[:10],
         reason="Admitted only after both CME boundary and provider-local date boundary; later vendor revisions remain possible and are not applied to frozen history."))
+
+
+def update_regime_series():
+    """Append newly published NFCI weeks to the stored series (append-only).
+
+    Stored values are never revised in place: the v0.13 regime gate must see
+    the series as it was first recorded here, so a later FRED revision cannot
+    rewrite a past decision. Returns an audit dict. On failure the stored
+    series is kept and the failure is reported instead of raised: the gate
+    tolerates a stale weekly series (7-day publication lag, 4-week
+    persistence), but a truncated one would change decisions, so the stored
+    file is only ever extended, never rewritten from the download.
+    """
+    path = CLOUD/"regime"/"nfci_weekly.csv"
+    try:
+        import urllib.request
+        with urllib.request.urlopen("https://fred.stlouisfed.org/graph/fredgraph.csv?id=NFCI", timeout=30) as response:
+            text = response.read().decode("utf-8")
+        fresh = {}
+        for row in csv.reader(text.splitlines()):
+            if len(row) != 2:
+                continue
+            try:
+                datetime.fromisoformat(row[0]); value = float(row[1])
+            except ValueError:
+                continue
+            fresh[row[0]] = row[1]
+        stored = {}
+        order = []
+        for row in csv.reader(path.read_text(encoding="utf-8").splitlines()):
+            if len(row) != 2 or row[0] == "date":
+                continue
+            try:
+                datetime.fromisoformat(row[0]); float(row[1])
+            except ValueError:
+                continue
+            stored[row[0]] = row[1]; order.append(row[0])
+        added = sorted(d for d in fresh if d not in stored)
+        if added:
+            lines = ["date,value"]+[f"{d},{stored[d]}" for d in order]+[f"{d},{fresh[d]}" for d in added]
+            path.write_text("\n".join(lines)+"\n", encoding="utf-8")
+        return dict(status="APPENDED" if added else "UP_TO_DATE", added_weeks=added,
+                    stored_last=order[-1] if order else None)
+    except Exception as exc:
+        return dict(status="FETCH_FAILED_STORED_SERIES_KEPT", error=str(exc)[:240])
 
 
 def replace_staged_file(source, target):
@@ -188,6 +233,8 @@ def run(mode, report_dir):
     original = load_manifest()
     report = dict(started_at_utc=now.isoformat(),mode=mode,status="RUNNING",markets={},
         strategy_parameters_changed=False,strategy_status="NOT_VALIDATED",strategy_version=STRATEGY_VERSION)
+    if mode == "refresh":
+        report["regime_series"] = update_regime_series()
     report_dir.mkdir(parents=True,exist_ok=True)
     save(report_dir/"run.json",report)
     with tempfile.TemporaryDirectory(prefix="v011-cloud-") as temp:
@@ -245,6 +292,8 @@ def run(mode, report_dir):
             save(report_dir/"run.json",report)
             print(json.dumps(report,ensure_ascii=False)); return report
         assets = staged/"assets"; assets.mkdir()
+        regime_dir = staged/"cloud"/"regime"; regime_dir.mkdir(parents=True)
+        shutil.copyfile(CLOUD/"regime"/"nfci_weekly.csv", regime_dir/"nfci_weekly.csv")
         manifest = deepcopy(original)
         for market in changed:
             work = workroot/market

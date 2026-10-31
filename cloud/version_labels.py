@@ -3,8 +3,18 @@ import re
 
 from cloud.strategy import STRATEGY_VERSION
 
-OLD_LABEL = re.compile(r"v0\.11|revision 0\.11|v011")
-HISTORY_PREFIX = "旧v0.11時点（移行前）の記録："
+OLD_LABEL = re.compile(r"v0\.11|v0\.12|revision 0\.11|revision 0\.12|v011|v012")
+HISTORY_PREFIX = "旧バージョン時点（移行前）の記録："
+LEGACY_HISTORY_PREFIX = "旧v0.11時点（移行前）の記録："
+OLD_VERSIONS = ("v0.12", "v0.11")
+
+
+def _upgrade(text):
+    for old in OLD_VERSIONS:
+        text = text.replace(old, STRATEGY_VERSION)
+        text = text.replace("revision "+old[1:], "revision "+STRATEGY_VERSION[1:])
+        text = text.replace("_"+old.replace(".", "")+"_", "_"+STRATEGY_VERSION.replace(".", "")+"_")
+    return text
 
 
 def current_labels(snapshot):
@@ -25,9 +35,11 @@ def normalize_current_labels(snapshot):
     changes=[]
     def update(obj,key,path):
         old=obj.get(key)
-        if isinstance(old,str) and "v0.11" in old:
-            obj[key]=old.replace("v0.11",STRATEGY_VERSION)
-            changes.append(path)
+        if isinstance(old,str):
+            new=_upgrade(old)
+            if new != old:
+                obj[key]=new
+                changes.append(path)
     update(snapshot,"title","title")
     for name,query in snapshot["queries"].items():
         source=query.get("source",{})
@@ -35,10 +47,11 @@ def normalize_current_labels(snapshot):
         for i,definition in enumerate(source.get("metricDefinitions",[])):
             update(definition,"label",f"{name}.metricDefinitions[{i}].label")
         for event in source.get("evidenceFlow",[]):
-            # These really were v0.11 operations. Keep their original detail;
-            # make the historical scope explicit instead of falsifying it.
-            if OLD_LABEL.search(event.get("detail","")) and not event.get("title","").startswith(HISTORY_PREFIX):
-                event["title"]=HISTORY_PREFIX+event.get("title","")
+            # These really were older-version operations. Keep their original
+            # detail; make the historical scope explicit instead of falsifying it.
+            title=event.get("title","")
+            if OLD_LABEL.search(event.get("detail","")) and not title.startswith((HISTORY_PREFIX, LEGACY_HISTORY_PREFIX)):
+                event["title"]=HISTORY_PREFIX+title
     validate_current_labels(snapshot)
     return changes
 
