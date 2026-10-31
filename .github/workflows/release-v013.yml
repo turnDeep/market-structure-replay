@@ -1,0 +1,57 @@
+name: release-v013
+
+# One-time strategy release: v0.12 -> v0.13 (NFCI persistence gate).
+# Added by the repository owner (the Muse GitHub App cannot write workflow
+# files). Runs the explicit release script, verifies the regenerated
+# generation with the full test suite, and only then commits it back.
+# Trigger it by pushing the marker file release/v013.trigger (the release
+# commit removes the marker, so it cannot fire twice), or manually.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - release/v013.trigger
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-v013
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements-refresh.txt
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python -m pip install -r requirements-refresh.txt
+      - name: Prepare the v0.13 release (frozen v0.12 inputs, no downloads)
+        run: python -m scripts.release_v013 prepare --work .release-v013
+      - name: Replay NQ under v0.13
+        run: python -m scripts.release_v013 replay --work .release-v013 --market nq
+      - name: Replay ES under v0.13
+        run: python -m scripts.release_v013 replay --work .release-v013 --market es
+      - name: Publish the staged v0.13 generation into the working tree
+        run: python -m scripts.release_v013 publish --work .release-v013
+      - name: Verify the regenerated generation
+        run: python -m pytest -q
+      - name: Commit the v0.13 generation
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm --ignore-unmatch release/v013.trigger
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -m 'Release strategy v0.13: NFCI persistence regime gate'
+          git push
