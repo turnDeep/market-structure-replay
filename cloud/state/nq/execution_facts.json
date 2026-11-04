@@ -952,5 +952,23 @@
     null,
     22910.0,
     null
+  ],
+  [
+    6572,
+    "position_closed",
+    null,
+    null,
+    "major_campaign_proposal:order:56",
+    null,
+    86225.0
+  ],
+  [
+    6572,
+    "sell_fill",
+    28200.75,
+    "major_campaign_proposal:order:57",
+    null,
+    null,
+    null
   ]
 ]
