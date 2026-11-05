@@ -2,10 +2,10 @@
   "implementation": "nq_ict_campaign_proposal_0.11",
   "verification_status": "NOT_VALIDATED",
   "run_status": "completed_replay_only",
-  "as_of": "2026-11-03",
-  "daily_rows": 6587,
+  "as_of": "2026-11-04",
+  "daily_rows": 6588,
   "start": "2000-09-18T00:00:00",
-  "end": "2026-11-03T00:00:00",
+  "end": "2026-11-04T00:00:00",
   "campaign_config": {
     "confirmed_entry_mode": "structure_or_retest",
     "enable_post_structure_retest": true,
@@ -206,19 +206,19 @@
   "input_hashes": {
     "prices": {
       "path": "prices.csv",
-      "sha256": "121aa8c84786598085e5fdc4b9b7f3f4f4fee12f98dfef57bea329dc614783ae"
+      "sha256": "cdd9e14dce7f20d243a5891c15a339ee85460e57e66155237b4221858e91c3e9"
     },
     "objects": {
       "path": "objects.csv",
-      "sha256": "ac57a58cc32845b4142b5fd264be2ffec94631deb1fa1a1b5e4998b780ff4ad4"
+      "sha256": "07c53952918aa5ada28b8e1a4d1ef40b33ddc2c112ce207487b41cd4fd734f1a"
     },
     "contexts": {
       "path": "contexts.csv",
-      "sha256": "cfb4022f4ab8dab583ee0faf86b6aff097298e76b2a5ce30bf5221a301787d9b"
+      "sha256": "50bd64c5c90cbb50660f554d014cc18eb9c716145422253f382e734a374d0f18"
     },
     "calendar": {
       "path": "calendar.json",
-      "sha256": "014ecf0ada0c39819e9732256fbed1dd5a1e1f3c4c643e04bd32ba11f5894e48"
+      "sha256": "298eaa00fce3ced020fc190c517467557923555e27c6a4cdacd52f52274adac6"
     },
     "config": {
       "path": "config.json",
@@ -358,39 +358,39 @@
     "This proposal has no unconditional breakout-chase BUY, initial always-long entry or account-level monetary risk halt.",
     "No probabilities, unseen superiority, prefix invariance or ideal-date matches are asserted."
   ],
-  "processed_bars": 6587,
+  "processed_bars": 6588,
   "output_counts": {
     "trades.jsonl": 40,
     "execution_events.jsonl": 120,
-    "close_plans.jsonl": 6587,
-    "daily_states.jsonl": 6587,
-    "daily_mtm.jsonl": 6587,
-    "entry_audit.jsonl": 8340,
+    "close_plans.jsonl": 6588,
+    "daily_states.jsonl": 6588,
+    "daily_mtm.jsonl": 6588,
+    "entry_audit.jsonl": 8354,
     "gate_events.jsonl": 80,
-    "tracker_events.jsonl": 12519,
+    "tracker_events.jsonl": 12537,
     "manager_events.jsonl": 13,
     "wave_management_events.jsonl": 2069,
-    "exit_reason_reentry_events.jsonl": 137,
+    "exit_reason_reentry_events.jsonl": 138,
     "preserved_support_events.jsonl": 0,
     "campaign_events.jsonl": 80,
     "campaign_sell_decisions.jsonl": 24,
     "sell_execution_links.jsonl": 24,
     "position_evidence.jsonl": 2221,
-    "support_reaction_events.jsonl": 7659,
-    "independent_support_events.jsonl": 64576,
-    "independent_early_candidates.jsonl": 2172,
+    "support_reaction_events.jsonl": 7668,
+    "independent_support_events.jsonl": 64685,
+    "independent_early_candidates.jsonl": 2179,
     "independent_confirmed_candidates.jsonl": 969,
     "continuation_events.jsonl": 2347,
     "continuation_candidates.jsonl": 243,
     "recovery_events.jsonl": 156,
     "recovery_candidates.jsonl": 156,
     "independent_structure_events.jsonl": 217,
-    "support_selection.jsonl": 4170,
-    "post_sell_path_events.jsonl": 3753,
-    "path_events.jsonl": 7174,
-    "path_links.jsonl": 49754,
-    "daily_evidence.jsonl": 24447,
-    "tactical_zone_events.jsonl": 4257,
+    "support_selection.jsonl": 4177,
+    "post_sell_path_events.jsonl": 3760,
+    "path_events.jsonl": 7185,
+    "path_links.jsonl": 49892,
+    "daily_evidence.jsonl": 24462,
+    "tactical_zone_events.jsonl": 4260,
     "major_top_events.jsonl": 2954,
     "double_top_events.jsonl": 3740,
     "double_top_major_diagnostics.jsonl": 0,
@@ -398,15 +398,15 @@
     "major_reversal_events.jsonl": 31,
     "major_structure_events.jsonl": 998,
     "ob_structural_role_events.jsonl": 640,
-    "upward_leg_ob_events.jsonl": 1694,
+    "upward_leg_ob_events.jsonl": 1695,
     "raw_major_sell_candidates.jsonl": 43,
     "sell_representative_events.jsonl": 35,
     "market_cycle_events.jsonl": 50,
-    "market_episode_events.jsonl": 1521,
-    "daily_source_counts.jsonl": 6587,
-    "primary_zone_state_events.jsonl": 11362,
-    "pivot_confirmation_events.jsonl": 5262,
-    "shared_early_candidates.jsonl": 3122,
+    "market_episode_events.jsonl": 1522,
+    "daily_source_counts.jsonl": 6588,
+    "primary_zone_state_events.jsonl": 11368,
+    "pivot_confirmation_events.jsonl": 5263,
+    "shared_early_candidates.jsonl": 3129,
     "shared_confirmed_candidates.jsonl": 1036,
     "major_sell_candidates.jsonl": 31
   },
@@ -434,8 +434,8 @@
     "publication_lag_days": 7,
     "reason_blocked": "nfci_tightening_persistent",
     "reason_clear": "nfci_regime_clear",
-    "data_rows": 2912,
+    "data_rows": 2913,
     "data_start": "1971-01-08",
-    "data_end": "2026-10-23"
+    "data_end": "2026-10-30"
   }
 }
