@@ -1,5 +1,5 @@
 {
   "provisional_from_date": null,
-  "verified_through": "2026-11-04",
+  "verified_through": "2026-11-05",
   "reason": "Admitted only after both CME boundary and provider-local date boundary; later vendor revisions remain possible and are not applied to frozen history."
 }

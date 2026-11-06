@@ -1078,5 +1078,32 @@
     null,
     null,
     null
+  ],
+  [
+    6588,
+    "buy_fill",
+    7737.5,
+    "major_campaign_proposal:order:65",
+    null,
+    7480.25,
+    null
+  ],
+  [
+    6588,
+    "position_closed",
+    null,
+    null,
+    "major_campaign_proposal:order:65",
+    null,
+    -12880.0
+  ],
+  [
+    6588,
+    "intrabar_emergency_stop",
+    7480.0,
+    null,
+    null,
+    null,
+    null
   ]
 ]
