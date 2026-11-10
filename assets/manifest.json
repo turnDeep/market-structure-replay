@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "packaged_at": "2026-11-07T12:07:06.558376+00:00",
+  "packaged_at": "2026-11-10T13:51:15.169744+00:00",
   "automatic_refresh": true,
   "refresh_schedule": {
     "provider": "GitHub Actions",
@@ -16,94 +16,94 @@
       "symbol": "NQ=F",
       "asset": "nq.html.gz",
       "start": "2000-09-18",
-      "end": "2026-11-06",
-      "bars": 6576,
-      "snapshot_generated_at": "2026-11-07T11:54:32.935829+00:00",
+      "end": "2026-11-09",
+      "bars": 6577,
+      "snapshot_generated_at": "2026-11-10T13:39:07.236471+00:00",
       "strategy_status": "NOT_VALIDATED",
       "strategy_version": "v0.13",
-      "html_bytes": 12192643,
-      "html_sha256": "a2da840c7aa9221a2d2074776778725f6baf0646777220fb7ae3cb4f87886589",
-      "gzip_bytes": 1591327,
-      "gzip_sha256": "375d171cbca78f54bb1e547187a6b4ec7528decbbb4a4efdba52f560d68c88fc",
-      "source_html_sha256": "1f1c985914172674b928a1f0b1798e10e5802cd4d95ecfc54cd7de78c840ec17",
+      "html_bytes": 12202164,
+      "html_sha256": "80db17389a273dcb50f9961ec9f6ad8041411cb0daf8d42aaf830fe5306125e2",
+      "gzip_bytes": 1591655,
+      "gzip_sha256": "602e99e4cb1bf04535272da5cecfbd336f77f92f522bac2b041ba8494814f511",
+      "source_html_sha256": "7e52eb83d3bcbedbc15ab6fe066f316153b28d75f04cf8bc36cc2bcabc26407e",
       "reviewed_rows_unchanged": true,
       "queries": {
         "market_prices": {
-          "rows": 6576,
-          "rows_sha256": "c7eace259c26ec82e292dfffc3b2908ab50cdbc931a9b97604e780e0439218c7"
+          "rows": 6577,
+          "rows_sha256": "8c032e57f9cbc4e6c36e1d6c988aa4d8657514c6e0476d03e09ac6e30a340759"
         },
         "primary_zones": {
-          "rows": 11416,
-          "rows_sha256": "96dbc37a465e6cb545d6cba1d195f1ab64cbface3fe4884cab0a2db79be175a9"
+          "rows": 11419,
+          "rows_sha256": "3c51ddfc233d353b1c1e92d8a84f9b62b2fc928f93a2a557bdc351f960536774"
         },
         "tactical_zones": {
-          "rows": 4201,
-          "rows_sha256": "1ffc0c17666bb2ee26c16a3c21aff10b6c23c821193ef5b70169f9848cda226e"
+          "rows": 4203,
+          "rows_sha256": "7556aa585cfc5721252e245af19360e0b42ddd09364ff56d5bbec08af844af92"
         },
         "executions": {
           "rows": 74,
           "rows_sha256": "66d2fa528c134d163f39e9e45885740110163d94488fa0d36c0a94108b9f9c71"
         },
         "decisions": {
-          "rows": 58,
-          "rows_sha256": "0afe32977df1653ff00e1d0c2befc3ed9a2d58435903366c866697f0d7da0933"
+          "rows": 59,
+          "rows_sha256": "d9da4df52d2b959f45282a6f0c81dc390fe078aaa536932ed225c1a9c36a4aa8"
         },
         "daily_states": {
-          "rows": 6576,
-          "rows_sha256": "b4431148c9af686e01e9c8fc32fc9d24df1c37dedef2b454b03e7bcaff74ee82"
+          "rows": 6577,
+          "rows_sha256": "99dc5328aca2fbbbd1a5b41a85e08917bab3f4ca8d1422b4092aa2f5b68d23e4"
         }
       },
       "privacy_cleanup": "Absolute user-directory paths replaced with basenames in provenance only; reviewed query rows unchanged.",
       "data_quality": {
         "provisional_from_date": null,
-        "verified_through": "2026-11-06"
+        "verified_through": "2026-11-09"
       }
     },
     "es": {
       "symbol": "ES=F",
       "asset": "es.html.gz",
       "start": "2000-09-18",
-      "end": "2026-11-06",
-      "bars": 6590,
-      "snapshot_generated_at": "2026-11-07T12:06:59.116325+00:00",
+      "end": "2026-11-09",
+      "bars": 6591,
+      "snapshot_generated_at": "2026-11-10T13:51:07.748147+00:00",
       "strategy_status": "NOT_VALIDATED",
       "strategy_version": "v0.13",
-      "html_bytes": 12249342,
-      "html_sha256": "ba564c1c84606eabf7263f9c18aa6dc63d8ef9fbdb34abf27e4afdb300ebe290",
-      "gzip_bytes": 1581379,
-      "gzip_sha256": "9c96eed53959bb59b2edfa799d36ff12f2a83ff183f637007c2a2928da55a310",
-      "source_html_sha256": "201d8d98c3eebebd6306986bf91b3712c560c9a75e29c14ed6077cae9e874658",
+      "html_bytes": 12259206,
+      "html_sha256": "9e4e6d79952faff11f506f3a2f984c86dedd87726bc4633aadb05be6a63d5e93",
+      "gzip_bytes": 1581958,
+      "gzip_sha256": "5decc30833e4f9258aba7c01a22a17aa43636070ef8ca3dbe96370152b0cba12",
+      "source_html_sha256": "c07753d587f87b3fb51c7f238052a0ca3a36446cf1fc1c966b6dfb3b70a6d5f1",
       "reviewed_rows_unchanged": true,
       "queries": {
         "market_prices": {
-          "rows": 6590,
-          "rows_sha256": "a8f6ca5b36da456d9a3c138d149a3e368c8c1babecc6e5599ea27905e9d3ae34"
+          "rows": 6591,
+          "rows_sha256": "20871343442261f87ef01608722467aaa370e1d3109131ae17dfed4f948b576f"
         },
         "primary_zones": {
-          "rows": 11376,
-          "rows_sha256": "702553109009eaac28abe8315e8fae77d31f93def731db06ead88210e333e2e4"
+          "rows": 11380,
+          "rows_sha256": "d64557f58902263115a77cc023ca676928c4b1d00d3961f147cffe9821bc50df"
         },
         "tactical_zones": {
-          "rows": 4262,
-          "rows_sha256": "2422211aae8c48a9875bfec985f096e8eb52f9bcf4a9e763c3deb1cdacb5b2f3"
+          "rows": 4264,
+          "rows_sha256": "2732ea0e1d666c83111225d639727f36b5adba853d157cc1f86bb951113d33bb"
         },
         "executions": {
           "rows": 82,
           "rows_sha256": "a71dfffc30d825118858a13e89ddac5a4a6a3c83f6a2c3d5c778b025464233ca"
         },
         "decisions": {
-          "rows": 65,
-          "rows_sha256": "830579f5ba7b5541ba22bd64477e8396308a6c67edb64b396cd2ea89fbec6e20"
+          "rows": 66,
+          "rows_sha256": "ce764e5ff4fb5e287671dcdd9a1c32339ee4b6c2ae2b80b62f17dd9fce98a033"
         },
         "daily_states": {
-          "rows": 6590,
-          "rows_sha256": "9b9bc873fd31c944160d4a493059c2998747434b80f90fe24fad8520fa700b6f"
+          "rows": 6591,
+          "rows_sha256": "6006b71fb16a79e9b033ca519eb292f3da6879556b37c5b5acc9a6b914c69a7a"
         }
       },
       "privacy_cleanup": "Absolute user-directory paths replaced with basenames in provenance only; reviewed query rows unchanged.",
       "data_quality": {
         "provisional_from_date": null,
-        "verified_through": "2026-11-06"
+        "verified_through": "2026-11-09"
       }
     }
   },
