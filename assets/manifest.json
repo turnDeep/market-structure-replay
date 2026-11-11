@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "packaged_at": "2026-11-10T13:51:15.169744+00:00",
+  "packaged_at": "2026-11-11T13:10:35.157527+00:00",
   "automatic_refresh": true,
   "refresh_schedule": {
     "provider": "GitHub Actions",
@@ -16,94 +16,94 @@
       "symbol": "NQ=F",
       "asset": "nq.html.gz",
       "start": "2000-09-18",
-      "end": "2026-11-09",
-      "bars": 6577,
-      "snapshot_generated_at": "2026-11-10T13:39:07.236471+00:00",
+      "end": "2026-11-10",
+      "bars": 6578,
+      "snapshot_generated_at": "2026-11-11T12:55:40.834933+00:00",
       "strategy_status": "NOT_VALIDATED",
       "strategy_version": "v0.13",
-      "html_bytes": 12202164,
-      "html_sha256": "80db17389a273dcb50f9961ec9f6ad8041411cb0daf8d42aaf830fe5306125e2",
-      "gzip_bytes": 1591655,
-      "gzip_sha256": "602e99e4cb1bf04535272da5cecfbd336f77f92f522bac2b041ba8494814f511",
-      "source_html_sha256": "7e52eb83d3bcbedbc15ab6fe066f316153b28d75f04cf8bc36cc2bcabc26407e",
+      "html_bytes": 12209245,
+      "html_sha256": "6ccdf351c8766d6cfb087dae3546dadf7cce914baa41c0ac63a2dc0664b61a30",
+      "gzip_bytes": 1592039,
+      "gzip_sha256": "05e020ef92e6572d508ad52e1f9f9bb0658cc80a4098545a8e8e303d0d239fd5",
+      "source_html_sha256": "75ae7013c9b992f92351b51ddf424ee731d9c427978433fcd5cb91576c0eb145",
       "reviewed_rows_unchanged": true,
       "queries": {
         "market_prices": {
-          "rows": 6577,
-          "rows_sha256": "8c032e57f9cbc4e6c36e1d6c988aa4d8657514c6e0476d03e09ac6e30a340759"
+          "rows": 6578,
+          "rows_sha256": "a4acd22afb44b00f6ef4209f2ba1d38f9c62f81396223188ca7e4bae5e4b8a46"
         },
         "primary_zones": {
-          "rows": 11419,
-          "rows_sha256": "3c51ddfc233d353b1c1e92d8a84f9b62b2fc928f93a2a557bdc351f960536774"
+          "rows": 11420,
+          "rows_sha256": "d6cc78da518c731e3d6125aa26c74c945499ff648026d01d830e2df6d19b439c"
         },
         "tactical_zones": {
-          "rows": 4203,
-          "rows_sha256": "7556aa585cfc5721252e245af19360e0b42ddd09364ff56d5bbec08af844af92"
+          "rows": 4204,
+          "rows_sha256": "905fc6d46c33fa7f58bf7ed7274497956fd3f180988b51568e2db8860bb0417f"
         },
         "executions": {
-          "rows": 74,
-          "rows_sha256": "66d2fa528c134d163f39e9e45885740110163d94488fa0d36c0a94108b9f9c71"
+          "rows": 75,
+          "rows_sha256": "de5e6185ad72d25615445ffe367081f2361098d645f4ef2767946f4a69aafddb"
         },
         "decisions": {
           "rows": 59,
           "rows_sha256": "d9da4df52d2b959f45282a6f0c81dc390fe078aaa536932ed225c1a9c36a4aa8"
         },
         "daily_states": {
-          "rows": 6577,
-          "rows_sha256": "99dc5328aca2fbbbd1a5b41a85e08917bab3f4ca8d1422b4092aa2f5b68d23e4"
+          "rows": 6578,
+          "rows_sha256": "a53d9d62d2ced0dc4f7cd60281f988f2774320fd02c6c88781bfa235e4b551d6"
         }
       },
       "privacy_cleanup": "Absolute user-directory paths replaced with basenames in provenance only; reviewed query rows unchanged.",
       "data_quality": {
         "provisional_from_date": null,
-        "verified_through": "2026-11-09"
+        "verified_through": "2026-11-10"
       }
     },
     "es": {
       "symbol": "ES=F",
       "asset": "es.html.gz",
       "start": "2000-09-18",
-      "end": "2026-11-09",
-      "bars": 6591,
-      "snapshot_generated_at": "2026-11-10T13:51:07.748147+00:00",
+      "end": "2026-11-10",
+      "bars": 6592,
+      "snapshot_generated_at": "2026-11-11T13:10:27.789797+00:00",
       "strategy_status": "NOT_VALIDATED",
       "strategy_version": "v0.13",
-      "html_bytes": 12259206,
-      "html_sha256": "9e4e6d79952faff11f506f3a2f984c86dedd87726bc4633aadb05be6a63d5e93",
-      "gzip_bytes": 1581958,
-      "gzip_sha256": "5decc30833e4f9258aba7c01a22a17aa43636070ef8ca3dbe96370152b0cba12",
-      "source_html_sha256": "c07753d587f87b3fb51c7f238052a0ca3a36446cf1fc1c966b6dfb3b70a6d5f1",
+      "html_bytes": 12266643,
+      "html_sha256": "7e9fb1164388ce73b7f49c0a98fc9eff31c2102d52aa4d0fae398332d123c932",
+      "gzip_bytes": 1582531,
+      "gzip_sha256": "070095f9cfe7cc030a508ab793b49c2ca457899a3b60c0c1418c26bf2f5de865",
+      "source_html_sha256": "5364ca72b2fdc4dd0154a82d708a355032dcbac1a09be3277763547642ef026c",
       "reviewed_rows_unchanged": true,
       "queries": {
         "market_prices": {
-          "rows": 6591,
-          "rows_sha256": "20871343442261f87ef01608722467aaa370e1d3109131ae17dfed4f948b576f"
+          "rows": 6592,
+          "rows_sha256": "1e80b70c8306f7d0ce59eea8706760b866354b21c3a68f5d0c99decd1f5d84c0"
         },
         "primary_zones": {
-          "rows": 11380,
-          "rows_sha256": "d64557f58902263115a77cc023ca676928c4b1d00d3961f147cffe9821bc50df"
+          "rows": 11382,
+          "rows_sha256": "7cf520ba710163ffd7a8cf48ef51d3ebcd38ad87cf52d729b2595cf81ead35c3"
         },
         "tactical_zones": {
-          "rows": 4264,
-          "rows_sha256": "2732ea0e1d666c83111225d639727f36b5adba853d157cc1f86bb951113d33bb"
+          "rows": 4265,
+          "rows_sha256": "8ba36928f5c8816e5ade963cd83657cf1117219532dcf87f990acbf51061d074"
         },
         "executions": {
-          "rows": 82,
-          "rows_sha256": "a71dfffc30d825118858a13e89ddac5a4a6a3c83f6a2c3d5c778b025464233ca"
+          "rows": 83,
+          "rows_sha256": "3d5bc4a713c94e6748fd585c34394e8fac96bb0aa0c3f9351e379175cee1a2d7"
         },
         "decisions": {
           "rows": 66,
           "rows_sha256": "ce764e5ff4fb5e287671dcdd9a1c32339ee4b6c2ae2b80b62f17dd9fce98a033"
         },
         "daily_states": {
-          "rows": 6591,
-          "rows_sha256": "6006b71fb16a79e9b033ca519eb292f3da6879556b37c5b5acc9a6b914c69a7a"
+          "rows": 6592,
+          "rows_sha256": "ccb10bfe49351a15f21a26742ad888939810b54fe83c1252ce9af7e0eeca1ef1"
         }
       },
       "privacy_cleanup": "Absolute user-directory paths replaced with basenames in provenance only; reviewed query rows unchanged.",
       "data_quality": {
         "provisional_from_date": null,
-        "verified_through": "2026-11-09"
+        "verified_through": "2026-11-10"
       }
     }
   },

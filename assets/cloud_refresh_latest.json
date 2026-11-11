@@ -1,17 +1,17 @@
 {
-  "started_at_utc": "2026-11-10T13:26:13.901665+00:00",
+  "started_at_utc": "2026-11-11T12:41:17.372041+00:00",
   "mode": "refresh",
   "status": "PASS_STAGED_GENERATION",
   "markets": {
     "nq": {
       "fetch": {
         "symbol": "NQ=F",
-        "captured_at_utc": "2026-11-10T13:26:13.901665+00:00",
+        "captured_at_utc": "2026-11-11T12:41:17.372041+00:00",
         "provider": "yfinance / curl-cffi Chrome session",
         "source_timezone": "America/New_York",
-        "completed_cutoff": "2026-11-09",
+        "completed_cutoff": "2026-11-10",
         "request": {
-          "start": "2026-10-23",
+          "start": "2026-10-26",
           "interval": "1d",
           "auto_adjust": false,
           "back_adjust": false,
@@ -21,17 +21,11 @@
           "timeout": 30
         },
         "completed_rows": 12,
-        "source_end": "2026-11-09",
+        "source_end": "2026-11-10",
         "excluded_in_progress": [
-          "2026-11-10"
+          "2026-11-11"
         ],
         "overlap_revisions_not_applied": [
-          {
-            "date": "2026-10-23",
-            "fields": [
-              "volume"
-            ]
-          },
           {
             "date": "2026-10-27",
             "fields": [
@@ -73,6 +67,12 @@
             "fields": [
               "volume"
             ]
+          },
+          {
+            "date": "2026-11-09",
+            "fields": [
+              "volume"
+            ]
           }
         ],
         "retries": [],
@@ -80,20 +80,20 @@
           "yfinance": "1.2.0"
         },
         "provisional_saved_tail": null,
-        "verified_saved_end": "2026-11-06",
+        "verified_saved_end": "2026-11-09",
         "cutoff_policy": "Stricter of latest 17:00 America/Chicago boundary and strictly before the provider-local current date; no calendar interpolation"
       },
       "new_data": true,
-      "previous_end": "2026-11-06",
+      "previous_end": "2026-11-09",
       "replay_audit": {
         "status": "PASS_FROZEN_HISTORY_AND_CONFIGURATION",
-        "bars": 6577,
-        "previous_bars": 6576,
-        "end": "2026-11-09",
+        "bars": 6578,
+        "previous_bars": 6577,
+        "end": "2026-11-10",
         "new_days": [
-          "2026-11-09"
+          "2026-11-10"
         ],
-        "appended_objects": 9,
+        "appended_objects": 6,
         "appended_contexts": 1,
         "parallel": {
           "lane_count": 9,
@@ -104,36 +104,36 @@
       "export_audit": {
         "status": "PASS_REPLAY_FACTS_AND_PRESERVED_REVIEWED_HISTORY",
         "preserved_rows": {
-          "market_prices": 6576,
-          "primary_zones": 11416,
-          "tactical_zones": 4201,
+          "market_prices": 6577,
+          "primary_zones": 11419,
+          "tactical_zones": 4203,
           "executions": 74,
-          "decisions": 58,
-          "daily_states": 6576
+          "decisions": 59,
+          "daily_states": 6577
         }
       },
       "view_audit": {
         "status": "PASS_DATA_VIEW_AND_LEDGER",
-        "checks": 26757,
+        "checks": 26765,
         "prefixComparisons": 6,
         "market": "nq",
-        "bars": 6577,
-        "end": "2026-11-09",
+        "bars": 6578,
+        "end": "2026-11-10",
         "upstream_detector_full_prefix_proof": false,
         "predictive_edge_validated": false,
         "browser_rendering": "not covered by this data checker; separate rendered review required"
       },
-      "end": "2026-11-09"
+      "end": "2026-11-10"
     },
     "es": {
       "fetch": {
         "symbol": "ES=F",
-        "captured_at_utc": "2026-11-10T13:26:13.901665+00:00",
+        "captured_at_utc": "2026-11-11T12:41:17.372041+00:00",
         "provider": "yfinance / curl-cffi Chrome session",
         "source_timezone": "America/New_York",
-        "completed_cutoff": "2026-11-09",
+        "completed_cutoff": "2026-11-10",
         "request": {
-          "start": "2026-10-23",
+          "start": "2026-10-26",
           "interval": "1d",
           "auto_adjust": false,
           "back_adjust": false,
@@ -143,17 +143,11 @@
           "timeout": 30
         },
         "completed_rows": 12,
-        "source_end": "2026-11-09",
+        "source_end": "2026-11-10",
         "excluded_in_progress": [
-          "2026-11-10"
+          "2026-11-11"
         ],
         "overlap_revisions_not_applied": [
-          {
-            "date": "2026-10-23",
-            "fields": [
-              "volume"
-            ]
-          },
           {
             "date": "2026-10-27",
             "fields": [
@@ -195,6 +189,12 @@
             "fields": [
               "volume"
             ]
+          },
+          {
+            "date": "2026-11-09",
+            "fields": [
+              "volume"
+            ]
           }
         ],
         "retries": [],
@@ -202,20 +202,20 @@
           "yfinance": "1.2.0"
         },
         "provisional_saved_tail": null,
-        "verified_saved_end": "2026-11-06",
+        "verified_saved_end": "2026-11-09",
         "cutoff_policy": "Stricter of latest 17:00 America/Chicago boundary and strictly before the provider-local current date; no calendar interpolation"
       },
       "new_data": true,
-      "previous_end": "2026-11-06",
+      "previous_end": "2026-11-09",
       "replay_audit": {
         "status": "PASS_FROZEN_HISTORY_AND_CONFIGURATION",
-        "bars": 6591,
-        "previous_bars": 6590,
-        "end": "2026-11-09",
+        "bars": 6592,
+        "previous_bars": 6591,
+        "end": "2026-11-10",
         "new_days": [
-          "2026-11-09"
+          "2026-11-10"
         ],
-        "appended_objects": 11,
+        "appended_objects": 6,
         "appended_contexts": 1,
         "parallel": {
           "lane_count": 9,
@@ -226,26 +226,26 @@
       "export_audit": {
         "status": "PASS_REPLAY_FACTS_AND_PRESERVED_REVIEWED_HISTORY",
         "preserved_rows": {
-          "market_prices": 6590,
-          "primary_zones": 11376,
-          "tactical_zones": 4262,
+          "market_prices": 6591,
+          "primary_zones": 11380,
+          "tactical_zones": 4264,
           "executions": 82,
-          "decisions": 65,
-          "daily_states": 6590
+          "decisions": 66,
+          "daily_states": 6591
         }
       },
       "view_audit": {
         "status": "PASS_DATA_VIEW_AND_LEDGER",
-        "checks": 26881,
+        "checks": 26889,
         "prefixComparisons": 6,
         "market": "es",
-        "bars": 6591,
-        "end": "2026-11-09",
+        "bars": 6592,
+        "end": "2026-11-10",
         "upstream_detector_full_prefix_proof": false,
         "predictive_edge_validated": false,
         "browser_rendering": "not covered by this data checker; separate rendered review required"
       },
-      "end": "2026-11-09"
+      "end": "2026-11-10"
     }
   },
   "strategy_parameters_changed": false,
@@ -259,7 +259,7 @@
     "stored_last": "2026-10-23"
   },
   "published": false,
-  "finished_at_utc": "2026-11-10T13:51:15.169769+00:00",
+  "finished_at_utc": "2026-11-11T13:10:35.157547+00:00",
   "changed_markets": [
     "nq",
     "es"

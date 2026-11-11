@@ -1105,5 +1105,14 @@
     null,
     null,
     null
+  ],
+  [
+    6591,
+    "buy_fill",
+    7581.0,
+    "major_campaign_proposal:order:66",
+    null,
+    7309.0,
+    null
   ]
 ]
