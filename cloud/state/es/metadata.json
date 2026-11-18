@@ -2,10 +2,10 @@
   "implementation": "nq_ict_campaign_proposal_0.11",
   "verification_status": "NOT_VALIDATED",
   "run_status": "completed_replay_only",
-  "as_of": "2026-11-16",
-  "daily_rows": 6596,
+  "as_of": "2026-11-17",
+  "daily_rows": 6597,
   "start": "2000-09-18T00:00:00",
-  "end": "2026-11-16T00:00:00",
+  "end": "2026-11-17T00:00:00",
   "campaign_config": {
     "confirmed_entry_mode": "structure_or_retest",
     "enable_post_structure_retest": true,
@@ -206,19 +206,19 @@
   "input_hashes": {
     "prices": {
       "path": "prices.csv",
-      "sha256": "da0a163e1e9b1953f889cd8b0bf77cd284a250aa6364a21baab51009e61a0dc6"
+      "sha256": "fa28ab23aeaee494e9a611b2a51d95759f38631928cdfb9d0f66d152c09d16a6"
     },
     "objects": {
       "path": "objects.csv",
-      "sha256": "0039e4919d29427326d0944554d0a2d763d3e50c9815cf733807590018d52e2e"
+      "sha256": "db56bcd7f4ffe87b58ddc8d92ff486c81943d6fb408afb6e0744958aa29426e5"
     },
     "contexts": {
       "path": "contexts.csv",
-      "sha256": "de0143daf4ed54fe9861c99677e347189ad59fb750e40dcba238a820057c8ab8"
+      "sha256": "520a12dfb6167328412ed7b15da949d2f1889626da3bb824621c8d8170487fae"
     },
     "calendar": {
       "path": "calendar.json",
-      "sha256": "c962e0f98dc78cb0daa17295a20034b833be3a1855be3eb7ca1eb91d58dd3a04"
+      "sha256": "16e8d72b8e1b083a6993ce30b8457521e74c6a76f3f4d36dd6ab4682c438ff85"
     },
     "config": {
       "path": "config.json",
@@ -358,26 +358,26 @@
     "This proposal has no unconditional breakout-chase BUY, initial always-long entry or account-level monetary risk halt.",
     "No probabilities, unseen superiority, prefix invariance or ideal-date matches are asserted."
   ],
-  "processed_bars": 6596,
+  "processed_bars": 6597,
   "output_counts": {
-    "trades.jsonl": 41,
-    "execution_events.jsonl": 124,
-    "close_plans.jsonl": 6596,
-    "daily_states.jsonl": 6596,
-    "daily_mtm.jsonl": 6596,
+    "trades.jsonl": 42,
+    "execution_events.jsonl": 126,
+    "close_plans.jsonl": 6597,
+    "daily_states.jsonl": 6597,
+    "daily_mtm.jsonl": 6597,
     "entry_audit.jsonl": 8374,
-    "gate_events.jsonl": 83,
-    "tracker_events.jsonl": 12571,
+    "gate_events.jsonl": 84,
+    "tracker_events.jsonl": 12575,
     "manager_events.jsonl": 13,
     "wave_management_events.jsonl": 2070,
-    "exit_reason_reentry_events.jsonl": 141,
+    "exit_reason_reentry_events.jsonl": 143,
     "preserved_support_events.jsonl": 0,
-    "campaign_events.jsonl": 83,
+    "campaign_events.jsonl": 84,
     "campaign_sell_decisions.jsonl": 24,
     "sell_execution_links.jsonl": 24,
     "position_evidence.jsonl": 2224,
-    "support_reaction_events.jsonl": 7692,
-    "independent_support_events.jsonl": 64853,
+    "support_reaction_events.jsonl": 7694,
+    "independent_support_events.jsonl": 64854,
     "independent_early_candidates.jsonl": 2189,
     "independent_confirmed_candidates.jsonl": 969,
     "continuation_events.jsonl": 2348,
@@ -387,10 +387,10 @@
     "independent_structure_events.jsonl": 217,
     "support_selection.jsonl": 4187,
     "post_sell_path_events.jsonl": 3770,
-    "path_events.jsonl": 7208,
+    "path_events.jsonl": 7212,
     "path_links.jsonl": 50020,
-    "daily_evidence.jsonl": 24501,
-    "tactical_zone_events.jsonl": 4268,
+    "daily_evidence.jsonl": 24507,
+    "tactical_zone_events.jsonl": 4269,
     "major_top_events.jsonl": 2954,
     "double_top_events.jsonl": 3740,
     "double_top_major_diagnostics.jsonl": 0,
@@ -403,8 +403,8 @@
     "sell_representative_events.jsonl": 35,
     "market_cycle_events.jsonl": 50,
     "market_episode_events.jsonl": 1523,
-    "daily_source_counts.jsonl": 6596,
-    "primary_zone_state_events.jsonl": 11393,
+    "daily_source_counts.jsonl": 6597,
+    "primary_zone_state_events.jsonl": 11395,
     "pivot_confirmation_events.jsonl": 5271,
     "shared_early_candidates.jsonl": 3139,
     "shared_confirmed_candidates.jsonl": 1036,
@@ -434,8 +434,8 @@
     "publication_lag_days": 7,
     "reason_blocked": "nfci_tightening_persistent",
     "reason_clear": "nfci_regime_clear",
-    "data_rows": 2914,
+    "data_rows": 2915,
     "data_start": "1971-01-08",
-    "data_end": "2026-11-06"
+    "data_end": "2026-11-13"
   }
 }

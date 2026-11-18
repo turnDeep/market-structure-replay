@@ -1,7 +1,7 @@
 {
-  "daily_rows": 6582,
+  "daily_rows": 6583,
   "start": "2000-09-18T00:00:00",
-  "end": "2026-11-16T00:00:00",
+  "end": "2026-11-17T00:00:00",
   "campaign_config": {
     "confirmed_entry_mode": "structure_or_retest",
     "enable_post_structure_retest": true,
@@ -193,19 +193,19 @@
   "input_hashes": {
     "prices": {
       "path": "prices.csv",
-      "sha256": "0495653040da762549d72b779d56db067930d278a1ed1cbf15941b5cc1e29d7c"
+      "sha256": "b003728234c07b4e9bcb3998b060c53f9bad8939705122195ed44ed35c416fc8"
     },
     "objects": {
       "path": "objects.csv",
-      "sha256": "291c9958cf6557903670f9e82c14c9a84f6485b9233f2ff859be8efb4273b36e"
+      "sha256": "951e08584bffb9a5cdb3eff2fd48253240d6af9d2f316f8678c8fbc9fc511fa1"
     },
     "contexts": {
       "path": "contexts.csv",
-      "sha256": "811cb4261264cb3456447006fa6440a74964d44a948a4cbca51abb3396256d29"
+      "sha256": "5f16d600f17728d36273b9b3584bba99eb24f35e7a3628aa1840abe25e03d26f"
     },
     "calendar": {
       "path": "calendar.json",
-      "sha256": "0cfeca30cb9179805d85fc9e50204c0d8b324a072dd6a943779cc42134878ea7"
+      "sha256": "7a5ad1a547135c4a5656ce3999435c04623dfc617e967342362d4852a4ab8c49"
     },
     "config": {
       "path": "config.json",
@@ -241,8 +241,8 @@
     "publication_lag_days": 7,
     "reason_blocked": "nfci_tightening_persistent",
     "reason_clear": "nfci_regime_clear",
-    "data_rows": 2914,
+    "data_rows": 2915,
     "data_start": "1971-01-08",
-    "data_end": "2026-11-06"
+    "data_end": "2026-11-13"
   }
 }
