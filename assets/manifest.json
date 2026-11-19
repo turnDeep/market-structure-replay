@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "packaged_at": "2026-11-18T14:21:36.407415+00:00",
+  "packaged_at": "2026-11-19T14:38:54.621503+00:00",
   "automatic_refresh": true,
   "refresh_schedule": {
     "provider": "GitHub Actions",
@@ -16,21 +16,21 @@
       "symbol": "NQ=F",
       "asset": "nq.html.gz",
       "start": "2000-09-18",
-      "end": "2026-11-17",
-      "bars": 6583,
-      "snapshot_generated_at": "2026-11-18T14:07:53.082021+00:00",
+      "end": "2026-11-18",
+      "bars": 6584,
+      "snapshot_generated_at": "2026-11-19T14:30:50.316092+00:00",
       "strategy_status": "NOT_VALIDATED",
       "strategy_version": "v0.13",
-      "html_bytes": 12221831,
-      "html_sha256": "94b226fe288690a08de83eb58cbca740700a2598c12edcebf2e22c4cbe125eca",
-      "gzip_bytes": 1592575,
-      "gzip_sha256": "fa3378ffcbc1ffc6bbf7d953398c93639a1fe799082543173b7bd62dd3acc78a",
-      "source_html_sha256": "3aa28fd6096ae38a8ceb84c1d2846994bf682b4408ed7e38ce49217128d294a2",
+      "html_bytes": 12223451,
+      "html_sha256": "28506727a928f2458f0ed99ad29aaecbc9dbae1d6883f050994645eaf9367f88",
+      "gzip_bytes": 1592603,
+      "gzip_sha256": "53c5cf37228b4cb86fa573f3586e57fc6b14df53e01127b56dd2cc47e4e0828b",
+      "source_html_sha256": "a06cec4db14709c69da585eedf31c5f7f788fa7afd465735bf22bc299003e680",
       "reviewed_rows_unchanged": true,
       "queries": {
         "market_prices": {
-          "rows": 6583,
-          "rows_sha256": "4e36555d1a775d210c75b235f1be4120ae80364fde754bf018cf66d9b1e5aeb0"
+          "rows": 6584,
+          "rows_sha256": "070d958ccf287286e5a4c0e3e4073b80a29695cb9824b59711e312e4c6cab811"
         },
         "primary_zones": {
           "rows": 11428,
@@ -49,39 +49,39 @@
           "rows_sha256": "d9da4df52d2b959f45282a6f0c81dc390fe078aaa536932ed225c1a9c36a4aa8"
         },
         "daily_states": {
-          "rows": 6583,
-          "rows_sha256": "b71fd2642b3e025ba2df202588f414be2e54f579a4f36b12d8ac983031f2e40b"
+          "rows": 6584,
+          "rows_sha256": "b8666ab855ebb508579806149267b1b68c0706aeb1d47f14f49dd27377c2fe4f"
         }
       },
       "privacy_cleanup": "Absolute user-directory paths replaced with basenames in provenance only; reviewed query rows unchanged.",
       "data_quality": {
         "provisional_from_date": null,
-        "verified_through": "2026-11-17"
+        "verified_through": "2026-11-18"
       }
     },
     "es": {
       "symbol": "ES=F",
       "asset": "es.html.gz",
       "start": "2000-09-18",
-      "end": "2026-11-17",
-      "bars": 6597,
-      "snapshot_generated_at": "2026-11-18T14:21:29.428832+00:00",
+      "end": "2026-11-18",
+      "bars": 6598,
+      "snapshot_generated_at": "2026-11-19T14:38:49.423706+00:00",
       "strategy_status": "NOT_VALIDATED",
       "strategy_version": "v0.13",
-      "html_bytes": 12282713,
-      "html_sha256": "d234391804bd925e046dc3718b8fb6d9c2b89471152320c6a294b5299cf1b24f",
-      "gzip_bytes": 1583570,
-      "gzip_sha256": "0b6765038db352833a8773ffd72e1cd8373f05f6bd3002fc94b0d4dbf700d061",
-      "source_html_sha256": "9008069bc54be7810113e1569a074fea7ef2b598257b765e3a93173ed57080e8",
+      "html_bytes": 12285440,
+      "html_sha256": "ffd42b8cacabff0bcdcb902292a06db24d635eea912ae84fb659405337ea97f9",
+      "gzip_bytes": 1583763,
+      "gzip_sha256": "b374e037cd27447196ea346e77e293a4c24ca2d8c82e24cc5cc9f77e78c86069",
+      "source_html_sha256": "1b9b69785b13703017a489da8d1eb0f8001b41cf6676c9ad0b0d897cc07d7e4f",
       "reviewed_rows_unchanged": true,
       "queries": {
         "market_prices": {
-          "rows": 6597,
-          "rows_sha256": "f2c8a134dba55877bce16646f1b12e446b58879f13e5c4c46efe012ba2600e3b"
+          "rows": 6598,
+          "rows_sha256": "a46a773a1a51623ddc90b088718e0602e8d2e1ecb319657c38ad433de288a744"
         },
         "primary_zones": {
-          "rows": 11395,
-          "rows_sha256": "2887f6558b5567f173ee4c3ddf086981dc6b81a7d4290d9b34c1bb10465d1bbc"
+          "rows": 11398,
+          "rows_sha256": "5261081545a0d39d0f232624210e2aeb4d9aa8616da0b404cb9d8fb23d53329c"
         },
         "tactical_zones": {
           "rows": 4269,
@@ -96,14 +96,14 @@
           "rows_sha256": "ce764e5ff4fb5e287671dcdd9a1c32339ee4b6c2ae2b80b62f17dd9fce98a033"
         },
         "daily_states": {
-          "rows": 6597,
-          "rows_sha256": "e32066fa7c1103c334a601d27a94c054a237adadab24b0710fa7cb2944cbb95f"
+          "rows": 6598,
+          "rows_sha256": "3327cbd4a8cbf7c7c7fc2c31c0554d7c5c0ce94e8108863b853d01ace6c5b6a4"
         }
       },
       "privacy_cleanup": "Absolute user-directory paths replaced with basenames in provenance only; reviewed query rows unchanged.",
       "data_quality": {
         "provisional_from_date": null,
-        "verified_through": "2026-11-17"
+        "verified_through": "2026-11-18"
       }
     }
   },
