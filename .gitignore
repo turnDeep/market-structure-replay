@@ -10,3 +10,4 @@ qa/screenshots/
 local-import-report.json
 .refresh-reports/
 .refresh-work/
+.release-*/
