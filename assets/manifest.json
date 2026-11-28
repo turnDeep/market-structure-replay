@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "packaged_at": "2026-11-27T15:18:06.838546+00:00",
+  "packaged_at": "2026-11-28T14:24:26.963513+00:00",
   "automatic_refresh": true,
   "refresh_schedule": {
     "provider": "GitHub Actions",
@@ -16,29 +16,29 @@
       "symbol": "NQ=F",
       "asset": "nq.html.gz",
       "start": "2000-09-18",
-      "end": "2026-11-25",
-      "bars": 6589,
-      "snapshot_generated_at": "2026-11-27T15:08:14.235532+00:00",
+      "end": "2026-11-27",
+      "bars": 6590,
+      "snapshot_generated_at": "2026-11-28T14:16:10.085013+00:00",
       "strategy_status": "NOT_VALIDATED",
       "strategy_version": "v0.13",
-      "html_bytes": 12238547,
-      "html_sha256": "1ccbb69f90d3b85606e0eaec10290b3548052f87bf322d31983858dcd640b1d4",
-      "gzip_bytes": 1593432,
-      "gzip_sha256": "df3f5d186cb6545ac656528076f2e43c2c0ea4cf8e553e2463f70ba71a3f22ba",
-      "source_html_sha256": "7e1a0207a9be3de17e3236c67194810505387f9a3590cbd0ae6154ea586914cc",
+      "html_bytes": 12241641,
+      "html_sha256": "8c3dfcc4adaa6e50c38cea6f4eebf47108a3a92c883d4efad10ad98050e97cfe",
+      "gzip_bytes": 1593507,
+      "gzip_sha256": "fce13e575ebe499dd658e18e895fccba5573bb11d8a33f6bbbb363939a17187b",
+      "source_html_sha256": "1be0d0d90f052995aeeeb0249e4cf6a74c585ca6d452cbb504bc8ab19cfb0f61",
       "reviewed_rows_unchanged": true,
       "queries": {
         "market_prices": {
-          "rows": 6589,
-          "rows_sha256": "0ef3b3cd0597b10ec7251885dbc687476ef05dfb9f288a2679536b4071c6b74a"
+          "rows": 6590,
+          "rows_sha256": "40053d8e384ab5c26aee73a6649a75591d2e7788c311154aaa04c1422b5a3544"
         },
         "primary_zones": {
-          "rows": 11447,
-          "rows_sha256": "4a1de7b0f3709b75d9c39a695be97bf71d6254319010ec0075eae724be799e67"
+          "rows": 11450,
+          "rows_sha256": "9e12714d26145f2b7a776b5d3340e8b246dd82419d61d544155f4db285bdd57f"
         },
         "tactical_zones": {
-          "rows": 4210,
-          "rows_sha256": "a1c70a017871c8bd74fce8ab80057ca76b1a833a87bf4725d183c9199fe72441"
+          "rows": 4211,
+          "rows_sha256": "be10ba4bdffa5b157583ff9fe1c2ab08f311af896a654c7b124b7426e4071004"
         },
         "executions": {
           "rows": 76,
@@ -49,43 +49,43 @@
           "rows_sha256": "d9da4df52d2b959f45282a6f0c81dc390fe078aaa536932ed225c1a9c36a4aa8"
         },
         "daily_states": {
-          "rows": 6589,
-          "rows_sha256": "02cfd7e7131f1acd435721915c9620cb75c39b8f990f0d428e26af392763c726"
+          "rows": 6590,
+          "rows_sha256": "f5169f39b934513d96ce64c182698fd57707a373d9a7a992c1f63b21bb3b515a"
         }
       },
       "privacy_cleanup": "Absolute user-directory paths replaced with basenames in provenance only; reviewed query rows unchanged.",
       "data_quality": {
         "provisional_from_date": null,
-        "verified_through": "2026-11-25"
+        "verified_through": "2026-11-27"
       }
     },
     "es": {
       "symbol": "ES=F",
       "asset": "es.html.gz",
       "start": "2000-09-18",
-      "end": "2026-11-25",
-      "bars": 6603,
-      "snapshot_generated_at": "2026-11-27T15:18:00.039729+00:00",
+      "end": "2026-11-27",
+      "bars": 6604,
+      "snapshot_generated_at": "2026-11-28T14:24:21.266308+00:00",
       "strategy_status": "NOT_VALIDATED",
       "strategy_version": "v0.13",
-      "html_bytes": 12301038,
-      "html_sha256": "089f142b571f3cf1b044ca955993aa554adef6b9d8c7c57bf1415fdc8d42f405",
-      "gzip_bytes": 1584764,
-      "gzip_sha256": "e3d5b2cd9490bff6c5e4cfaf970ce102833878b69783b47bc6582fc14c794438",
-      "source_html_sha256": "2f3ee0c2c5728cf16d60f1e1d161e3297aaf0b67e6d8fea8910e7f320cd16038",
+      "html_bytes": 12304485,
+      "html_sha256": "63984dfb2fece5d7fbe61ea4e506b0a40305279026ba672f453d9c3af16572fc",
+      "gzip_bytes": 1584904,
+      "gzip_sha256": "760d6503d620825b29df95b692e31a3599919120e3ac9748a4ae1f6b33528285",
+      "source_html_sha256": "4d3562881afb0b5e4cd74869e25e53281d8ce549676cbb77ea95ace6cbd22076",
       "reviewed_rows_unchanged": true,
       "queries": {
         "market_prices": {
-          "rows": 6603,
-          "rows_sha256": "457e2cb5aac7599a01d272b8bbdcec9848b94d29fb779cf8dac1f9fac0a1b18f"
+          "rows": 6604,
+          "rows_sha256": "a54beef63b495130f8b4017588d6521ec10d66ec6d049558135c3bffb2c23fca"
         },
         "primary_zones": {
-          "rows": 11423,
-          "rows_sha256": "cbe1e81fbecc560dbc530850fea0b5f3c3eed502602650e3f434f60504ce1b0c"
+          "rows": 11425,
+          "rows_sha256": "7356d4b3e7ed355b73779a0841d626c86f2becc337e1109f0197f7ec4b57530c"
         },
         "tactical_zones": {
-          "rows": 4271,
-          "rows_sha256": "a70d0d2f9f7d16c1ef7541da990edf2667eed894be4b92c968c74bdc9050c4e0"
+          "rows": 4274,
+          "rows_sha256": "bf2a35ab3c4218388efad86f431908a949a79e539bf2acfd89097edb5cba5237"
         },
         "executions": {
           "rows": 84,
@@ -96,14 +96,14 @@
           "rows_sha256": "ce764e5ff4fb5e287671dcdd9a1c32339ee4b6c2ae2b80b62f17dd9fce98a033"
         },
         "daily_states": {
-          "rows": 6603,
-          "rows_sha256": "fb1a1e49b1f0c9e3fbdb7f16186d5c24456935a482c48208322d920cf4271e5d"
+          "rows": 6604,
+          "rows_sha256": "359fcd49eba87a5643f7d201312a4e4b099510209eb7fd4dce9a0cd85f36312d"
         }
       },
       "privacy_cleanup": "Absolute user-directory paths replaced with basenames in provenance only; reviewed query rows unchanged.",
       "data_quality": {
         "provisional_from_date": null,
-        "verified_through": "2026-11-25"
+        "verified_through": "2026-11-27"
       }
     }
   },
